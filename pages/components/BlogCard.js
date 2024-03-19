@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import {
   ChakraProvider,
   Container,
@@ -13,7 +14,10 @@ import {
   Text,
 } from "@chakra-ui/react";
 
-export default function BlogCard() {
+export default function BlogCard({ post }) {
+  const postData = post["frontMatter"];
+  const postSlug = post["slug"];
+
   return (
     <Flex
       flexDirection="column"
@@ -23,20 +27,17 @@ export default function BlogCard() {
       padding="16px"
       borderRadius="16px"
     >
-      <Text color="#f57373"> RECENTLY PUBLISHED</Text>
+      <Text color="#f57373">{postData["date"]}</Text>
+      <Spacer />
+      <Heading color="#75c682">{postData["title"]}</Heading>
+      <Spacer />
+      <Text color="#F6F6F6">{postData["description"]}</Text>
       <Spacer></Spacer>
-      <Heading color="#75c682">How to center a div</Heading>
-
-      <Text color="#F6F6F6">
-        Lorem corpus Lorem corpus Lorem corpus Lorem corpus Lorem corpus Lorem
-        corpus Lorem corpus Lorem corpus Lorem corpus Lorem corpus Lorem Lorem
-        Lorem corpus Lorem corpus Lorem corpus Lorem corpus Lorem corpus Lorem
-        corpus Lorem corpus Lorem corpus Lorem corpus...
-      </Text>
-      <Spacer></Spacer>
-      <Button bg="#efe073" color="#191919" width="100px">
-        Read More
-      </Button>
+      <Link href={`/blog/${postSlug}`}>
+        <Button bg="#efe073" color="#191919" width="100px">
+          Read More
+        </Button>
+      </Link>
     </Flex>
   );
 }

@@ -6,10 +6,10 @@ import {
   Center,
   VStack,
   HStack,
-  Image,
   Flex,
   Spacer,
 } from "@chakra-ui/react";
+import Image from "next/image";
 
 export default function Banner() {
   return (
@@ -19,7 +19,7 @@ export default function Banner() {
           Hi, I am Irtiza. <br></br>I am an Engineering Manager
         </Heading>
 
-        <Image src="/fake-avatar.png" boxSize="400px"></Image>
+        <Image src="/fake-avatar.png" width={400} height={400}></Image>
       </HStack>
     </Center>
   );

@@ -18,10 +18,10 @@ import BlogGrid from "./BlogGrid";
 import PopularContentContainer from "./PopularContentContainer";
 import BlogContainer from "./BlogContainer";
 
-export default function BodyContainer() {
+export default function BodyContainer({ posts }) {
   return (
     <Grid templateColumns="repeat(2, 1fr)" padding="48px">
-      <BlogContainer />
+      <BlogContainer posts={posts} />
       <PopularContentContainer />
     </Grid>
   );
