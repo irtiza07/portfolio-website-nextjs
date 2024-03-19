@@ -17,6 +17,7 @@ import BlogCard from "./components/BlogCard";
 import BlogGrid from "./components/BlogGrid";
 import PopularContentContainer from "./components/PopularContentContainer";
 import BodyContainer from "./components/BodyContainer";
+import NavBar from "./components/NavBar";
 
 export default function Home({ Component, pageProps }) {
   return (
@@ -26,6 +27,7 @@ export default function Home({ Component, pageProps }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Flex bg="#161f27" flexDirection="column">
+        <NavBar />
         <Banner />
         <BodyContainer />
         <Flex h="240px"></Flex>
