@@ -16,10 +16,10 @@ import {
 import BlogGrid from "./BlogGrid";
 import Categories from "./Categories";
 
-export default function BlogContainer({ posts }) {
+export default function BlogContainer({ posts, categoryCounts }) {
   return (
     <Grid gap="100px">
-      <Categories />
+      <Categories categoryCounts={categoryCounts} />
       <BlogGrid posts={posts} />
     </Grid>
   );

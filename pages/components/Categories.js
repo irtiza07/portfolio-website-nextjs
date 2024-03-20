@@ -12,7 +12,8 @@ import {
   Spacer,
 } from "@chakra-ui/react";
 
-export default function Categories() {
+export default function Categories({ categoryCounts }) {
+  console.log(categoryCounts);
   return (
     <HStack spacing={12}>
       <Text color="#75c682">Programming(6)</Text>
