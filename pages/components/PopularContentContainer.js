@@ -14,16 +14,14 @@ import {
 } from "@chakra-ui/react";
 import PopItem from "./PopItem";
 
-export default function PopularContentContainer() {
+export default function PopularContentContainer({ popularPosts }) {
   return (
     <VStack spacing={12}>
       <Heading color="#f57373">POPULAR CONTENT</Heading>
       <VStack spacing={6}>
-        <PopItem />
-        <PopItem />
-        <PopItem />
-        <PopItem />
-        <PopItem />
+        {popularPosts.map((post, index) => (
+          <PopItem key={index} post={post} />
+        ))}
       </VStack>
     </VStack>
   );

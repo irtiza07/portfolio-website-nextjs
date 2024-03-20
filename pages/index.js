@@ -24,7 +24,7 @@ import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import path from "path";
 
-export default function Home({ posts }) {
+export default function Home({ posts, popularPosts }) {
   return (
     <ChakraProvider>
       <Head>
@@ -34,7 +34,7 @@ export default function Home({ posts }) {
       <Flex bg="#161f27" flexDirection="column">
         <NavBar />
         <Banner />
-        <BodyContainer posts={posts} />
+        <BodyContainer posts={posts} popularPosts={popularPosts} />
         <Flex h="200px"></Flex>
         <Footer />
       </Flex>
@@ -42,6 +42,8 @@ export default function Home({ posts }) {
   );
 }
 
+//TODO: (1) For every file, check popular metadata (2) Compute category by reading tag
+//TODO: Return: (1) posts sorted by date (2) popular_posts (3) categories_count_map
 export const getStaticProps = async () => {
   const files = fs.readdirSync(path.join("posts"));
 
@@ -57,9 +59,17 @@ export const getStaticProps = async () => {
     };
   });
 
+  const popularPosts = [];
+  for (let i = 0; i < posts.length; i++) {
+    if (posts[i]["frontMatter"]["isPopular"] === true) {
+      popularPosts.push(posts[i]);
+    }
+  }
+
   return {
     props: {
-      posts,
+      posts: posts,
+      popularPosts: popularPosts,
     },
   };
 };

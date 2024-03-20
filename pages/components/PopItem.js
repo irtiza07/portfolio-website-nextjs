@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import {
   ChakraProvider,
   Container,
@@ -14,13 +15,15 @@ import {
 } from "@chakra-ui/react";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
 
-export default function PopItem() {
+export default function PopItem({ post }) {
   return (
     <HStack>
       <ArrowForwardIcon color="#efe073" boxSize={8}></ArrowForwardIcon>
-      <Text color="white" fontSize="20px">
-        An Interactive Guide to Cool
-      </Text>
+      <Link href={`/blog/${post["slug"]}`}>
+        <Text color="white" fontSize="20px">
+          {post["frontMatter"]["title"]}
+        </Text>
+      </Link>
     </HStack>
   );
 }
