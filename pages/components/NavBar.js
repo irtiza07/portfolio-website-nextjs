@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { ExternalLinkIcon } from "@chakra-ui/icons";
 
 import {
   ChakraProvider,
@@ -27,10 +28,16 @@ export default function NavBar() {
             Blog
           </Text>
         </Link>
-        <Link href="/youtube">
-          <Text color="white" fontSize="20px">
-            YouTube
-          </Text>
+        <Link
+          href="https://www.youtube.com/channel/UCDankIVMXJEkhtjv5yLSN4g/about"
+          target="_blank"
+        >
+          <HStack>
+            <Text color="white" fontSize="20px">
+              YouTube
+            </Text>
+            <ExternalLinkIcon color="#efe073" />
+          </HStack>
         </Link>
         <Link href="/credit-cards">
           <Text color="white" fontSize="20px">

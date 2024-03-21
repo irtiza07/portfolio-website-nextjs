@@ -91,7 +91,7 @@ export const getStaticProps = async () => {
     props: {
       posts: posts,
       popularPosts: popularPosts,
-      categoryCounts: categoryCounts,
+      categoryCounts: Object.entries(categoryCounts),
     },
   };
 };

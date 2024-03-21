@@ -14,9 +14,13 @@
     "gray-matter": "^4.0.3",
     "next": "latest",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-syntax-highlighter": "^15.5.0"
   },
   "engines": {
     "node": ">=18"
+  },
+  "devDependencies": {
+    "next-mdx-remote": "^4.4.1"
   }
 }
