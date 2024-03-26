@@ -24,24 +24,23 @@ export default function CreditCardItem({
   return (
     <Flex
       flexDirection="column"
-      width="480px"
-      height="360px"
       bg="#1e262f"
       padding="16px"
       borderRadius="16px"
     >
       <VStack>
         <Image width={360} height={240} src={imageURL} />
-        <Heading color="#75c682">{cardName}</Heading>
+        <Heading size="lg" color="#75c682">
+          {cardName}
+        </Heading>
         <Spacer />
         <Text color="#F6F6F6">{cardDescription}</Text>
-        <Spacer></Spacer>
+        <Spacer />
         <Link href={referralURL}>
           <Button
             bg="#efe073"
             color="#191919"
-            width="128px"
-            height="40px"
+            size="lg"
             fontSize="24px"
             fontWeight="bold"
             _hover={{ cursor: "pointer" }}

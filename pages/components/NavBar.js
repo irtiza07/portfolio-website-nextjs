@@ -49,11 +49,6 @@ export default function NavBar() {
             Newsletter
           </Text>
         </Link>
-        <Link href="/contact">
-          <Text color="white" fontSize="20px">
-            Contact
-          </Text>
-        </Link>
       </HStack>
 
       <Spacer />

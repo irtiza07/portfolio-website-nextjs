@@ -39,7 +39,7 @@ export default function Home({ posts, popularPosts, categoryCounts }) {
           popularPosts={popularPosts}
           categoryCounts={categoryCounts}
         />
-        <Flex h="200px"></Flex>
+
         <Footer />
       </Flex>
     </ChakraProvider>
