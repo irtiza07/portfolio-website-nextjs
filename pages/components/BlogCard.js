@@ -15,8 +15,8 @@ import {
 } from "@chakra-ui/react";
 
 export default function BlogCard({ post }) {
-  const postData = post["frontMatter"];
-  const postSlug = post["slug"];
+  const postData = post?.frontMatter;
+  const postSlug = post?.slug;
 
   return (
     <Flex
@@ -27,11 +27,11 @@ export default function BlogCard({ post }) {
       padding="16px"
       borderRadius="16px"
     >
-      <Text color="#f57373">{postData["date"]}</Text>
+      <Text color="#f57373">{postData?.date}</Text>
       <Spacer />
-      <Heading color="#75c682">{postData["title"]}</Heading>
+      <Heading color="#75c682">{postData?.title}</Heading>
       <Spacer />
-      <Text color="#F6F6F6">{postData["description"]}</Text>
+      <Text color="#F6F6F6">{postData?.description}</Text>
       <Spacer></Spacer>
       <Link href={`/blog/${postSlug}`}>
         <Button bg="#efe073" color="#191919" width="100px">

@@ -55,7 +55,7 @@ const comparePublicationDates = (a, b) => {
 const getSortedPosts = () => {
   const files = fs.readdirSync(path.join("posts"));
 
-  const posts = files.map((filename) => {
+  const posts = files?.map((filename) => {
     const markdownWithMeta = fs.readFileSync(
       path.join("posts", filename),
       "utf-8"

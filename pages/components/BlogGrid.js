@@ -18,7 +18,7 @@ import BlogCard from "./BlogCard";
 export default function BlogGrid({ posts }) {
   return (
     <Grid templateColumns="repeat(2, 1fr)" gap="60px">
-      {posts.map((post, index) => (
+      {posts?.map((post, index) => (
         <BlogCard key={index} post={post} />
       ))}
     </Grid>

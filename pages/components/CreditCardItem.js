@@ -16,10 +16,10 @@ import {
 } from "@chakra-ui/react";
 
 export default function CreditCardItem({
-  imageURL,
-  cardName,
-  cardDescription,
-  referralURL,
+  imageURL = "",
+  cardName = "",
+  cardDescription = "",
+  referralURL = "",
 }) {
   return (
     <Flex

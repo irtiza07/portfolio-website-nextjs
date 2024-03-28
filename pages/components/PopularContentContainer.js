@@ -19,7 +19,7 @@ export default function PopularContentContainer({ popularPosts }) {
     <VStack spacing={12}>
       <Heading color="#f57373">POPULAR CONTENT</Heading>
       <VStack spacing={6}>
-        {popularPosts.map((post, index) => (
+        {popularPosts?.map((post, index) => (
           <PopItem key={index} post={post} />
         ))}
       </VStack>
