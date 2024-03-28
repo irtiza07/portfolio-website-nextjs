@@ -23,42 +23,14 @@ export default function SubscribeForm() {
   const [firstName, setFirstName] = useState("");
   const [emailAddress, setEmailAddress] = useState("");
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    try {
-      const response = await fetch(
-        "https://newsletter.irtizahafiz.com/subscription/form",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            name: firstName,
-            email: emailAddress,
-            l: "a467ac93-f842-41ac-a1fe-9fb4ef8f2392",
-          }),
-        }
-      );
-
-      if (response.ok) {
-        // Display success message or perform any other actions upon successful submission
-        console.log("Form submitted successfully!");
-      } else {
-        // Display error message or perform any other actions if submission failed
-        console.error("Form submission failed.");
-      }
-    } catch (error) {
-      // Handle network errors or other exceptions
-      console.error("An error occurred while submitting the form:", error);
-    }
   };
   return (
     <form
       method="post"
       action="https://newsletter.irtizahafiz.com/subscription/form"
       className="listmonk-form"
-      onSubmit={handleSubmit}
     >
       <Grid templateColumns="repeat(1, 1fr)" gap="30px" padding="48px">
         <FormControl isRequired>
@@ -91,15 +63,18 @@ export default function SubscribeForm() {
           />
         </FormControl>
         <VStack>
-          <Button
-            bg="#efe073"
-            color="#191919"
-            width="100px"
-            isDisabled={!(firstName && emailAddress)}
-            type="submit"
-          >
-            Subscribe
-          </Button>
+          <FormControl>
+            <Button
+              bg="#efe073"
+              color="#191919"
+              width="100px"
+              isDisabled={!(firstName && emailAddress)}
+              type="submit"
+            >
+              Subscribe
+            </Button>
+            <FormHelperText>Powered by locally hosted Listmonk</FormHelperText>
+          </FormControl>
         </VStack>
       </Grid>
     </form>
