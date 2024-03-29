@@ -70,6 +70,7 @@ export default function SubscribeForm() {
               width="100px"
               isDisabled={!(firstName && emailAddress)}
               type="submit"
+              data-umami-event="Subscribe Clicked"
             >
               Subscribe
             </Button>

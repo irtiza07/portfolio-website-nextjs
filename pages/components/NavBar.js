@@ -31,6 +31,7 @@ export default function NavBar() {
         <Link
           href="https://www.youtube.com/channel/UCDankIVMXJEkhtjv5yLSN4g/about"
           target="_blank"
+          data-umami-event="YouTube Clicked"
         >
           <HStack>
             <Text color="white" fontSize="20px">
@@ -39,7 +40,7 @@ export default function NavBar() {
             <ExternalLinkIcon color="#efe073" />
           </HStack>
         </Link>
-        <Link href="/credit-cards">
+        <Link href="/credit-cards" data-umami-event="Credit Card Tab Clicked">
           <Text color="white" fontSize="20px">
             Credit Cards
           </Text>
