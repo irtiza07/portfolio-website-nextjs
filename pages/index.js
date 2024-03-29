@@ -1,5 +1,6 @@
 import fs from "fs";
 import Head from "next/head";
+import Script from "next/script";
 import matter from "gray-matter";
 
 // import styles from "../styles/Home.module.css";
@@ -30,6 +31,7 @@ export default function Home({ posts, popularPosts, categoryCounts }) {
       <Head>
         <title>Irtiza Hafiz</title>
         <link rel="icon" href="/favicon.ico" />
+        <Script src="https://example.com/script.js" />
       </Head>
       <Flex bg="#161f27" flexDirection="column">
         <NavBar />
