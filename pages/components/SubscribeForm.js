@@ -29,7 +29,12 @@ export default function SubscribeForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    window.umami.track("Subscribe Clicked");
+    try {
+      umami.track("Subscribe Clicked");
+    } catch (error) {
+      console.log(error);
+    }
+
     try {
       await axios.post(
         "https://newsletter.irtizahafiz.com/api/public/subscription",
