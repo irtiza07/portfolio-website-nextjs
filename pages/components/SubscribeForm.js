@@ -31,6 +31,7 @@ export default function SubscribeForm() {
       method="post"
       action="https://newsletter.irtizahafiz.com/subscription/form"
       className="listmonk-form"
+      data-umami-event="Subscribe Clicked"
     >
       <Grid templateColumns="repeat(1, 1fr)" gap="30px" padding="48px">
         <FormControl isRequired>
@@ -58,7 +59,7 @@ export default function SubscribeForm() {
         <FormControl>
           <Input
             name="l"
-            value="a467ac93-f842-41ac-a1fe-9fb4ef8f2392"
+            value="b557290a-cdd2-47c2-bb74-ffa01d640a2d"
             hidden={true}
           />
         </FormControl>
