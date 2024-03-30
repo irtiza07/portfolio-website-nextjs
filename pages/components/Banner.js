@@ -19,7 +19,7 @@ export default function Banner() {
           Hi, I am Irtiza. <br></br>I am an Engineering Manager
         </Heading>
 
-        <Image src="/fake-avatar.png" width={400} height={400}></Image>
+        <Image src="/irtiza-avatar-ayesha.png" width={400} height={400}></Image>
       </HStack>
     </Center>
   );

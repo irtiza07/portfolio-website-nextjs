@@ -16,23 +16,50 @@ import {
   FormErrorMessage,
   Input,
   FormHelperText,
+  useToast,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
+import axios from "axios";
 
 export default function SubscribeForm() {
   const [firstName, setFirstName] = useState("");
   const [emailAddress, setEmailAddress] = useState("");
+  const successToast = useToast();
+  const failureToast = useToast();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
+    console.log("Starting form submit...");
     e.preventDefault();
+    try {
+      await axios.post(
+        "https://newsletter.irtizahafiz.com/api/public/subscription",
+        {
+          name: firstName,
+          email: emailAddress,
+          list_uuids: ["b557290a-cdd2-47c2-bb74-ffa01d640a2d"],
+        }
+      );
+      successToast({
+        title: "Subsribed!",
+        description: "Welcome onboard!",
+        status: "success",
+        duration: 5000,
+        isClosable: true,
+      });
+      setFirstName("");
+      setEmailAddress("");
+    } catch (error) {
+      failureToast({
+        title: "Oops!",
+        description: "Something went wrong. Please try again.",
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+      });
+    }
   };
   return (
-    <form
-      method="post"
-      action="https://newsletter.irtizahafiz.com/subscription/form"
-      className="listmonk-form"
-      data-umami-event="Subscribe Clicked"
-    >
+    <form onSubmit={handleSubmit}>
       <Grid templateColumns="repeat(1, 1fr)" gap="30px" padding="48px">
         <FormControl isRequired>
           <FormLabel>First name</FormLabel>
