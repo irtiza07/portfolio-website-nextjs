@@ -21,20 +21,26 @@ export default function BlogCard({ post }) {
   return (
     <Flex
       flexDirection="column"
-      width="480px"
-      height="360px"
+      width="28vw"
+      height="40vh"
       bg="#1e262f"
-      padding="16px"
-      borderRadius="16px"
+      padding="2vw"
+      borderRadius="2vw"
     >
-      <Text color="#f57373">{postData?.date}</Text>
+      <Text color="#f57373" fontSize="1vw">
+        {postData?.date}
+      </Text>
       <Spacer />
-      <Heading color="#75c682">{postData?.title}</Heading>
+      <Heading color="#75c682" fontSize="2vw">
+        {postData?.title}
+      </Heading>
       <Spacer />
-      <Text color="#F6F6F6">{postData?.description}</Text>
+      <Text color="#F6F6F6" fontSize="1vw">
+        {postData?.description}
+      </Text>
       <Spacer></Spacer>
       <Link href={`/blog/${postSlug}`}>
-        <Button bg="#efe073" color="#191919" width="100px">
+        <Button bg="#efe073" color="#191919" width="6vw" fontSize="1vw">
           Read More
         </Button>
       </Link>

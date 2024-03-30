@@ -20,7 +20,7 @@ export default function PopItem({ post }) {
     <HStack>
       <ArrowForwardIcon color="#efe073" boxSize={8}></ArrowForwardIcon>
       <Link href={`/blog/${post?.slug}`}>
-        <Text color="white" fontSize="20px">
+        <Text color="white" fontSize="1vw">
           {post?.frontMatter?.title}
         </Text>
       </Link>

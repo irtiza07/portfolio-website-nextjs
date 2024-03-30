@@ -9,6 +9,7 @@ import {
   Image,
   Flex,
   Spacer,
+  Grid,
   Button,
   Text,
 } from "@chakra-ui/react";
@@ -16,13 +17,15 @@ import PopItem from "./PopItem";
 
 export default function PopularContentContainer({ popularPosts }) {
   return (
-    <VStack spacing={12}>
-      <Heading color="#f57373">POPULAR CONTENT</Heading>
-      <VStack spacing={6}>
+    <Flex direction="column">
+      <Heading color="#f57373" fontSize="2vw">
+        POPULAR CONTENT
+      </Heading>
+      <Grid templateColumns="1fr" gap={6} marginTop={"2vh"}>
         {popularPosts?.map((post, index) => (
           <PopItem key={index} post={post} />
         ))}
-      </VStack>
-    </VStack>
+      </Grid>
+    </Flex>
   );
 }

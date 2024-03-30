@@ -28,8 +28,8 @@ export default function SubscribeForm() {
   const failureToast = useToast();
 
   const handleSubmit = async (e) => {
-    console.log("Starting form submit...");
     e.preventDefault();
+    window.umami.track("Subscribe Clicked");
     try {
       await axios.post(
         "https://newsletter.irtizahafiz.com/api/public/subscription",
@@ -60,7 +60,7 @@ export default function SubscribeForm() {
   };
   return (
     <form onSubmit={handleSubmit}>
-      <Grid templateColumns="repeat(1, 1fr)" gap="30px" padding="48px">
+      <Grid templateColumns="repeat(1, 1fr)" gap="1.5vw" padding="2vw">
         <FormControl isRequired>
           <FormLabel>First name</FormLabel>
           <Input
@@ -95,10 +95,9 @@ export default function SubscribeForm() {
             <Button
               bg="#efe073"
               color="#191919"
-              width="100px"
+              width="7vw"
               isDisabled={!(firstName && emailAddress)}
               type="submit"
-              data-umami-event="Subscribe Clicked"
             >
               Subscribe
             </Button>

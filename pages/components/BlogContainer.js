@@ -18,7 +18,7 @@ import Categories from "./Categories";
 
 export default function BlogContainer({ posts, categoryCounts }) {
   return (
-    <Grid gap="100px">
+    <Grid gap="2vh">
       <Categories categoryCounts={categoryCounts} />
       <BlogGrid posts={posts} />
     </Grid>

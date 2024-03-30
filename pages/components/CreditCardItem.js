@@ -22,12 +22,7 @@ export default function CreditCardItem({
   referralURL = "",
 }) {
   return (
-    <Flex
-      flexDirection="column"
-      bg="#1e262f"
-      padding="16px"
-      borderRadius="16px"
-    >
+    <Flex flexDirection="column" bg="#1e262f" padding="2vw" borderRadius="2vw">
       <VStack>
         <Image width={360} height={240} src={imageURL} />
         <Heading size="lg" color="#75c682">
@@ -41,7 +36,7 @@ export default function CreditCardItem({
             bg="#efe073"
             color="#191919"
             size="lg"
-            fontSize="24px"
+            fontSize="1.25vw"
             fontWeight="bold"
             _hover={{ cursor: "pointer" }}
           >

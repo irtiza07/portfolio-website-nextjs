@@ -17,14 +17,14 @@ import {
 
 export default function NavBar() {
   return (
-    <Flex padding="48px">
+    <Flex padding="2vw">
       <Link href="/" data-umami-event="Home Tab Selected">
         <Heading color="#efe073">Irtiza Hafiz</Heading>
       </Link>
       <Spacer />
       <HStack spacing={16}>
         <Link href="/" data-umami-event="Blog Tab Selected">
-          <Text fontSize="20px" color="white">
+          <Text fontSize="1.25vw" color="white">
             Blog
           </Text>
         </Link>
@@ -34,19 +34,19 @@ export default function NavBar() {
           data-umami-event="YouTube Tab Selected"
         >
           <HStack>
-            <Text color="white" fontSize="20px">
+            <Text color="white" fontSize="1.25vw">
               YouTube
             </Text>
             <ExternalLinkIcon color="#efe073" />
           </HStack>
         </Link>
         <Link href="/credit-cards" data-umami-event="Credit Card Tab Selected">
-          <Text color="white" fontSize="20px">
+          <Text color="white" fontSize="1.25vw">
             Credit Cards
           </Text>
         </Link>
         <Link href="/newsletter" data-umami-event="Newsletter Tab Selected">
-          <Text color="white" fontSize="20px">
+          <Text color="white" fontSize="1.25vw">
             Newsletter
           </Text>
         </Link>

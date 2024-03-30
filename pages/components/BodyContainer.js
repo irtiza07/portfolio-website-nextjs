@@ -20,7 +20,7 @@ import BlogContainer from "./BlogContainer";
 
 export default function BodyContainer({ posts, popularPosts, categoryCounts }) {
   return (
-    <Grid templateColumns="repeat(2, 1fr)" padding="48px">
+    <Grid templateColumns="repeat(2, 1fr)" padding="2vw" gap={"5vw"}>
       <BlogContainer posts={posts} categoryCounts={categoryCounts} />
       <PopularContentContainer popularPosts={popularPosts} />
     </Grid>
