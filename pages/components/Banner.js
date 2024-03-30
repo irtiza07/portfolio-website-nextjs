@@ -13,11 +13,16 @@ import Image from "next/image";
 
 export default function Banner() {
   return (
-    <Center padding={24}>
-      <HStack spacing={60}>
-        <Heading color="#75c682" fontSize="60px">
-          Hi, I am Irtiza. <br></br>I am an Engineering Manager
-        </Heading>
+    <Center padding={16}>
+      <HStack spacing={48}>
+        <Flex direction={"column"}>
+          <Heading color="#75c682" fontSize="56px">
+            Hi! I am Irtiza.
+          </Heading>
+          <Heading color="#efe073" fontSize="32px">
+            An Engineering Manager by day, and a Blogger and YouTuber by night.
+          </Heading>
+        </Flex>
 
         <Image src="/irtiza-avatar-ayesha.png" width={400} height={400}></Image>
       </HStack>
