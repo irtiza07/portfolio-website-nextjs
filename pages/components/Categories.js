@@ -14,9 +14,9 @@ import {
 
 export default function Categories({ categoryCounts }) {
   return (
-    <HStack spacing={12}>
+    <HStack spacing={12} display={["none", "flex"]}>
       {categoryCounts?.map((categoryCount, index) => (
-        <Text fontSize="1em" key={index} color="#f57373">
+        <Text fontSize="md" key={index} color="#f57373">
           {categoryCount[0].toUpperCase()}({categoryCount[1]})
         </Text>
       ))}

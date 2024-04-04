@@ -8,24 +8,24 @@ import {
   HStack,
   Flex,
   Spacer,
+  Stack,
 } from "@chakra-ui/react";
 import Image from "next/image";
 
 export default function Banner() {
   return (
-    <Center padding={16}>
-      <HStack spacing={48}>
+    <Center padding={[4, 140]}>
+      <Stack spacing={[12, 48]} direction={["column", "row"]}>
         <Flex direction={"column"}>
-          <Heading color="#75c682" fontSize="5em">
+          <Heading color="#75c682" fontSize={["4xl", "6xl"]}>
             Hi! I am Irtiza.
           </Heading>
-          <Heading color="#efe073" fontSize="2em">
+          <Heading color="#efe073" fontSize={["xl", "3xl"]}>
             An Engineering Manager by day, and a Blogger and YouTuber by night.
           </Heading>
         </Flex>
-
         <Image src="/irtiza-avatar-ayesha.png" width={400} height={400}></Image>
-      </HStack>
+      </Stack>
     </Center>
   );
 }
