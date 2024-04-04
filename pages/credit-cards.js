@@ -29,7 +29,7 @@ export default function CreditCards() {
         </Text>
       </VStack>
       <CreditCardGrid />
-      <Footer />
+      {/* <Footer /> */}
     </Flex>
   );
 }
