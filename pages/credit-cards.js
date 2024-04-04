@@ -19,7 +19,7 @@ export default function CreditCards() {
   return (
     <Flex bg="#161f27" flexDirection="column" color="white" width="100vw">
       <NavBar />
-      <VStack padding="4vw">
+      <VStack padding="2vw">
         <Heading fontSize="5xl" textAlign={"center"}>
           Credit Cards
         </Heading>
@@ -29,7 +29,7 @@ export default function CreditCards() {
         </Text>
       </VStack>
       <CreditCardGrid />
-      {/* <Footer /> */}
+      <Footer />
     </Flex>
   );
 }
