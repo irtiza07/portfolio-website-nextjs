@@ -23,7 +23,7 @@ export default function Footer() {
       <Spacer />
       <HStack spacing={16}>
         <Link href="https://medium.com/@irtizahafiz" target="_blank">
-          <Text fontSize="1vw" color="white">
+          <Text fontSize="1em" color="white">
             Medium
           </Text>
         </Link>
@@ -31,17 +31,16 @@ export default function Footer() {
           href="https://www.youtube.com/channel/UCDankIVMXJEkhtjv5yLSN4g/about"
           target="_blank"
         >
-          <Text color="white" fontSize="1vw">
+          <Text color="white" fontSize="1em">
             YouTube
           </Text>
         </Link>
         <Link href="https://www.linkedin.com/in/irtiza-hafiz/" target="_blank">
-          <Text color="white" fontSize="1vw">
+          <Text color="white" fontSize="1em">
             LinkedIn
           </Text>
         </Link>
       </HStack>
-
       <Spacer />
     </Flex>
   );

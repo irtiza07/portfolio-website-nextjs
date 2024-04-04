@@ -24,7 +24,7 @@ export default function NavBar() {
       <Spacer />
       <HStack spacing={16}>
         <Link href="/" data-umami-event="Blog Tab Selected">
-          <Text fontSize="1.25vw" color="white">
+          <Text fontSize="1.25em" color="white">
             Blog
           </Text>
         </Link>
@@ -34,14 +34,14 @@ export default function NavBar() {
           data-umami-event="YouTube Tab Selected"
         >
           <HStack>
-            <Text color="white" fontSize="1.25vw">
+            <Text color="white" fontSize="1.25em">
               YouTube
             </Text>
             <ExternalLinkIcon color="#efe073" />
           </HStack>
         </Link>
         <Link href="/credit-cards" data-umami-event="Credit Card Tab Selected">
-          <Text color="white" fontSize="1.25vw">
+          <Text color="white" fontSize="1.25em">
             Credit Cards
           </Text>
         </Link>

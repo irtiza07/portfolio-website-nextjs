@@ -16,10 +16,10 @@ export default function Banner() {
     <Center padding={16}>
       <HStack spacing={48}>
         <Flex direction={"column"}>
-          <Heading color="#75c682" fontSize="5vw">
+          <Heading color="#75c682" fontSize="5em">
             Hi! I am Irtiza.
           </Heading>
-          <Heading color="#efe073" fontSize="2vw">
+          <Heading color="#efe073" fontSize="2em">
             An Engineering Manager by day, and a Blogger and YouTuber by night.
           </Heading>
         </Flex>

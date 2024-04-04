@@ -27,20 +27,20 @@ export default function BlogCard({ post }) {
       padding="2vw"
       borderRadius="2vw"
     >
-      <Text color="#f57373" fontSize="1vw">
+      <Text color="#f57373" fontSize="1em">
         {postData?.date}
       </Text>
       <Spacer />
-      <Heading color="#75c682" fontSize="2vw">
+      <Heading color="#75c682" fontSize="2em">
         {postData?.title}
       </Heading>
       <Spacer />
-      <Text color="#F6F6F6" fontSize="1vw">
+      <Text color="#F6F6F6" fontSize="1em">
         {postData?.description}
       </Text>
       <Spacer></Spacer>
       <Link href={`/blog/${postSlug}`}>
-        <Button bg="#efe073" color="#191919" width="6vw" fontSize="1vw">
+        <Button bg="#efe073" color="#191919" width="6vw" fontSize="1em">
           Read More
         </Button>
       </Link>

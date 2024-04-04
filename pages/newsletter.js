@@ -21,8 +21,8 @@ export default function Newsletter() {
     <Flex bg="#161f27" flexDirection="column" color="white">
       <NavBar />
       <VStack height="100vh" padding="3vw">
-        <Heading fontSize="6vw">Newsletter</Heading>
-        <Text fontSize="2vw">
+        <Heading fontSize="6em">Newsletter</Heading>
+        <Text fontSize="2em">
           📣 If you enjoyed my blogs or videos, please subscribe! I will drop by
           your inbox at most once a week, and you can unsubscribe any time you
           want.
