@@ -19,7 +19,7 @@ export default function BlogGrid({ posts }) {
   return (
     <Grid
       gap={5}
-      templateColumns={{ base: "repeat(1, 1fr)", md: "repeat(2, 1fr)" }}
+      templateColumns={{ base: "repeat(1, 1fr)", md: "repeat(3, 1fr)" }}
     >
       {posts?.map((post, index) => (
         <BlogCard key={index} post={post} />

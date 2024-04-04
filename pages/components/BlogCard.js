@@ -21,6 +21,7 @@ export default function BlogCard({ post }) {
   return (
     <VStack
       align="flex-start"
+      justify={"center"}
       bg="#1e262f"
       padding={[5, 8]}
       borderRadius={[28, 16]}

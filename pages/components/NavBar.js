@@ -33,7 +33,7 @@ export default function NavBar() {
       color="white"
       p={4}
     >
-      <Flex align="center">
+      <Flex align="center" display={["none", "flex"]}>
         <Link
           href="/"
           data-umami-event="Home Tab Selected"

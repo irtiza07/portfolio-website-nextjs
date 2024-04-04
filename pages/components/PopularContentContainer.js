@@ -17,7 +17,7 @@ import PopItem from "./PopItem";
 
 export default function PopularContentContainer({ popularPosts }) {
   return (
-    <Flex direction="column">
+    <Flex direction="column" align={"center"}>
       <Heading color="#f57373" fontSize="3xl">
         POPULAR CONTENT
       </Heading>

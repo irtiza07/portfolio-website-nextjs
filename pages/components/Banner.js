@@ -17,10 +17,10 @@ export default function Banner() {
     <Center padding={[4, 140]}>
       <Stack spacing={[12, 48]} direction={["column", "row"]}>
         <Flex direction={"column"}>
-          <Heading color="#75c682" fontSize={["4xl", "6xl"]}>
+          <Heading color="#75c682" fontSize={["4xl", "8xl"]}>
             Hi! I am Irtiza.
           </Heading>
-          <Heading color="#efe073" fontSize={["xl", "3xl"]}>
+          <Heading color="#efe073" fontSize={["xl", "4xl"]}>
             An Engineering Manager by day, and a Blogger and YouTuber by night.
           </Heading>
         </Flex>
