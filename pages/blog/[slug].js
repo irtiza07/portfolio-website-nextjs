@@ -33,7 +33,7 @@ import Footer from "../components/Footer";
 
 const components = {
   h2: (props) => (
-    <Heading {...props} fontSize={"4xl"} color="#75c682" marginTop={12}>
+    <Heading {...props} fontSize={"3xl"} color="#75c682" marginTop={12}>
       {props.children}
     </Heading>
   ),
@@ -55,6 +55,7 @@ const components = {
       </HStack>
     </Text>
   ),
+  SyntaxHighlighter: SyntaxHighlighter,
 };
 
 export default function PostPage({ frontMatter: { title }, mdxSource }) {
@@ -62,7 +63,7 @@ export default function PostPage({ frontMatter: { title }, mdxSource }) {
     <Flex bg="#161f27" flexDirection="column" color="white">
       <NavBar />
       <Flex flexDirection={"column"}>
-        <Heading fontSize={"6xl"} textAlign={"center"}>
+        <Heading fontSize={"5xl"} textAlign={"center"}>
           {title}
         </Heading>
         <Center padding={[8, 20]}>
