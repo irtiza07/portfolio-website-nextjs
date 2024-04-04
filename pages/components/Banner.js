@@ -19,7 +19,12 @@ export default function Banner() {
         spacing={[12, 48]}
         direction={["column", "column", "column", "row"]}
       >
-        <VStack direction={"column"} align="left" spacing={12}>
+        <VStack
+          direction={"column"}
+          align="left"
+          spacing={[2, 6]}
+          justify={"center"}
+        >
           <Heading color="#75c682" fontSize={["4xl", "5xl", "7xl"]}>
             Hi! I am Irtiza.
           </Heading>
