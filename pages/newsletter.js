@@ -20,9 +20,11 @@ export default function Newsletter() {
   return (
     <Flex bg="#161f27" flexDirection="column" color="white">
       <NavBar />
-      <VStack height="100vh" padding="3vw">
-        <Heading fontSize="6em">Newsletter</Heading>
-        <Text fontSize="2em">
+      <VStack padding="4vw">
+        <Heading fontSize="5xl" textAlign={"center"}>
+          Newsletter
+        </Heading>
+        <Text fontSize="lg" textAlign={"center"}>
           📣 If you enjoyed my blogs or videos, please subscribe! I will drop by
           your inbox at most once a week, and you can unsubscribe any time you
           want.

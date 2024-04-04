@@ -100,7 +100,7 @@ export default function SubscribeForm() {
             <Button
               bg="#efe073"
               color="#191919"
-              width="7vw"
+              size="lg"
               isDisabled={!(firstName && emailAddress)}
               type="submit"
             >
