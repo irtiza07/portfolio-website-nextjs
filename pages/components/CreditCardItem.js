@@ -36,7 +36,7 @@ export default function CreditCardItem({
             bg="#efe073"
             color="#191919"
             size="lg"
-            fontSize="1.25em"
+            fontSize="xl"
             fontWeight="bold"
             _hover={{ cursor: "pointer" }}
           >
