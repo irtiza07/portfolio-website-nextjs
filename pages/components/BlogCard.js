@@ -34,7 +34,6 @@ export default function BlogCard({ post }) {
       <Heading color="#75c682" fontSize="xl">
         {postData?.title}
       </Heading>
-      <Spacer />
 
       <Text color="#F6F6F6" fontSize="lg">
         {postData?.description}
