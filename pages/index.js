@@ -27,28 +27,17 @@ import path from "path";
 
 export default function Home({ posts, popularPosts, categoryCounts }) {
   return (
-    <ChakraProvider>
-      <Head>
-        <title>Irtiza Hafiz</title>
-        <link rel="icon" href="/favicon.ico" />
-        <script
-          defer
-          src="https://umami.irtizahafiz.com/script.js"
-          data-website-id="67058922-3cc9-48e1-843e-d29e11286402"
-        ></script>
-      </Head>
-      <Flex bg="#161f27" flexDirection="column">
-        <NavBar />
-        <Banner />
-        <BodyContainer
-          posts={posts}
-          popularPosts={popularPosts}
-          categoryCounts={categoryCounts}
-        />
+    <Flex bg="#161f27" flexDirection="column">
+      <NavBar />
+      <Banner />
+      <BodyContainer
+        posts={posts}
+        popularPosts={popularPosts}
+        categoryCounts={categoryCounts}
+      />
 
-        <Footer />
-      </Flex>
-    </ChakraProvider>
+      <Footer />
+    </Flex>
   );
 }
 

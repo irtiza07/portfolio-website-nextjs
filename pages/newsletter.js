@@ -18,20 +18,18 @@ import SubscribeForm from "./components/SubscribeForm";
 
 export default function Newsletter() {
   return (
-    <ChakraProvider>
-      <Flex bg="#161f27" flexDirection="column" color="white">
-        <NavBar />
-        <VStack height="100vh" padding="3vw">
-          <Heading fontSize="6vw">Newsletter</Heading>
-          <Text fontSize="2vw">
-            📣 If you enjoyed my blogs or videos, please subscribe! I will drop
-            by your inbox at most once a week, and you can unsubscribe any time
-            you want.
-          </Text>
-          <SubscribeForm />
-        </VStack>
-        <Footer />
-      </Flex>
-    </ChakraProvider>
+    <Flex bg="#161f27" flexDirection="column" color="white">
+      <NavBar />
+      <VStack height="100vh" padding="3vw">
+        <Heading fontSize="6vw">Newsletter</Heading>
+        <Text fontSize="2vw">
+          📣 If you enjoyed my blogs or videos, please subscribe! I will drop by
+          your inbox at most once a week, and you can unsubscribe any time you
+          want.
+        </Text>
+        <SubscribeForm />
+      </VStack>
+      <Footer />
+    </Flex>
   );
 }
