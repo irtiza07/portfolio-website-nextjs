@@ -18,7 +18,7 @@ import SubscribeForm from "./components/SubscribeForm";
 
 export default function Newsletter() {
   return (
-    <Flex bg="#161f27" flexDirection="column" color="white">
+    <Flex bg="#161f27" flexDirection="column" color="white" marginBottom={-10}>
       <NavBar />
       <VStack padding="4vw">
         <Heading fontSize="5xl" textAlign={"center"}>

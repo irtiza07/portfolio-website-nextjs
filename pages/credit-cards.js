@@ -17,7 +17,13 @@ import CreditCardGrid from "./components/CreditCardGrid";
 
 export default function CreditCards() {
   return (
-    <Flex bg="#161f27" flexDirection="column" color="white" width="100vw">
+    <Flex
+      bg="#161f27"
+      flexDirection="column"
+      color="white"
+      width="100vw"
+      marginBottom={-10}
+    >
       <NavBar />
       <VStack padding="2vw">
         <Heading fontSize="5xl" textAlign={"center"}>

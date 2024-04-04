@@ -27,7 +27,7 @@ import path from "path";
 
 export default function Home({ posts, popularPosts, categoryCounts }) {
   return (
-    <Flex bg="#161f27" flexDirection="column">
+    <Flex bg="#161f27" flexDirection="column" marginBottom={-10}>
       <NavBar />
       <Banner />
       <BodyContainer
