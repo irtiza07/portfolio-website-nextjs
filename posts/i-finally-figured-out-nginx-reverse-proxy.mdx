@@ -14,9 +14,9 @@ It took me a couple of hours to comb through dense computer networking and inter
 
 Now, if you go to irtizahafiz.com or www.irtizahafiz.com, you will see a working version of my NextJS example app — coming to you straight from my Digital Ocean server!
 
-## In this blog post, I plan on taking you through a step-by-step tutorial helping you achieve the same thing that I did, but hopefully without the 2-3 hours of learning that I went through.
+In this blog post, I plan on taking you through a step-by-step tutorial helping you achieve the same thing that I did, but hopefully without the 2-3 hours of learning that I went through.
 
-# What Will You Learn?
+## What Will You Learn?
 
 I don’t want to waste anyone’s precious time. So, take a look at the topics I will cover below, and read on if it’s of value to you.
 
@@ -27,9 +27,9 @@ I don’t want to waste anyone’s precious time. So, take a look at the topics 
 5. Creating SSL certificates for your domain
 6. Serving your website through secured HTTPS
 
-## If you are still interested, let’s get started.
+If you are still interested, let’s get started.
 
-# Connect Your Domain to Your Server
+## Connect Your Domain to Your Server
 
 The first step requires the least number of steps.
 
@@ -40,9 +40,9 @@ You need 2 things:
 
 Then, you go to the DNS management in your Domain Dashboard and add an “A” record with the value set to your server’s IP address.
 
-## It will take you 2 minutes to do this!
+It will take you 2 minutes to do this!
 
-# Running Your Web App of Choice
+## Running Your Web App of Choice
 
 Now, onto the more exciting part.
 
@@ -58,9 +58,9 @@ You can do something as simple as:
 npm run start
 ```
 
-## And you will have your web app running on your local machine. You can access it from within your WiFi network, but not from outside.
+And you will have your web app running on your local machine. You can access it from within your WiFi network, but not from outside.
 
-# Installing Nginx Web Server
+## Installing Nginx Web Server
 
 To serve your web app to public internet users, you need to use a web server. Then, you have to proxy the incoming web server request to your locally running app.
 
@@ -81,9 +81,9 @@ Once successfully installed, you will find the relevant Nginx config files below
 
 With a working Nginx, any request coming to your server’s port 80 (by default) will be served by a static Nginx HTML page.
 
-## Next, we will replace this static page with your locally running web app.
+Next, we will replace this static page with your locally running web app.
 
-# Configuring Nginx
+## Configuring Nginx
 
 The default Nginx configuration is housed in the directory:
 
@@ -108,9 +108,8 @@ What are we doing?
 2. Deleting the mirrored version of the default config
 3. Creating our custom config file called `myserver` (will be populated soon)
 
----
 
-# Proxying Requests to Your Web App
+## Proxying Requests to Your Web App
 
 Then, write the following Nginx config inside your newly created `myserver.config` file.
 
@@ -130,9 +129,8 @@ This will do the following:
 2. Proxies the request to the machine’s port 3000 (whatever port your web app is running on)
 3. Returns to the user response from your web app
 
----
 
-# Finally, Restart Nginx
+## Finally, Restart Nginx
 
 Once all the steps are complete, restart Nginx:
 
@@ -142,9 +140,8 @@ sudo systemctl restart nginx
 
 Now, any HTTP request coming to irtizahafiz.com will be routed and served by your locally running web application.
 
----
 
-# Works…But Not Through HTTPS
+## Works…But Not Through HTTPS
 
 If you have been following closely, you will see that we haven’t talked about the SSL certificate yet.
 
@@ -152,9 +149,9 @@ Also, if you go to your linked website — irtizahafiz.com in my case — you wi
 
 Some browsers, such as Safari, might even refuse to show you the web page because of security concerns.
 
-## Let’s fix that.
+Let’s fix that.
 
-# Getting A Free SSL Certificate
+## Getting A Free SSL Certificate
 
 I was always under the impression that you have to pay for SSL certificates.
 
@@ -176,9 +173,9 @@ Certbot will make some changes to your Nginx config file — in our tutorial the
 
 It essentially creates some private keys, stores them in your Keychain, and then links them to your domain.
 
-## Now, your traffic will be served from a secured port 443 rather than the default port 80.
+Now, your traffic will be served from a secured port 443 rather than the default port 80.
 
-# Closing Thoughts
+## Closing Thoughts
 
 Overall, the above configuration ensures that all traffic to irtizahafiz.com is redirected to HTTPS and proxied to a backend server running on port 3000.
 
