@@ -18,7 +18,11 @@ import CreditCardItem from "./CreditCardItem";
 
 export default function CreditCardGrid() {
   return (
-    <Grid templateColumns="repeat(3, 1fr)" gap="1vw" padding="4vw">
+    <Grid
+      templateColumns={{ base: "repeat(1, 1fr)", md: "repeat(3, 1fr)" }}
+      gap="1vw"
+      padding="4vw"
+    >
       <CreditCardItem
         imageURL="/amex-gold.png"
         cardName="American Express Gold"

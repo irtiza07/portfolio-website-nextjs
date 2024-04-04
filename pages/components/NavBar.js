@@ -46,7 +46,7 @@ export default function NavBar() {
           </Text>
         </Link>
         <Link href="/newsletter" data-umami-event="Newsletter Tab Selected">
-          <Text color="white" fontSize="1.25vw">
+          <Text color="white" fontSize="1.25em">
             Newsletter
           </Text>
         </Link>
