@@ -12,10 +12,16 @@ import {
   Center,
   VStack,
   HStack,
+  Text,
+  Divider,
   Image,
   Flex,
+  Grid,
+  Box,
   Spacer,
+  ListIcon,
 } from "@chakra-ui/react";
+import { ArrowForwardIcon } from "@chakra-ui/icons";
 import Banner from "../components/Banner";
 import Categories from "../components/Categories";
 import BlogCard from "../components/BlogCard";
@@ -25,12 +31,46 @@ import BodyContainer from "../components/BodyContainer";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 
+const components = {
+  h2: (props) => (
+    <Heading {...props} fontSize={"4xl"} color="#75c682" marginTop={12}>
+      {props.children}
+    </Heading>
+  ),
+  h3: (props) => (
+    <Heading {...props} fontSize={"2xl"} color="#efe073" marginTop={6}>
+      {props.children}
+    </Heading>
+  ),
+  p: (props) => (
+    <Text {...props} fontSize={"md"} lineHeight={"8"} marginBottom={[35, 8]}>
+      {props.children}
+    </Text>
+  ),
+  li: (props) => (
+    <Text {...props} marginTop={6} marginBottom={6}>
+      <HStack>
+        <ArrowForwardIcon color="#efe073" boxSize={[4, 8]}></ArrowForwardIcon>
+        <Text>{props.children}</Text>
+      </HStack>
+    </Text>
+  ),
+};
+
 export default function PostPage({ frontMatter: { title }, mdxSource }) {
   return (
     <Flex bg="#161f27" flexDirection="column" color="white">
       <NavBar />
-      <Heading>{title}</Heading>
-      <MDXRemote {...mdxSource} />
+      <Flex flexDirection={"column"}>
+        <Heading fontSize={"6xl"} textAlign={"center"}>
+          {title}
+        </Heading>
+        <Center padding={[8, 20]}>
+          <Flex width={["95vw", "50vw"]} flexDirection={"column"}>
+            <MDXRemote {...mdxSource} components={components} />
+          </Flex>
+        </Center>
+      </Flex>
       <Footer />
     </Flex>
   );

@@ -10,7 +10,7 @@ After many years of “renting” my online presence on the internet, I finally 
 
 What do I mean by “renting”?
 
-I used a combination of Squarespace and Ghost to host my website, mailing lists, and newsletter. In total, it was costing me somewhere in the range of $78 to $100 every month.
+I used a combination of **Squarespace** and Ghost to host my website, mailing lists, and newsletter. In total, it was costing me somewhere in the range of $78 to $100 every month.
 
 Both of these were cloud-hosted, which meant I never owned anything. In exchange for the subscription I paid, these entities maintained the infrastructure for me.
 
@@ -22,9 +22,9 @@ Looking past both the “renting issue” and “increasing fees”, it’s also
 
 That means all websites and newsletters look the same. Even though some customization tools are provided, you can never make your website “truly yours”.
 
-## Because of these and more, I decided to buy a server and build (or host) everything myself.
+**Because of these and more, I decided to buy a server and build (or host) everything myself.**
 
-# The Server — Digital Ocean Droplet
+## The Server — Digital Ocean Droplet
 
 Generally speaking, there are 3 options I could take:
 
@@ -40,7 +40,7 @@ Woah! I can already hear all of y’all shouting.
 
 Well, yes. That’s true. However, with a few tweaks, I can make it “very close to owning”. Let me explain.
 
-## Why Not Self-Host?
+### Why Not Self-Host?
 
 When evaluating all options, the options related to strictly self-hosting — Raspberry Pi or Server at home — were the most enticing to me.
 
@@ -52,31 +52,31 @@ Especially in my case, I am someone who travels quite frequently. If I rely enti
 
 This lack of availability was one of the biggest reasons that tipped the scale towards cloud-hosting.
 
-## Snapshots and Backups
+### Snapshots and Backups
 
 Now, moving to the issue of “Digital Ocean owning my infra”, that’s a tough pill to swallow.
 
 Every option outside hosting my server at home came with this tradeoff. There were no other alternatives.
 
-## There’s no perfect way to get around it. My best attempt at mitigating risk here would be to do regular backups from the cloud to my physical hardware.
+There’s no perfect way to get around it. My best attempt at mitigating risk here would be to do regular backups from the cloud to my physical hardware.
 
-# Web Server — Nginx
+## Web Server — Nginx
 
 Hosting a website requires a web server. The open-source option that I picked is Nginx.
 
 Nginx allows me to set up proxies and reverse proxies, configure SSL certificates, and set up rate limiting. It also supports subdomain routing — say traffic to irtizahafiz.com will be routed to port 3000 whereas api.irtizahafiz.com will be routed to port 8000 internally.
 
-## Above all, I have used Nginx before, so I can cut my development time in half.
+Above all, I have used Nginx before, so I can cut my development time in half.
 
-# Domain and Nameservers — GoDaddy
+## Domain and Nameservers — GoDaddy
 
 I purchased my domain from GoDaddy years ago. I will continue using that.
 
 Instead of porting over nameservers (NS) to Digital Ocean, I will let GoDaddy do it. When I need to add a subdomain or change any A records, I will do it myself through the GoDaddy portal.
 
-## This way, I at least don’t couple my domain too tightly with Digital Ocean.
+This way, I at least don’t couple my domain too tightly with Digital Ocean.
 
-# Frontend Framework — NextJS
+## Frontend Framework — NextJS
 
 Most of my website content will be static.
 
@@ -97,9 +97,9 @@ NextJS provides a tool to convert Markdown files to [MDX](https://mdxjs.com/) wh
 
 My current plan is to mimic a CMS by having my Markdown files in my server’s file storage and using something like [@next/mdx](https://nextjs.org/docs/pages/building-your-application/configuring/mdx#nextmdx) to convert in real-time.
 
-## This is the step I am most skeptical about, so we will find out how it goes.
+This is the step I am most skeptical about, so we will find out how it goes.
 
-# Backend Framework — FastAPI
+## Backend Framework — FastAPI
 
 Even though my NextJS server will take care of ~75% of the website, some of the features will still depend on backend APIs.
 
@@ -109,9 +109,9 @@ Here are a few that I can think of:
 2. Support “like” functionality in blog posts
 3. Chatbot functionality to interact with my content
 
-## Like most of my previous projects, I will use FastAPI running in a docker container.
+Like most of my previous projects, I will use FastAPI running in a docker container.
 
-# Data Storage — MySQL
+## Data Storage — MySQL
 
 Given I am offloading my CMS to NextJS, there won’t be a ton of backend data storage needed.
 
@@ -119,9 +119,9 @@ For every blog post, I will need to store the slug, like counter, and maybe a fe
 
 FastAPI has native integration with MySQL which I have used many times before. I will stick to that.
 
-## In the future, if my data model becomes more complex, I will consider other alternatives.
+In the future, if my data model becomes more complex, I will consider other alternatives.
 
-# Web Traffic Analytics
+## Web Traffic Analytics - Umami
 
 When it comes to collecting and analyzing web traffic data, I am sure only one option comes to mind — Google Analytics.
 
@@ -133,9 +133,9 @@ Enter — [Umami](https://umami.is/).
 
 Umami is open-source, does not use cookies, does not track users across the internet, and gives me the option to own my data.
 
-## I will set up a docker container in my server that runs Umami. The data will be stored in a locally running MySQL or Postgres DB.
+I will set up a docker container in my server that runs Umami. The data will be stored in a locally running MySQL or Postgres DB.
 
-# Email Newsletter
+## Email Newsletter
 
 The most difficult decision has been to choose an open-source newsletter and mailing list management system.
 
@@ -156,9 +156,9 @@ A self-hosted Listmonk requires a custom SMTP server. I could go many different 
 
 Even though the self-hosted route is the most preferred, there might be security and reputation implications.
 
-## I will do more research, but by the looks of things right now, I think most likely I will go with an external SMTP server such as MailGun.
+I will do more research, but by the looks of things right now, I think most likely I will go with an external SMTP server such as MailGun.
 
-# Closing Thoughts
+## Closing Thoughts
 
 If you have made it this far, I hope you found this valuable.
 
