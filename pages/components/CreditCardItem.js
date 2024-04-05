@@ -13,7 +13,12 @@ export default function CreditCardItem({
   return (
     <Flex flexDirection="column" bg="#1e262f" padding="2vw" borderRadius="2vw">
       <VStack>
-        <Image width={360} height={240} src={imageURL} />
+        <Image
+          width={360}
+          height={240}
+          src={imageURL}
+          alt="Credit Card Image"
+        />
         <Heading size="lg" color="#75c682">
           {cardName}
         </Heading>

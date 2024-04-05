@@ -3,6 +3,7 @@ import "@fontsource/montserrat";
 import "@fontsource/inter";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import Head from "next/head";
+import Script from "next/script";
 
 const theme = extendTheme({
   fonts: {
@@ -18,11 +19,13 @@ export default function MyApp({ Component, pageProps }) {
       <Head>
         <title>Irtiza Hafiz</title>
         <link rel="icon" href="/irtiza-avatar-ayesha.png" />
-        <script
+        <Script src="https://example.com/script.js" />
+        //TODO: Might need to revert, if above Script does not work
+        {/* <script
           defer
-          src="https://umami.irtizahafiz.com/script.js"
+          src=""
           data-website-id="67058922-3cc9-48e1-843e-d29e11286402"
-        ></script>
+        ></script> */}
       </Head>
       <Component {...pageProps} />;
     </ChakraProvider>

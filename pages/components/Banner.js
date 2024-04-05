@@ -22,7 +22,12 @@ export default function Banner() {
             An Engineering Manager by day, and a Blogger and YouTuber by night.
           </Heading>
         </VStack>
-        <Image src="/irtiza-avatar-ayesha.png" width={600} height={400}></Image>
+        <Image
+          src="/irtiza-avatar-ayesha.png"
+          alt="Irtiza Hafiz's avatar"
+          width={600}
+          height={400}
+        ></Image>
       </Stack>
     </Center>
   );
