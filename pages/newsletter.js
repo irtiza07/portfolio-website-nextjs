@@ -10,6 +10,7 @@ import {
   Spacer,
   Text,
 } from "@chakra-ui/react";
+import Head from "next/head";
 
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
@@ -19,6 +20,14 @@ import SubscribeForm from "./components/SubscribeForm";
 export default function Newsletter() {
   return (
     <Flex bg="#161f27" flexDirection="column" color="white" marginBottom={-10}>
+      <Head>
+        <title>Irtiza Hafiz | Newsletter</title>
+        <meta
+          name="description"
+          content="I build things with code, write about productivity and travel for free with credit cards!"
+          key="desc"
+        />
+      </Head>
       <NavBar />
       <VStack padding="4vw">
         <Heading fontSize="5xl" textAlign={"center"}>

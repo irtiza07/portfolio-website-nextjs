@@ -10,6 +10,7 @@ import {
   Spacer,
   Text,
 } from "@chakra-ui/react";
+import Head from "next/head";
 
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
@@ -24,6 +25,14 @@ export default function CreditCards() {
       width="100vw"
       marginBottom={-10}
     >
+      <Head>
+        <title>Travel Credit Cards</title>
+        <meta
+          name="description"
+          content="Best travel credit cards that will help you travel the world for free."
+          key="desc"
+        />
+      </Head>
       <NavBar />
       <VStack padding="2vw">
         <Heading fontSize="5xl" textAlign={"center"}>

@@ -4,6 +4,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import SyntaxHighlighter from "react-syntax-highlighter";
+import Head from "next/head";
 
 import {
   ChakraProvider,
@@ -58,9 +59,17 @@ const components = {
   SyntaxHighlighter: SyntaxHighlighter,
 };
 
-export default function PostPage({ frontMatter: { title }, mdxSource }) {
+export default function PostPage({ frontMatter: { title, description }, mdxSource }) {
   return (
     <Flex bg="#161f27" flexDirection="column" color="white">
+      <Head>
+        <title>{title}</title>
+        <meta
+          name="description"
+          content={description}
+          key="desc"
+        />
+      </Head>
       <NavBar />
       <Flex flexDirection={"column"}>
         <Heading fontSize={"5xl"} textAlign={"center"}>

@@ -28,6 +28,16 @@ import path from "path";
 export default function Home({ posts, popularPosts, categoryCounts }) {
   return (
     <Flex bg="#161f27" flexDirection="column" marginBottom={-10}>
+      <Head>
+        <title>
+          Irtiza Hafiz - Engineering Manager, Programmer, Blogger, YouTuber.
+        </title>
+        <meta
+          name="description"
+          content="This site is all about software engineering, productivity, management and credit cards."
+          key="desc"
+        />
+      </Head>
       <NavBar />
       <Banner />
       <BodyContainer
