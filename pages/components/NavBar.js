@@ -3,13 +3,8 @@ import Link from "next/link";
 import { ExternalLinkIcon, HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 
 import {
-  ChakraProvider,
-  Container,
   Heading,
-  Center,
-  VStack,
   HStack,
-  Image,
   Text,
   Flex,
   Spacer,

@@ -1,15 +1,4 @@
-import {
-  ChakraProvider,
-  Container,
-  Heading,
-  Center,
-  VStack,
-  HStack,
-  Image,
-  Flex,
-  Spacer,
-  Text,
-} from "@chakra-ui/react";
+import { Heading, VStack, Flex, Text } from "@chakra-ui/react";
 import Head from "next/head";
 
 import NavBar from "./components/NavBar";

@@ -1,18 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import {
-  ChakraProvider,
-  Container,
-  Heading,
-  Center,
-  VStack,
-  HStack,
-  Image,
-  Flex,
-  Spacer,
-  Button,
-  Text,
-} from "@chakra-ui/react";
+import { HStack, Text } from "@chakra-ui/react";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
 
 export default function PopItem({ post }) {

@@ -1,18 +1,5 @@
 import React from "react";
-import {
-  ChakraProvider,
-  Container,
-  Heading,
-  Center,
-  VStack,
-  HStack,
-  Image,
-  Flex,
-  Spacer,
-  Grid,
-  Button,
-  Text,
-} from "@chakra-ui/react";
+import { Heading, Flex, Grid } from "@chakra-ui/react";
 import PopItem from "./PopItem";
 
 export default function PopularContentContainer({ popularPosts }) {

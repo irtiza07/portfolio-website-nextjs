@@ -1,19 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-import {
-  ChakraProvider,
-  Container,
-  Heading,
-  Center,
-  VStack,
-  HStack,
-  Image,
-  Text,
-  Flex,
-  Spacer,
-  Stack,
-} from "@chakra-ui/react";
+import { Heading, Text, Spacer, Stack } from "@chakra-ui/react";
 
 export default function Footer() {
   return (

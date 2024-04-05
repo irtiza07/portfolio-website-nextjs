@@ -1,15 +1,5 @@
 import React from "react";
-import {
-  ChakraProvider,
-  Container,
-  Heading,
-  Center,
-  VStack,
-  HStack,
-  Flex,
-  Spacer,
-  Stack,
-} from "@chakra-ui/react";
+import { Heading, Center, VStack, Stack } from "@chakra-ui/react";
 import Image from "next/image";
 
 export default function Banner() {

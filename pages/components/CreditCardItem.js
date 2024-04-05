@@ -2,18 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-import {
-  ChakraProvider,
-  Container,
-  Heading,
-  Center,
-  VStack,
-  HStack,
-  Flex,
-  Spacer,
-  Button,
-  Text,
-} from "@chakra-ui/react";
+import { Heading, VStack, Flex, Spacer, Button, Text } from "@chakra-ui/react";
 
 export default function CreditCardItem({
   imageURL = "",

@@ -1,20 +1,8 @@
-import {
-  ChakraProvider,
-  Container,
-  Heading,
-  Center,
-  VStack,
-  HStack,
-  Image,
-  Flex,
-  Spacer,
-  Text,
-} from "@chakra-ui/react";
+import { Heading, VStack, Flex, Text } from "@chakra-ui/react";
 import Head from "next/head";
 
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
-import CreditCardGrid from "./components/CreditCardGrid";
 import SubscribeForm from "./components/SubscribeForm";
 
 export default function Newsletter() {

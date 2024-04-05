@@ -1,16 +1,5 @@
 import React from "react";
-import {
-  ChakraProvider,
-  Container,
-  Heading,
-  Center,
-  VStack,
-  HStack,
-  Image,
-  Text,
-  Flex,
-  Spacer,
-} from "@chakra-ui/react";
+import { HStack, Text } from "@chakra-ui/react";
 
 export default function Categories({ categoryCounts }) {
   return (

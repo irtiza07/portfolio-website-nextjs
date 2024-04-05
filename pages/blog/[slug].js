@@ -6,29 +6,8 @@ import matter from "gray-matter";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import Head from "next/head";
 
-import {
-  ChakraProvider,
-  Container,
-  Heading,
-  Center,
-  VStack,
-  HStack,
-  Text,
-  Divider,
-  Image,
-  Flex,
-  Grid,
-  Box,
-  Spacer,
-  ListIcon,
-} from "@chakra-ui/react";
+import { Heading, Center, Text, Flex, HStack } from "@chakra-ui/react";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
-import Banner from "../components/Banner";
-import Categories from "../components/Categories";
-import BlogCard from "../components/BlogCard";
-import BlogGrid from "../components/BlogGrid";
-import PopularContentContainer from "../components/PopularContentContainer";
-import BodyContainer from "../components/BodyContainer";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 
@@ -59,16 +38,15 @@ const components = {
   SyntaxHighlighter: SyntaxHighlighter,
 };
 
-export default function PostPage({ frontMatter: { title, description }, mdxSource }) {
+export default function PostPage({
+  frontMatter: { title, description },
+  mdxSource,
+}) {
   return (
     <Flex bg="#161f27" flexDirection="column" color="white">
       <Head>
         <title>{title}</title>
-        <meta
-          name="description"
-          content={description}
-          key="desc"
-        />
+        <meta name="description" content={description} key="desc" />
       </Head>
       <NavBar />
       <Flex flexDirection={"column"}>

@@ -1,20 +1,6 @@
 import React from "react";
-import {
-  ChakraProvider,
-  Container,
-  Heading,
-  Center,
-  VStack,
-  HStack,
-  Image,
-  Flex,
-  Spacer,
-  Button,
-  Text,
-  Grid,
-} from "@chakra-ui/react";
-import PopItem from "./PopItem";
-import BlogGrid from "./BlogGrid";
+import { Grid } from "@chakra-ui/react";
+
 import PopularContentContainer from "./PopularContentContainer";
 import BlogContainer from "./BlogContainer";
 
