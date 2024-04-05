@@ -19,12 +19,15 @@ export default function MyApp({ Component, pageProps }) {
       <Head>
         <title>Irtiza Hafiz</title>
         <link rel="icon" href="/irtiza-avatar-ayesha.png" />
-        <Script src="https://example.com/script.js" />
+        <Script
+          src="https://example.com/script.js"
+          data-website-id="67058922-3cc9-48e1-843e-d29e11286402"
+        />
         //TODO: Might need to revert, if above Script does not work
         {/* <script
           defer
           src=""
-          data-website-id="67058922-3cc9-48e1-843e-d29e11286402"
+          
         ></script> */}
       </Head>
       <Component {...pageProps} />;
