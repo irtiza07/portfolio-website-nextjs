@@ -5,6 +5,7 @@ import path from "path";
 import matter from "gray-matter";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import Head from "next/head";
+import Image from "next/image";
 
 import { Heading, Center, Text, Flex, HStack } from "@chakra-ui/react";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
@@ -36,6 +37,16 @@ const components = {
     </Text>
   ),
   SyntaxHighlighter: SyntaxHighlighter,
+  img: (props) => (
+    <Center>
+      <Image
+        src={props.src.replace("/public", "")} // Remove '/public' from image path
+        alt={props.alt}
+        width={1260}
+        height={800}
+      />
+    </Center>
+  ),
 };
 
 export default function PostPage({

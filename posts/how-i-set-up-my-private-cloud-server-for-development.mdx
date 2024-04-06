@@ -47,7 +47,7 @@ Before starting development on my private server, it was important for me to mak
 Given it’s a headless server — without any UI — all my interactions with this machine happen through the Shell. So, spending an extra few hours here made sense to me.
 
 **I switched from Bash to ZSH** and supercharged my terminal experience by using an open-source tool called [Oh My Zsh](https://ohmyz.sh/).
-![](how-i-set-up-my-private-cloud-server-for-development.mdx/Screenshot%202024-04-01%20at%207.40.56%E2%80%AFPM.png)
+![server zsh customized](/public/server-zsh-customized.png)
 “Oh My Zsh” lets you choose from hundreds of plugins and themes.
 
 A couple of plugins that I want to call your attention to:
@@ -92,7 +92,9 @@ When developing on my cloud server, I don’t have the luxury of a browser. Ever
 Say, in my cloud server, I am running my React app in port 3000. When I open `localhost:3000` on my browser, I won’t see the React app. That’s because my React app is running on the cloud machine, NOT on my local computer’s “localhost”.
 
 How do we solve this? Enter [Remote Explorer](https://marketplace.visualstudio.com/items?itemName=ms-vscode.remote-explorer)’s **Port Forwarding**.
-![](how-i-set-up-my-private-cloud-server-for-development.mdx/Screenshot%202024-04-01%20at%209.21.58%E2%80%AFPM.png)
+
+![Port Forwarding in VS Code](/public/port-forwarding-vs-code.png)
+
 Through the SSN tunnel to your cloud server, your locally running VS Code can enable port forwarding. Functionally, that means your server’s port is directly mapped to your local machine’s port.
 
 **So, whatever is running in your server’s port 3000 (in the above example), you can access it on your local machine by visiting `localhost:3000`.** So powerful!
@@ -127,7 +129,7 @@ Portainer.io can help greatly with that.
 
 Portainer is a **UI-based** container management software.
 
-![](how-i-set-up-my-private-cloud-server-for-development.mdx/Screenshot%202024-04-01%20at%209.45.19%E2%80%AFPM.png)
+![Portainer Dashboard](/public/portainer-dashboard.png)
 
 In this example screenshot you can see the following:
 
@@ -151,12 +153,14 @@ I use [Nginx](https://www.nginx.com/) as my **web server** and **reverse proxy.*
 Nginx gives me a ton of flexibility when it comes to hosting apps in different subdomains. Through a simple configuration file, I can route (or proxy pass) incoming traffic to different docker containers running on my cloud server.
 
 Let's walk through an example set up below.
+
 - NextJS Server — running on port 2000
 - Umami Analytics Server — running on port 3000
 - Listmonk Server — running on port 4000
 - Portainer Server — running on port 5000
 
 When we map these ports to subdomains, this is how it looks.
+
 - irtizahafiz.com —> port 2000
 - umami.irtizahafiz.com —> port 3000
 - newsletter.irtizahafiz.com —> port 4000
