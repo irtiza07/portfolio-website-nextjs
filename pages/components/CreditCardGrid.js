@@ -32,7 +32,7 @@ export default function CreditCardGrid() {
         imageURL="/hilton-business.png"
         cardName="Hilton Honors Business AMEX"
         cardDescription="A great hotel card for free nights"
-        referralURL="https://americanexpress.com/en-us/referral/MDIRTH5C6d?XLINK=MYCP"
+        referralURL="https://americanexpress.com/en-us/referral/hilton-honors-american-express-business-credit-card?ref=MDIRTHKZNs&XLINK=MYCP"
       />
       <CreditCardItem
         imageURL="/freedom_flex.png"
@@ -44,7 +44,7 @@ export default function CreditCardGrid() {
         imageURL="/marriott-business.png"
         cardName="Marriott Bonvoy Business AMEX"
         cardDescription="A great hotel card for free nights"
-        referralURL="https://americanexpress.com/en-us/referral/MDIRTHEawL?XLINK=MYCP"
+        referralURL="https://americanexpress.com/en-us/referral/marriott-bonvoy-business-american-express-card?ref=MDIRTHHZFC&XLINK=MYCP"
       />
 
       <CreditCardItem
