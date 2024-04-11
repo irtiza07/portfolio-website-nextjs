@@ -25,7 +25,7 @@ export default function CreditCardItem({
         <Spacer />
         <Text color="#F6F6F6">{cardDescription}</Text>
         <Spacer />
-        <Link href={referralURL}>
+        <Link href={referralURL} data-umami-event={`${cardName}-apply-clicked`}>
           <Button
             bg="#efe073"
             color="#191919"
