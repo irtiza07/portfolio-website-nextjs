@@ -17,6 +17,7 @@ export default function CreditCardItem({
     } catch (error) {
       console.log(error);
     }
+    window.open(url, "_blank");
   };
   return (
     <Flex flexDirection="column" bg="#1e262f" padding="2vw" borderRadius="2vw">
