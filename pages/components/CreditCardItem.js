@@ -10,6 +10,14 @@ export default function CreditCardItem({
   cardDescription = "",
   referralURL = "",
 }) {
+  const handleClick = (e) => {
+    e.preventDefault();
+    try {
+      umami.track(`${cardName}-apply-clicked`);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <Flex flexDirection="column" bg="#1e262f" padding="2vw" borderRadius="2vw">
       <VStack>
@@ -33,6 +41,7 @@ export default function CreditCardItem({
             fontSize="lg"
             fontWeight="bold"
             _hover={{ cursor: "pointer" }}
+            onClick={handleClick}
           >
             Apply
           </Button>
