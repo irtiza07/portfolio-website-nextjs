@@ -26,7 +26,7 @@ export default function CreditCardGrid() {
         imageURL="/blue-business-plus.png"
         cardName="Blue Business Plus"
         cardDescription="Great no annual fee AMEX catch-all travel card"
-        referralURL="https://americanexpress.com/en-us/referral/MDIRTHnwWj?XLINK=MYCP"
+        referralURL="https://americanexpress.com/en-us/referral/bluebusinessplus-credit-card?ref=MDIRTHnwWj&XLINK=MYCP"
       />
       <CreditCardItem
         imageURL="/hilton-business.png"
