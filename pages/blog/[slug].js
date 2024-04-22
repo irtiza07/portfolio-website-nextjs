@@ -11,6 +11,7 @@ import { Heading, Center, Text, Flex, HStack } from "@chakra-ui/react";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
+import Link from "next/link";
 
 const components = {
   h2: (props) => (
@@ -26,6 +27,21 @@ const components = {
   p: (props) => (
     <Text {...props} fontSize={"md"} lineHeight={"8"} marginBottom={[35, 8]}>
       {props.children}
+    </Text>
+  ),
+  a: (props) => (
+    <Text
+      {...props}
+      as={"span"}
+      fontSize={"md"}
+      color="#efe073"
+      fontStyle={"italic"}
+      fontWeight={"extrabold"}
+      borderBottom="2px"
+    >
+      <Link href={props.href} target="_blank">
+        {props.children}
+      </Link>
     </Text>
   ),
   li: (props) => (
