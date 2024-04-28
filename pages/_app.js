@@ -1,4 +1,3 @@
-import "../styles/styles.css";
 import "@fontsource/montserrat";
 import "@fontsource/inter";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
