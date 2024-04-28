@@ -1,5 +1,5 @@
 import React from "react";
-import { Stack, Input, Button } from "@chakra-ui/react";
+import { Stack, Input, Button, useToast } from "@chakra-ui/react";
 
 export default function SmartSearch({
   searchQueryText,
@@ -7,6 +7,7 @@ export default function SmartSearch({
   setRecommendations,
   openModal,
 }) {
+  const tooManyCharactersErrorToast = useToast();
   const fetchRecommendations = async () => {
     try {
       const response = await fetch(
@@ -17,7 +18,17 @@ export default function SmartSearch({
         setRecommendations(jsonData["data"]);
         openModal();
       } else {
-        console.error("Failed to fetch data:", response.statusText);
+        console.error("Failed to fetch data:", response.status);
+        if (response.status === 422) {
+          tooManyCharactersErrorToast({
+            title: "Max Characters Reached",
+            description:
+              "Keep it less than 100 characters. AI is expensive 😭 ",
+            status: "error",
+            duration: 5000,
+            isClosable: true,
+          });
+        }
       }
     } catch (error) {
       console.error("Network error:", error.message);
