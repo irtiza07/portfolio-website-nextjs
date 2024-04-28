@@ -19,7 +19,7 @@ export default function Banner() {
   const fetchRecommendations = async () => {
     try {
       const response = await fetch(
-        `http://localhost:8000/recommendations?user_query=${searchQueryText}`
+        `https://api.irtizahafiz.com/recommendations?user_query=${searchQueryText}`
       );
       if (response.ok) {
         const jsonData = await response.json();
