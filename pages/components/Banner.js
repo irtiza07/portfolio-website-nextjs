@@ -20,6 +20,7 @@ export default function Banner() {
     onClose();
   };
 
+
   return (
     <Center padding={[4, 140]}>
       <RecommendationsModal

@@ -28,6 +28,9 @@ export default function RecommendationsModal({
   onClose,
   recommendations,
 }) {
+  if (!recommendations) {
+    return null;
+  }
   return (
     <>
       <Modal isOpen={isOpen} onClose={onClose} size={["lg"]}>
@@ -47,64 +50,57 @@ export default function RecommendationsModal({
               isFitted
             >
               <TabList>
-                {recommendations["blog"] &&
-                  recommendations["blog"].length > 0 && (
-                    <Tab>
-                      <Text fontSize={"xl"}>Blog</Text>
-                    </Tab>
-                  )}
-                {recommendations["youtube"] &&
-                  recommendations["youtube"].length > 0 && (
-                    <Tab>
-                      <Text fontSize={"xl"}>YouTube</Text>
-                    </Tab>
-                  )}
+                {recommendations["blog"]?.length > 0 && (
+                  <Tab>
+                    <Text fontSize={"xl"}>Blog</Text>
+                  </Tab>
+                )}
+                {recommendations["youtube"]?.length > 0 && (
+                  <Tab>
+                    <Text fontSize={"xl"}>YouTube</Text>
+                  </Tab>
+                )}
               </TabList>
 
               <TabPanels>
-                {recommendations["blog"] &&
-                  recommendations["blog"].length > 0 && (
-                    <TabPanel>
-                      <Grid gap={[5, 8]}>
-                        {recommendations["blog"].map((rec, index) => (
-                          <Link href={rec[1]} target="_blank" key={index}>
+                {recommendations["blog"]?.length > 0 && (
+                  <TabPanel>
+                    <Grid gap={[5, 8]}>
+                      {recommendations["blog"].map((rec, index) => (
+                        <Link href={rec[1]} target="_blank" key={index}>
+                          <HStack>
+                            <Text color="black" fontSize="lg">
+                              {rec[0]} <ExternalLinkIcon color="#f57373" />
+                            </Text>
+                          </HStack>
+                        </Link>
+                      ))}
+                    </Grid>
+                  </TabPanel>
+                )}
+                {recommendations["youtube"]?.length > 0 && (
+                  <TabPanel>
+                    <Grid gap={[5, 8]}>
+                      {recommendations["youtube"].map((rec, index) => (
+                        <Link href={rec[1]} target="_blank" key={index}>
+                          <VStack>
+                            <Image
+                              src={rec[4]}
+                              alt="Irtiza Hafiz's avatar"
+                              width={360}
+                              height={90}
+                            ></Image>
                             <HStack>
                               <Text color="black" fontSize="lg">
                                 {rec[0]} <ExternalLinkIcon color="#f57373" />
                               </Text>
                             </HStack>
-                          </Link>
-                        ))}
-                      </Grid>
-                    </TabPanel>
-                  )}
-                {recommendations["youtube"] &&
-                  recommendations["youtube"].length > 0 && (
-                    <TabPanel>
-                      <Grid gap={[5, 8]}>
-                        {recommendations["youtube"] &&
-                          recommendations["youtube"].length > 0 &&
-                          recommendations["youtube"].map((rec, index) => (
-                            <Link href={rec[1]} target="_blank" key={index}>
-                              <VStack>
-                                <Image
-                                  src={rec[4]}
-                                  alt="Irtiza Hafiz's avatar"
-                                  width={360}
-                                  height={90}
-                                ></Image>
-                                <HStack>
-                                  <Text color="black" fontSize="lg">
-                                    {rec[0]}{" "}
-                                    <ExternalLinkIcon color="#f57373" />
-                                  </Text>
-                                </HStack>
-                              </VStack>
-                            </Link>
-                          ))}
-                      </Grid>
-                    </TabPanel>
-                  )}
+                          </VStack>
+                        </Link>
+                      ))}
+                    </Grid>
+                  </TabPanel>
+                )}
               </TabPanels>
             </Tabs>
           </ModalBody>
