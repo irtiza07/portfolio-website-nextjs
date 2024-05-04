@@ -14,8 +14,18 @@ export default function SmartSearch({
         `https://api.irtizahafiz.com/recommendations?user_query=${searchQueryText}`
       );
       if (response.ok) {
+        let blogRecs = [];
+        let youtubeRecs = [];
         const jsonData = await response.json();
-        setRecommendations(jsonData["data"]);
+        jsonData["data"].forEach((content) => {
+          if (content[3] === 0) {
+            blogRecs.push(content);
+          }
+          if (content[3] === 1) {
+            youtubeRecs.push(content);
+          }
+        });
+        setRecommendations({ blog: blogRecs, youtube: youtubeRecs });
         openModal();
       } else {
         console.error("Failed to fetch data:", response.status);

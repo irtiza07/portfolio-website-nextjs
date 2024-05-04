@@ -77,7 +77,7 @@ export default function PostPage({
       </Head>
       <NavBar />
       <Flex flexDirection={"column"}>
-        <Heading fontSize={"5xl"} textAlign={"center"}>
+        <Heading fontSize={["3xl", "4xl"]} textAlign={"center"}>
           {title}
         </Heading>
         <Center padding={[8, 20]}>
