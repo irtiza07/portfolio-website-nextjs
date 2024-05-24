@@ -14,7 +14,7 @@ export default function CreditCardGrid() {
         imageURL="/amex-gold.png"
         cardName="American Express Gold"
         cardDescription="Best travel card for foodies"
-        referralURL="https://americanexpress.com/en-us/referral/MDIRTHEawL?XLINK=MYCP"
+        referralURL="https://americanexpress.com/en-us/referral/gold-card?ref=MDIRTHlsVP&XLINK=MYCP"
       />
       <CreditCardItem
         imageURL="/venture-x.png"
@@ -26,7 +26,7 @@ export default function CreditCardGrid() {
         imageURL="/blue-business-plus.png"
         cardName="Blue Business Plus"
         cardDescription="Great no annual fee AMEX catch-all travel card"
-        referralURL="https://americanexpress.com/en-us/referral/bluebusinessplus-credit-card?ref=MDIRTHnwWj&XLINK=MYCP"
+        referralURL="https://americanexpress.com/en-us/referral/bluebusinessplus-credit-card?ref=MDIRTHTjpg&XLINK=MYCP"
       />
       <CreditCardItem
         imageURL="/hilton-business.png"
@@ -44,7 +44,7 @@ export default function CreditCardGrid() {
         imageURL="/marriott-business.png"
         cardName="Marriott Bonvoy Business AMEX"
         cardDescription="A great hotel card for free nights"
-        referralURL="https://americanexpress.com/en-us/referral/marriott-bonvoy-business-american-express-card?ref=MDIRTHHZFC&XLINK=MYCP"
+        referralURL="https://americanexpress.com/en-us/referral/marriott-bonvoy-business-american-express-card?ref=MDIRTHxnGK&XLINK=MYCP"
       />
 
       <CreditCardItem
