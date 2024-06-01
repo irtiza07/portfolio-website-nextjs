@@ -1,0 +1,245 @@
+---
+title: Building an AI Search Feature With OpenAI Embeddings & Postgres Vectors
+date: "June 1, 2024"
+description: Helping visitors search across all my blogs and YouTube videos with some OpenAI magic.
+tags: ["programming"]
+isPopular: false
+---
+![](/public/smart-search-overview.png)
+
+My website visitors can quickly search across all my **blogs** and YouTube **videos** using a **“smart search”** functionality that I built using OpenAI’s **Embeddings API** and a **Postgres** DB. 
+
+It took me less than one week and cost me about **1 cent** to take the feature from prototype to production. 
+
+In this blog post, I will provide a comprehensive guide on how you can build something similar to help your audience discover your content across **all formats** (blogs, videos, podcasts, etc). 
+
+Let’s get started. 
+
+## General System Architecture
+If you are looking for a very quick overview, I hope the system design diagrams for both my Blog and YouTube pipeline will be helpful. 
+
+In this blog post, I will elaborate on every component. If you think that will be helpful, keep reading.
+![](/public/smart-search-blog-pipeline.png)
+![](/public/smart-search-youtube-pipeline.png)
+
+
+## User Problem — Why Build the Feature? 
+I have come across countless comments on both my Medium blog and YouTube channel, where people want to know if I have any tutorial about a certain topic — say “Kafka”. 
+
+Of course, they can browse through the list of videos on YouTube or Medium, but it’s extremely time-consuming to do that. 
+
+It doesn’t make it any easier when I have around 120 blog posts and 90 videos. It’s not reasonable to expect people to parse through them — it’s like finding a needle in a haystack. 
+
+To solve that, my goal was to create a simple search functionality, where the user can input a few keywords, and my backend should return to them a list of relevant blog posts and YouTube videos. 
+
+From there, they can either consume them immediately or bookmark them for later on. 
+
+That’s the motivation, and now let’s look at my implementation. 
+---
+## Blogs Pipeline — w/ Embeddings
+I hope the word “embeddings” doesn’t keep you from reading more. I will explain the term very shortly. 
+
+Before that, let’s look at what data I am storing for every blog post. 
+
+For our reference, here’s the system diagram of my blog pipeline. 
+
+![](/public/smart-search-blog-pipeline.png)
+
+Let’s break it down. 
+
+If you remember my last [blog post](https://irtizahafiz.com/blog/i-finally-decided-to-buy-a-cloud-server) where I talked about my website architecture, I am storing all my blog content in Markdown files. 
+
+The first step is to store certain metadata about these posts in a Postgres database:
+- Title
+- URL
+- Thumbnail
+- Embedding Vector (more on this later)
+
+![](/public/smart-search-db-model.png)
+
+With this information, I can quickly pull relevant blog post links to show on the UI. 
+
+One thing to note: I am not storing the full content of my Markdown file. It’s not required. 
+
+Why don’t I need it? That’s where embeddings come in. Let’s talk about it. 
+
+According to [OpenAI](https://platform.openai.com/docs/guides/embeddings/what-are-embeddings)’s documentation: **An embedding is a vector (list) of floating point numbers.**
+
+I can feed my blog’s content to OpenAI’s `/v1/embeddings` [endpoint](https://platform.openai.com/docs/api-reference/embeddings/create), and it will give back a vector (list of gibberish numbers). 
+
+![](/public/smart-search-get-embeddings.png)
+
+
+It looks something like this: 
+
+<SyntaxHighlighter language="json">
+  {`
+"embedding": [
+        0.0023064255,
+        -0.009327292,
+        .... (1536 floats total for ada-002)
+        -0.0028842222,
+      ],
+  `}
+</SyntaxHighlighter>
+
+Input: "my full blog content"
+Output: A list of numbers (or a vector)
+
+Once I get the vector, I store it in my Postgres Database with the other metadata (title, URL, thumbnail, date, etc).
+
+![](/public/smart-search-data-sample.png)
+
+The same process is followed for all my blog posts:
+1. Read Markdown File
+2. Store Metadata in Postgres DB
+3. Generate Embeddings from blog content through OpenAI’s Embeddings API
+4. Store generated vector with other metadata
+
+That’s the hard part done…Whew. 
+
+Now, the easy part. 
+
+Let’s say a user wants to see all my blog posts related to `“Kafka”`. 
+
+To find all blog posts that talk about “Kafka”, I will do the following:
+- Use OpenAI’s API to generate Embeddings for the user query (in this case, `Kafka`)
+- Do some DB query magic (more on this later) to compare the above Embedding, with all embeddings across my blog posts (Remember: it’s stored in Postgres).
+- Product an ordered list of relevant blog posts (from most to least relevant). 
+
+Let’s break these steps down. 
+
+The first step is simple. We make an API call to OpenAI. Something like: 
+<SyntaxHighlighter language="bash">
+  {`
+curl https://api.openai.com/v1/embeddings \
+  -d '{
+    "input": "Kafka",
+    "model": "text-embedding-ada-002",
+    "encoding_format": "float"
+  }'
+  `}
+</SyntaxHighlighter>
+
+And OpenAI gives back, something like this:
+
+<SyntaxHighlighter language="json">
+  {`
+{
+  "embedding": [
+       0.0023064255,
+       -0.009327292,
+       .... (1536 floats total for ada-002)
+       -0.0028842222,
+   ],
+}
+  `}
+</SyntaxHighlighter>
+
+Now, the second part starts. 
+![](/public/smart-search-get-top-recommendations.png)
+
+I take the above embedding from OpenAI and compare it against the embeddings of all my blog posts. Here’s what the query looks like: 
+
+<SyntaxHighlighter language="sql">
+  {`
+SELECT title, url, (1 - (blog_embedding <=> %s)) AS scores, category, thumbnail  FROM content ORDER BY scores DESC LIMIT 10;
+  `}
+</SyntaxHighlighter>
+
+In short, this query returns a sorted list of all blog posts that talk about “Kafka”.
+
+What is this magic — `(blog_embedding <=> %s)` — I hear you ask! 
+
+Referring to OpenAI’s documentation again: **The [distance](https://platform.openai.com/docs/guides/embeddings/which-distance-function-should-i-use) between two vectors measures their relatedness. Small distances suggest high relatedness and large distances suggest low relatedness.**
+
+The above SQL query essentially computes the distance and returns a sorted list of relevant content.
+
+Here’s what the output looks like when the user searches for `nginx`:
+
+<SyntaxHighlighter language="json">
+  {`
+[
+        [
+            "Hosting Multiple Web Apps and APIs with Nginx Reverse Proxies",
+            "https://irtizahafiz.com/blog/hosting-multiple-web-apps-and-apis-with-nginx-reverse-proxies",
+            0.3553923434924644,
+            0,
+            null
+        ],
+        [
+            "I Finally Figured out Nginx Reverse Proxy",
+            "https://irtizahafiz.com/blog/i-finally-figured-out-nginx-reverse-proxy",
+            0.3322321475536728,
+            0,
+            null
+        ],        
+        [
+            "How I Set Up My Private Cloud Server for Development",
+            "https://irtizahafiz.com/blog/how-i-set-up-my-private-cloud-server-for-development",
+            0.3015026123675061,
+            0,
+            null
+        ],
+        [
+            "I Bought a Cloud Server for $12/month",
+            "https://irtizahafiz.com/blog/i-finally-decided-to-buy-a-cloud-server",
+            0.26769426675966623,
+            0,
+            null
+        ],
+    ]
+  `}
+</SyntaxHighlighter>
+
+Finally, the list is presented to the user. When they click on an item, they are taken to the blog’s URL where they can continue reading.
+
+## YouTube Pipeline — w/ Embeddings
+Now that you understand the blog pipeline (I hope!), let’s talk about the video pipeline. 
+
+Unlike blog posts, my YouTube videos are not stored locally. So, I cannot simply read the content like I can for my Markdown files. 
+
+Enter: [YouTube’s Data V3 API](https://console.cloud.google.com/marketplace/product/google/youtube.googleapis.com). Through the API, I can pull metadata for all my publicly available YouTube videos, just using my public channel ID. 
+
+Some of the metadata includes:
+- Video Title
+- Video Description
+- Video Upload Date
+- Video URL
+
+Before diving deeper into the design, here’s the same YouTube pipeline system design, for your reference.
+
+![](/public/smart-search-youtube-pipeline.png)
+
+In the first step, we are using the YouTube API to extract all the metadata and store them in the same Postgres table (the one used for my blog posts).
+
+After that, I take a concatenation of the video title and description and pass it to the same Embeddings API. 
+
+From there, the process is the same as the blog posts:
+- Video embeddings are stored with other video metadata
+- When the user has a search query, embeddings for that query is generated on the fly
+- The generated embedding is compared with existing embeddings across all blogs and videos
+- A sorted list of content (both blog and YouTube video) is shown to the user.
+
+The key point: **Once we have the vector embeddings of both blogs and videos, I can compare the user’s search query with all my content, without differentiating between them.**
+
+In other words, once embeddings have been generated, the SQL query does not care about the type of content. It only computes the “vector math”. 
+
+## Evolving the Design
+With the above implementation, the feature works great. There are still a few limitations, especially one.
+
+There’s no threshold for “similarity scores”. Regardless of how “strong” the match is, the backend will always return a list of results. In an ideal world, it should tell the user there are no matches. Don’t worry! That feature is coming very soon. 
+
+The other room for improvement — currently, I don’t feed the video transcript to the Embeddings model. The model only generates the vector using the video title and description. In the next iteration, I will use OpenAI’s [Whisper API](https://openai.com/index/introducing-chatgpt-and-whisper-apis/) to do the following:
+- Convert video to audio
+- Convert audio to a written transcript
+- Feed the transcript to Embeddings API, along with the video’s title and description.
+
+Stay tuned for that!
+
+## Closing Thoughts
+If you have made it this far, I hope you found this valuable. 
+
+Here are a few ways you can do so: follow me on [Medium](https://medium.com/@irtizahafiz), subscribe to [my website](https://irtizahafiz.com/newsletter?utm_source=medium), or follow me on [YouTube](https://www.youtube.com/channel/UCDankIVMXJEkhtjv5yLSN4g).
+
+ 
