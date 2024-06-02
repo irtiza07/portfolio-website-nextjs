@@ -29,7 +29,7 @@ export default function CreditCardGrid() {
         referralURL="https://www.americanexpress.com/en-us/credit-cards/referral/prospect/card/bluebusinessplus-credit-card?ref=MDIRTHTjpg&XLINK=MYCP"
       />
       <CreditCardItem
-        imageURL="/hilton-business.png"
+        imageURL="/hilton-honors-business-new.png"
         cardName="Hilton Honors Business AMEX"
         cardDescription="A great hotel card for free nights"
         referralURL="https://www.americanexpress.com/en-us/credit-cards/referral/prospect/card/business/hilton-honors-american-express-business-credit-card?CORID=M~D~I~R~T~H~K~Z~N~s-1716869983733-457393160&GENCODE=349993147096747&XLINK=MYCP&extlink=US-MGM-SPA_WEB_MYCA-copypaste-1131-201329-K58R%3A9985&ref=MDIRTHKZNs&v=2"
