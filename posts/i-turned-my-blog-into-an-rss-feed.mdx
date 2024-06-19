@@ -1,0 +1,130 @@
+---
+title: I Turned My Blog Into an RSS Feed
+date: "June 19, 2024"
+description: Instead of relying on algorithms to push your content, use old-school RSS feeds to notify your followers whenever you post.
+tags: ["programming"]
+isPopular: false
+---
+![](/public/blog-rss-feed-10.png)
+
+I have always found RSS feeds to be one of the best ways to stay connected with my favorite bloggers and other content creators. 
+
+RSS feeds are designed to be updated automatically. Whenever the “author” publishes new content on their website, the RSS feed updates, and the new content is delivered straightaway to the reader’s RSS inbox. 
+
+In today’s algorithm-driven world where everyone is a passive consumer, RSS feeds almost feel somewhat rebellious — you explicitly subscribe to people that you admire, and intentionally consume their content only, instead of being at the mercy of algorithm recommendations.
+
+Because of this and more, it was a no-brainer for me to create a RSS feed based on my website blog. 
+
+If you read my recent blog posts, you will know that I have gradually moved away from cloud-hosted blog options, such as Ghost and WordPress, to my self-hosted solution built using NextJS.
+
+Similarly, I also chose to create and host my own self-hosted RSS feed solution. 
+
+If that interests you, let’s get started.
+
+## Philosophy Behind RSS Feeds
+There are a few very important reasons why I love RSS feeds. Let me list a few of them. 
+- Standardized format — I publish my content using XML and my readers can consume it using whatever app they prefer. They are not locked into using any app.
+- Timely updates — Users don’t have to visit my website to see if I recently published. They also don’t have to receive annoying emails every time I post. Instead, the RSS feed automatically updates and the reader’s app is ready with my content whenever they want to read.
+- Reader Autonomy — Readers choose who to subscribe to, follow, and read from. Their habits are not dictated by algorithms. 
+
+Unlike social media and most recommendation engine-based news aggregators, philosophically, RSS feeds resonate much more with me. 
+
+Okay, that’s enough philosophy talk for one day…let’s get started with the technical system design.
+
+## Blog Data Model
+Before creating an RSS feed, you must understand how I am storing my blog posts. 
+
+- **Markdown Files** — All my blogs live in individual Markdown files on my server. 
+- **MySQL table** — The blog metadata (title, URL, description) is also stored in MySQL to power different features on my website.
+
+An easy way to understand why I designed it as such:
+- **Want to access all my blog content?** Read and parse the Markdown files.
+- **Only want access to my blog URL or headline?** Do a quick MySQL query.
+
+![](/public/blog-rss-feed-1.png)
+
+To give you a clearer picture, here’s the table schema where I store all my blog metadata. 
+
+![](/public/blog-rss-feed-2.png)
+
+And, here’s the example of my Markdown file that contains my blog post titled “Investing $30 Daily vs $150 Weekly”. 
+
+## RSS Feed Data Model
+At its core, an RSS feed is nothing but an **XML file** containing all blog metadata. 
+
+To help illustrate, let me give you a visual example.
+
+![](/public/blog-rss-feed-3.png)
+Here’s how my `feed.xml` file looks like. 
+
+A couple of highlights to point out:
+- The `channel` tag contains basic metadata about my website, such as name, description, etc.
+- Each `item` tag is essentially one blog post, containing essential information, such as — title,  URL, description, publish date, etc (not a coincidence that most of these are stored in my MySQL database)
+
+And that’s it. That’s all there is to a RSS feed. 
+
+Don’t worry, I will tie it all together in a little bit. But I hope this helps demystify the construction of RSS feeds. 
+
+## Constructing Feed XML File 
+Three simple steps are all it takes to create and update my RSS feed every time a new blog is published:
+- Set basic blog information (see `channel` tag above)
+- Retrieve all blog posts from MySQL
+- For each blog post, create a separate `item` (see above) element
+
+Let’s walk through a few code snippets to see it in action. 
+
+![](/public/blog-rss-feed-4.png)
+At first, I get all my blog metadata. 
+
+![](/public/blog-rss-feed-5.png)
+Then, using a Python helper library, I am creating a `FeedGenerator` object that will make creating the XML file a breeze.
+
+The static `channel` information contains things such as title, URL, and description, that never changes. 
+
+![](/public/blog-rss-feed-6.png)
+For each blog post, I add the following information to the RSS feed:
+- Headline or title
+- Publish date
+- Author information — my name and email address 
+- Full blog post URL
+- A summary (see `description` and `content:encoded` in the sample above) 
+- A unique identifier — `guid` 
+
+![](/public/blog-rss-feed-7.png)
+Finally, I use a helper function to generate the XML and write the file in `feed.xml` on my server.
+
+If you want to see the full XML file, check out my RSS feed file in production by visiting https://irtizahafiz.com/feed.
+
+## Publishing the Feed XML File
+Now you know how I construct my feed XML file. 
+
+Every time I publish a blog post, a script automatically runs on my server to refresh and upload the feed file. 
+
+There’s still one missing piece — how do I expose a file generated on my server to the public internet? 
+
+I created a new route https://irtizahafiz.com/feed in my NextJS website application code and configured NextJS to serve my `feed.xml` file when someone visits that route. 
+
+![](/public/blog-rss-feed-8.png)
+
+![](/public/blog-rss-feed-9.png)
+
+It only takes a few lines of code (as you can see above) to achieve this using NextJS.
+
+## Reading my RSS Feed
+Okay, so now we have my blog’s RSS feed published to https://irtizahafiz.com/feed. 
+
+Let’s look at the final piece now — how do users read my RSS feed? 
+
+It’s simple. All they have to do is import the URL — https://irtizahafiz.com/feed — into their RSS reader app of choice. The generated `feed.xml` file uses a standardized format, so it should work with most RSS readers. 
+
+![](/public/blog-rss-feed-10.png)
+
+Here’s an example of an RSS reader screen listing all my blog posts sorted by publish date.
+## Closing Thoughts
+If you have made it this far, I hope you found this valuable. 
+
+It was a lot of run building such an old-school RSS feed that automatically updates whenever I publish a new blog post. If you are one of the few people who still use an RSS feed, and you enjoy my writing, why not subscribe to my [feed](https://irtizahafiz.com/feed)?
+
+Here are a few ways you can do so: follow me on [Medium](https://medium.com/@irtizahafiz), subscribe to [my website](https://irtizahafiz.com/newsletter?utm_source=medium), or follow me on [YouTube](https://www.youtube.com/channel/UCDankIVMXJEkhtjv5yLSN4g).
+
+ 
