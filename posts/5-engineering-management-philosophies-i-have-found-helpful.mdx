@@ -1,0 +1,165 @@
+---
+title: 5 Engineering Management Philosophies I Have Found Helpful
+date: "September 15, 2024"
+description: A challenging, but rewarding start to management.
+tags: ["management"]
+isPopular: false
+---
+
+The last few years have been some of the most challenging, yet rewarding years of my professional career. 
+
+As a founding engineering manager of a small team composed of new hires and tasked with the turnaround of a declining product domain, there were various challenges to navigate. 
+
+After a successful turnaround, the team took on newer challenges. Empowered by the vote of confidence from leadership, the team took on a new product domain and surpassed expectations in just 2 quarters.
+
+The other day, a coworker asked me how the team has been consistently performing above expectations for several quarters now.
+
+That got me thinking — if I were to look back at some of the most successful projects since the team’s inception, can I draw out any themes? 
+
+In this blog post, I will take a stab at answering that question. 
+## Identify The Limiting Step
+Every project has a “limiting step”. 
+
+The bigger the project, the greater the need to identify the crucial limiting step. 
+
+> The limiting step in a project determines the overall shape of the project. It can be **the longest, the most difficult, the most sensitive, or the most expensive step.**
+
+The key is to **work your way back** from the limiting step. 
+
+In most of our engineering projects the limiting step is usually one of the following:
+1. Most difficult
+2. Most number of dependencies 
+
+As a general rule of thumb: if the limiting step of the project goes badly, odds are that the project will as well. 
+
+That’s why it’s always critical to plan around this step. 
+
+All our engineering projects go in order through these stages:
+1. Early Scoping
+2. T-shirt Sizing
+3. Full Scoping
+4. Writing Technical Specification
+5. Break Into Milestones 
+6. Start executing
+
+The goal is to determine the “limiting step” as early as in stage 1. 
+
+Once that’s done, I can do the following: 
+- Put more focus (engineering hours, # of engineers, etc) on the “limiting step”. 
+- Adjust the project timeline appropriately based on uncertainties surrounding the “limiting step”. 
+- Start working on the “limiting step” immediately
+- Time other parts of the project based on how long the “limiting step” will take
+
+This has always helped me reduce the number of uncertainties during execution.
+## Value of Time & Effort in Project Lifecycle
+As I was flipping the pages of one of my recent favorite books, *[High Output Management](https://www.goodreads.com/book/show/324750.High_Output_Management)*, I connected the dots. 
+
+In some shape or form, I have always believed in this principle, but I could never put it in words as well as Andrew did in his book. 
+
+> If you only understand one thing about building products, you must understand that energy put in early in the process pays off tenfold and energy put in at the end of the program pays off negative tenfold.
+
+Most big decisions are made at the start of the project. If done wrong, each bad decision will take significantly more work to correct later in the project lifecycle. 
+
+That’s why, I always make sure engineers get the opportunity to dedicate enough time during the initial stages — early scoping, full scoping, and writing technical specifications. 
+
+By doing so, even though we take longer to kick off the project, we get to set the right expectations with stakeholders. 
+
+Time early in a project’s lifecycle is more valuable because the effort put in during that stage sets the tone for the remainder of the project. 
+
+Rushing at that stage usually has consequences — frequent technical direction changes, projects taking longer to complete, and worse, inconsistent communication with stakeholders. 
+## Milestones = Demos
+If you have been a part of any AGILE team, you will find this obvious. 
+
+Of course, every project milestone should culminate with a demo. However, it’s not always straightforward. 
+
+Many of our project milestones are backend-driven. There’s no obvious user-facing feature to demo. 
+
+To put it in perspective, here’s a few examples:
+- Deployed API with mock data
+- Successful creation of a new database with correct schemas
+- Logging key metrics for improved observability 
+
+All these are important deliverables that do not have shiny UI demos. 
+
+In my team, it’s still imperative to demo every milestone, no matter how esoteric. 
+
+All these count as acceptable “demos”:
+- Read through the documentation of a newly created API 
+- Functioning of an API with mock data
+- Showing off the schema of a newly created empty database
+- Tailing Kafka logs through a CLI that would eventually power a not-yet-implemented dashboard
+
+The motivations for enforcing demos for every milestone are simple: 
+- It makes progress clear to stakeholders
+- It flags integration issues at an early stage — an API documentation readout can bring out expectation mismatches before the bulk of the work has started (another example of time being more valuable earlier in the project lifecycle)
+- It gives a platform for engineers’ work to get recognized, keeping them motivated throughout.
+## Motivate & Train
+> All you can do to improve the output of an employee is motivate and train. There is nothing else.
+
+I resonated strongly with the above quote from *High Output Management.*
+
+It all boils down to these 2 actions: **motivate and train.** These are your superpowers! 
+
+Let’s break it down. 
+
+To motivate your team, you need to be motivated. I am blessed to work at a company that has created a product I love using every day. 
+
+I come to work every day motivated to improve the product, one small step at a time. That makes motivation easy for me. 
+
+Whatever your source of motivation is, I strongly believe that without you being motivated, it will be difficult for any engineering manager to motivate their team. 
+
+The second part: **to train**. 
+
+In my early days of management, this part was the trickiest. The first constructive feedback I received was also around this topic. 
+
+When I transitioned from a software engineer to an engineering manager, every manager I talked to gave me the same advice — *“You should empower your engineers to do the work, rather than doing it yourself.”*
+
+I wasn’t sure what that meant. 
+
+In my early days, I veered too much on one extreme — a hands-off approach, letting engineers figure things out themselves rather than training them on certain technical topics where they needed some nudging. 
+
+While I felt that my behavior was “empowering” the engineers, instead they felt overwhelmed. They did not get the technical support they wanted from their manager. The problem was compounded by the fact that the team took over a new codebase with engineers who were new to the company. 
+
+After receiving that feedback, I stepped in. 
+
+From then to now it’s been a tricky balance between a hands-off and a hands-on approach. I have reached a point where I think I have found a good balance. 
+
+This is why I strongly believe that every engineering manager should have the necessary technical expertise to train their engineers. Training doesn’t mean telling them what to do all the time. Instead, they should have enough knowledge to review their work, nudge where necessary, and provide helpful technical expertise to nudge conversations in the right direction. 
+
+If you are a manager of engineers, that is crucial. Technical knowledge helps you earn respect from your reports, helps them relate to you more, and gives you the tools you need to analyze how your reports are doing and what direction your team should go.
+## Give Prompt, Specific Feedback on High Leverage Activities
+Another similar challenge I faced at the beginning was **giving constructive feedback.**
+
+Giving feedback is an art. Too much too soon will overwhelm your reports, too little will leave them confused about their performance. 
+
+Although the timeliness of the feedback, depends on the activity, one type of feedback **needs to happen** immediately. 
+
+For any high-leverage activity that your reports engage in regularly, feedback on that activity needs to happen fast. 
+
+Let me walk you through an example. 
+
+In a remote setting, written communication is imperative. 
+
+Your engineers engage in written communication every day around the clock.
+- Slack messages
+- Emails
+- Project Updates
+- Task (JIRA) Updates
+- Slide Decks
+- Technical Specifications 
+
+It’s a high-leverage activity. Small improvements in written communication can have an outsized impact. 
+
+That’s why, it’s important to provide feedback immediately. 
+
+Written communication is only one example. What activity is high leverage for your report depends on your team and their role. 
+
+The point is: if there’s feedback that needs to be given on high-leverage activities, you should give it precisely and immediately. For other topics, you can defer to your best judgment.
+## Closing Thoughts
+Okay, folks, that’s all for today. 
+
+Thank you for your time. I hope you found it valuable.
+
+If you want to stay connected, here are a few ways you can do so: follow me on [Medium](https://medium.com/@irtizahafiz) or subscribe to [my website](https://irtizahafiz.com/newsletter?utm_source=medium).
+
+ 
