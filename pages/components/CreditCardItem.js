@@ -21,7 +21,14 @@ export default function CreditCardItem({
     window.open(referralURL, "_blank");
   };
   return (
-    <Flex flexDirection="column" bg="#1e262f" padding="2vw" borderRadius="2vw">
+    <Flex
+      flexDirection="column"
+      bg="#1e262f"
+      padding="2vw"
+      borderRadius="2vw"
+      justifyContent="space-between"
+      alignItems="stretch"
+    >
       <VStack>
         <Image
           width={360}
@@ -29,23 +36,24 @@ export default function CreditCardItem({
           src={imageURL}
           alt="Credit Card Image"
         />
-        <Heading size="lg" color="#75c682">
+        <Heading size="md" color="#75c682">
           {cardName}
         </Heading>
         <Spacer />
         <Text color="#F6F6F6">{cardDescription}</Text>
         <Spacer />
+
         <Link href={referralURL} data-umami-event={`${cardName}-apply-clicked`}>
           <Button
             bg="#efe073"
             color="#191919"
-            size="lg"
+            size="sm"
             fontSize="lg"
             fontWeight="bold"
             _hover={{ cursor: "pointer" }}
             onClick={handleClick}
           >
-            Apply
+            <Text fontSize={"sm"}>Apply</Text>
           </Button>
         </Link>
       </VStack>
