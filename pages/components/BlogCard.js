@@ -30,7 +30,7 @@ export default function BlogCard({ post }) {
         {postData?.description}
       </Text>
       <Spacer />
-      <Link href={`/blog/${postSlug}`}>
+      <Link href={`/blog/${postSlug}`} data-umami-event="blog-card-cta-clicked">
         <Button bg="#efe073" color="#191919" size="sm">
           Read More
         </Button>

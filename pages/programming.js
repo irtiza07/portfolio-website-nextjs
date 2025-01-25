@@ -21,7 +21,7 @@ export default function Programming({ posts, popularPosts, youtubeVideos }) {
         <title>Programming</title>
         <meta
           name="description"
-          content="Programming tutorials, software development tips and tricks, and more."
+          content="Programming tutorials, system design, software development tips and tricks, and more."
           key="desc"
         />
       </Head>

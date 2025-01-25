@@ -57,7 +57,7 @@ export default function NavBar() {
         >
           <Link href="/" data-umami-event="Home Tab Selected">
             <Text
-              fontSize={{ base: "sm", md: "lg" }}
+              fontSize={{ base: "xs", md: "lg" }}
               color="white"
               textDecoration="underline"
               textUnderlineOffset={["6px", "10px"]}
@@ -71,7 +71,7 @@ export default function NavBar() {
           >
             <Text
               color="white"
-              fontSize={{ base: "sm", md: "lg" }}
+              fontSize={{ base: "xs", md: "lg" }}
               textDecoration="underline"
               textUnderlineOffset={["6px", "10px"]}
             >
@@ -81,7 +81,7 @@ export default function NavBar() {
           <Link href="/programming" data-umami-event="Programming Tab Selected">
             <Text
               color="white"
-              fontSize={{ base: "sm", md: "lg" }}
+              fontSize={{ base: "xs", md: "lg" }}
               textDecoration="underline"
               textUnderlineOffset={["6px", "10px"]}
             >
@@ -96,7 +96,7 @@ export default function NavBar() {
             <HStack>
               <Text
                 color="white"
-                fontSize={{ base: "sm", md: "lg" }}
+                fontSize={{ base: "xs", md: "lg" }}
                 textDecoration="underline"
                 textUnderlineOffset={["6px", "10px"]}
               >
@@ -108,7 +108,7 @@ export default function NavBar() {
           <Link href="/newsletter" data-umami-event="Newsletter Tab Selected">
             <Text
               color="white"
-              fontSize={{ base: "sm", md: "lg" }}
+              fontSize={{ base: "xs", md: "lg" }}
               textDecoration="underline"
               textUnderlineOffset={["6px", "10px"]}
             >

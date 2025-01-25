@@ -15,11 +15,11 @@ export default function Home({ posts, popularPosts, categoryCounts }) {
     <Flex bg="#161f27" flexDirection="column" marginBottom={-10}>
       <Head>
         <title>
-          Irtiza Hafiz - Engineering Manager, Programmer, Blogger, YouTuber.
+          Irtiza Hafiz - Programmer, Manager and Credit Card Enthusiast.
         </title>
         <meta
           name="description"
-          content="This site is all about software engineering, productivity, management and credit cards."
+          content="This site is about programming tutorials, software engineering, AI programming, credit card reviews, credit card setup and travel tips."
           key="desc"
         />
       </Head>
@@ -60,8 +60,6 @@ const getSortedPosts = () => {
   return posts;
 };
 
-//TODO: (1) For every file, check popular metadata (2) Compute category by reading tag
-//TODO: Return: (1) posts sorted by date (2) popular_posts (3) categories_count_map
 export const getStaticProps = async () => {
   const posts = getSortedPosts();
   const popularPosts = posts.filter(

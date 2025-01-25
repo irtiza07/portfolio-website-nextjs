@@ -45,7 +45,11 @@ export default function Banner() {
           </Heading>
           <Heading color="#efe073" fontSize={["xl", "3xl", "3xl"]}>
             I create content about{" "}
-            <Link href="/programming" passHref>
+            <Link
+              href="/programming"
+              passHref
+              data-umami-event="banner-programming-cta-click"
+            >
               <Text
                 as="span"
                 color="#75c682"
@@ -58,7 +62,11 @@ export default function Banner() {
               </Text>
             </Link>{" "}
             and{" "}
-            <Link href="/credit-cards" passHref>
+            <Link
+              href="/credit-cards"
+              passHref
+              data-umami-event="banner-credit-cards-cta-click"
+            >
               <Text
                 as="span"
                 color="#75c682"

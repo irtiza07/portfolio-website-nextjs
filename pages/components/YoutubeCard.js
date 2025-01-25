@@ -30,6 +30,7 @@ export default function YoutubeCard({ videoData }) {
       <Link
         href={`https://youtube.com/watch?v=${videoData?.snippet?.resourceId?.videoId}`}
         target="_blank"
+        data-umami-event="youtube-carousel-card-cta-clicked"
       >
         <Button bg="#efe073" color="#191919" size="sm">
           Watch Video
