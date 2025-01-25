@@ -8,7 +8,7 @@ export default function BodyContainer({ posts, popularPosts, categoryCounts }) {
   return (
     <Grid
       padding={4}
-      gap={16}
+      gap={12}
       templateColumns={{ base: "repeat(1, 1fr)", md: "3fr 1fr" }}
     >
       <BlogContainer posts={posts} categoryCounts={categoryCounts} />
