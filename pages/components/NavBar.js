@@ -14,8 +14,6 @@ import {
 } from "@chakra-ui/react";
 
 export default function NavBar() {
-  const [isOpen, setIsOpen] = useState(false);
-
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -27,6 +25,11 @@ export default function NavBar() {
       wrap="wrap"
       color="white"
       p={4}
+      position="sticky"
+      top="0"
+      zIndex="10" // Ensures it stays above other content
+      bg="#0d1117" // Keeps the background color consistent
+      boxShadow="xl"
     >
       <Flex align="center" display={["none", "flex"]}>
         <Link
@@ -40,27 +43,25 @@ export default function NavBar() {
       </Flex>
       <Spacer />
 
-      <IconButton
-        display={{ base: "block", md: "none" }}
-        onClick={toggleMenu}
-        icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
-        variant="outline"
-      />
-
       <Box
-        display={{ base: isOpen ? "block" : "none", md: "flex" }}
-        width={{ base: "full", md: "auto" }}
+        display={{ base: "flex", md: "flex" }}
+        width={{ base: "auto", md: "auto" }}
         alignItems="center"
         flexGrow={1}
       >
         <Stack
-          spacing={8}
+          spacing={{ base: 3, md: 8 }}
           align="center"
-          direction={["column", "row", "row", "row"]}
+          direction={["row", "row", "row", "row"]}
           paddingTop={[4, 0, 0, 0]}
         >
           <Link href="/" data-umami-event="Home Tab Selected">
-            <Text fontSize="lg" color="white">
+            <Text
+              fontSize={{ base: "sm", md: "lg" }}
+              color="white"
+              textDecoration="underline"
+              textUnderlineOffset={["6px", "10px"]}
+            >
               Home
             </Text>
           </Link>
@@ -68,12 +69,22 @@ export default function NavBar() {
             href="/credit-cards"
             data-umami-event="Credit Card Tab Selected"
           >
-            <Text color="white" fontSize="lg">
+            <Text
+              color="white"
+              fontSize={{ base: "sm", md: "lg" }}
+              textDecoration="underline"
+              textUnderlineOffset={["6px", "10px"]}
+            >
               Credit Cards
             </Text>
           </Link>
           <Link href="/programming" data-umami-event="Programming Tab Selected">
-            <Text color="white" fontSize="lg">
+            <Text
+              color="white"
+              fontSize={{ base: "sm", md: "lg" }}
+              textDecoration="underline"
+              textUnderlineOffset={["6px", "10px"]}
+            >
               Programming
             </Text>
           </Link>
@@ -83,15 +94,24 @@ export default function NavBar() {
             data-umami-event="YouTube Tab Selected"
           >
             <HStack>
-              <Text color="white" fontSize="lg">
-                YouTube
+              <Text
+                color="white"
+                fontSize={{ base: "sm", md: "lg" }}
+                textDecoration="underline"
+                textUnderlineOffset={["6px", "10px"]}
+              >
+                Youtube
               </Text>
-              <ExternalLinkIcon color="#efe073" />
             </HStack>
           </Link>
 
           <Link href="/newsletter" data-umami-event="Newsletter Tab Selected">
-            <Text color="white" fontSize="lg">
+            <Text
+              color="white"
+              fontSize={{ base: "sm", md: "lg" }}
+              textDecoration="underline"
+              textUnderlineOffset={["6px", "10px"]}
+            >
               Newsletter
             </Text>
           </Link>
@@ -100,15 +120,3 @@ export default function NavBar() {
     </Flex>
   );
 }
-
-// return (
-//   <Flex padding="2vw">
-//     <Link href="/" data-umami-event="Home Tab Selected">
-//       <Heading color="#efe073">Irtiza Hafiz</Heading>
-//     </Link>
-//     <Spacer />
-//     <HStack spacing={16}></HStack>
-
-//     <Spacer />
-//   </Flex>
-// );

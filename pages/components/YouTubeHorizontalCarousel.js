@@ -37,7 +37,7 @@ export default function YouTubeHorizontalCarousel({ youtubeVideos }) {
     <VStack spacing={12} mb={12}>
       {/* Scrollable Grid Container */}
       <Heading color="white">
-        YouTube Tutorials{" "}
+        Youtube Tutorials{" "}
         <Link
           href={
             "https://www.youtube.com/channel/UCDankIVMXJEkhtjv5yLSN4g/about"
