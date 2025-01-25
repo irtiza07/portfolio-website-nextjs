@@ -59,9 +59,22 @@ export default function NavBar() {
           direction={["column", "row", "row", "row"]}
           paddingTop={[4, 0, 0, 0]}
         >
-          <Link href="/" data-umami-event="Blog Tab Selected">
+          <Link href="/" data-umami-event="Home Tab Selected">
             <Text fontSize="lg" color="white">
-              Blog
+              Home
+            </Text>
+          </Link>
+          <Link
+            href="/credit-cards"
+            data-umami-event="Credit Card Tab Selected"
+          >
+            <Text color="white" fontSize="lg">
+              Credit Cards
+            </Text>
+          </Link>
+          <Link href="/programming" data-umami-event="Programming Tab Selected">
+            <Text color="white" fontSize="lg">
+              Programming
             </Text>
           </Link>
           <Link
@@ -76,14 +89,7 @@ export default function NavBar() {
               <ExternalLinkIcon color="#efe073" />
             </HStack>
           </Link>
-          <Link
-            href="/credit-cards"
-            data-umami-event="Credit Card Tab Selected"
-          >
-            <Text color="white" fontSize="lg">
-              Credit Cards
-            </Text>
-          </Link>
+
           <Link href="/newsletter" data-umami-event="Newsletter Tab Selected">
             <Text color="white" fontSize="lg">
               Newsletter
