@@ -1,8 +1,11 @@
+import Link from "next/link";
+
 import React, { useState } from "react";
 import {
   Heading,
   Center,
   VStack,
+  Text,
   Stack,
   useDisclosure,
 } from "@chakra-ui/react";
@@ -20,7 +23,6 @@ export default function Banner() {
     onClose();
   };
 
-
   return (
     <Center padding={[4, 140]}>
       <RecommendationsModal
@@ -35,14 +37,40 @@ export default function Banner() {
         <VStack
           direction={"column"}
           align="left"
-          spacing={[6, 6]}
+          spacing={[6, 12]}
           justify={"center"}
         >
           <Heading color="#75c682" fontSize={["4xl", "5xl", "7xl"]}>
             Hi! I am Irtiza.
           </Heading>
-          <Heading color="#efe073" fontSize={["xl", "3xl", "4xl"]}>
-            An Engineering Manager by day, and a Blogger and YouTuber by night.
+          <Heading color="#efe073" fontSize={["xl", "3xl", "3xl"]}>
+            I create content about{" "}
+            <Link href="/programming" passHref>
+              <Text
+                as="span"
+                color="#75c682"
+                textDecoration="underline"
+                textDecorationStyle="wavy"
+                cursor="pointer"
+                textUnderlineOffset={["6px", "10px"]}
+              >
+                Programming
+              </Text>
+            </Link>{" "}
+            and{" "}
+            <Link href="/credit-cards" passHref>
+              <Text
+                as="span"
+                color="#75c682"
+                textDecoration="underline"
+                textDecorationStyle="wavy"
+                cursor="pointer"
+                textUnderlineOffset={["6px", "10px"]}
+              >
+                Credit Cards
+              </Text>
+            </Link>
+            .
           </Heading>
           <SmartSearch
             searchQueryText={searchQueryText}
