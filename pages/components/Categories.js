@@ -2,18 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { Box, Text, Heading, HStack } from "@chakra-ui/react";
 
-export default function GuideCategories() {
-  const categories = [
-    {
-      label: "Programming",
-      slug: "programming",
-    },
-    {
-      label: "Credit Cards",
-      slug: "credit-cards",
-    },
-  ];
-
+export default function Categories({ categories }) {
   return (
     <Box textAlign="center">
       <Heading mb={6} fontSize="2xl" color="white">
@@ -21,7 +10,7 @@ export default function GuideCategories() {
       </Heading>
 
       <HStack spacing={6} justify="center">
-        {categories.map((category) => (
+        {categories?.map((category) => (
           <Box
             key={category.slug}
             bg="white"

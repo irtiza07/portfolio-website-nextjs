@@ -8,6 +8,7 @@ module.exports = {
       "creditcards.wellsfargo.com",
       "creditcards.chase.com",
       "ecm.capitalone.com",
+      "cdn.prodstatic.com",
     ],
   },
   async rewrites() {

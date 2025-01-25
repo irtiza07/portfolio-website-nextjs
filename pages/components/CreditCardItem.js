@@ -30,17 +30,14 @@ export default function CreditCardItem({
       alignItems="stretch"
     >
       <VStack>
-        <Image
-          width={360}
-          height={240}
-          src={imageURL}
-          alt="Credit Card Image"
-        />
+        <Image width={200} height={80} src={imageURL} alt="Credit Card Image" />
         <Heading size="md" color="#75c682">
           {cardName}
         </Heading>
         <Spacer />
-        <Text color="#F6F6F6">{cardDescription}</Text>
+        <Text whiteSpace="pre-line" color="#F6F6F6">
+          {cardDescription}
+        </Text>
         <Spacer />
 
         <Link href={referralURL} data-umami-event={`${cardName}-apply-clicked`}>
