@@ -10,6 +10,7 @@ module.exports = {
       "ecm.capitalone.com",
       "cdn.prodstatic.com",
       "www.nerdwallet.com",
+      "nerdwallet.com",
     ],
   },
   async rewrites() {
