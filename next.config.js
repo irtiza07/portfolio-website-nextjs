@@ -9,6 +9,7 @@ module.exports = {
       "creditcards.chase.com",
       "ecm.capitalone.com",
       "cdn.prodstatic.com",
+      "www.nerdwallet.com",
     ],
   },
   async rewrites() {

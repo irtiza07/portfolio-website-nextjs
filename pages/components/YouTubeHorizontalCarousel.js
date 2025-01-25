@@ -44,6 +44,7 @@ export default function YouTubeHorizontalCarousel({ youtubeVideos }) {
           }
           target="_blank"
           passHref
+          data-umami-event="youtube-carousel-channel-cta-clicked"
         >
           <Text
             as="span"

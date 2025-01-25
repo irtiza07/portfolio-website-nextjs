@@ -11,7 +11,12 @@ export default function Categories({ categories }) {
 
       <HStack spacing={6} justify="center">
         {categories?.map((category) => (
-          <Link key={category.slug} href={`/${category.slug}`} passHref>
+          <Link
+            key={category.slug}
+            href={`/${category.slug}`}
+            passHref
+            data-umami-event={`category-${category.slug}-cta-click`}
+          >
             <Box
               bg="white"
               boxShadow="lg"

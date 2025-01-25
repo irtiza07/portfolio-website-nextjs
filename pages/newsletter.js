@@ -12,7 +12,7 @@ export default function Newsletter() {
         <title>Irtiza Hafiz | Newsletter</title>
         <meta
           name="description"
-          content="I build things with code, write about productivity and travel for free with credit cards!"
+          content="Join my newsletter to be one of the first ones to know about programming or credit card developments."
           key="desc"
         />
       </Head>
