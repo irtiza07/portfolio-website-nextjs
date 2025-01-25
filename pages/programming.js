@@ -12,7 +12,9 @@ import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import path from "path";
 
-export default function Programming({ posts, popularPosts }) {
+import YouTubeHorizontalCarousel from "./components/YouTubeHorizontalCarousel";
+
+export default function Programming({ posts, popularPosts, youtubeVideos }) {
   return (
     <Flex bg="#161f27" flexDirection="column" marginBottom={-10}>
       <Head>
@@ -25,6 +27,7 @@ export default function Programming({ posts, popularPosts }) {
       </Head>
       <NavBar />
       <Box padding={{ base: "3vw", md: "5vw" }}>
+        <YouTubeHorizontalCarousel youtubeVideos={youtubeVideos} />
         <BlogGrid
           posts={popularPosts}
           customHeading={"Featured Posts"}
@@ -66,6 +69,22 @@ const getSortedPosts = () => {
   return posts;
 };
 
+const getYoutubeVideos = async () => {
+  // Fetch YouTube videos
+  const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY; // Ensure you add this key in `.env.local`
+  const PLAYLIST_ID = "UUDankIVMXJEkhtjv5yLSN4g"; // Playlist ID
+  const API_URL = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=10&playlistId=${PLAYLIST_ID}&key=${YOUTUBE_API_KEY}`;
+
+  try {
+    const response = await fetch(API_URL);
+    const data = await response.json();
+    return data.items || [];
+  } catch (error) {
+    console.error("Error fetching YouTube videos:", error);
+    return [];
+  }
+};
+
 export const getStaticProps = async () => {
   const posts = getSortedPosts().filter(
     (post) => post.frontMatter.tags[0] === "programming"
@@ -74,10 +93,13 @@ export const getStaticProps = async () => {
     (post) => post.frontMatter.isPopular === true
   );
 
+  const youtubeVideos = await getYoutubeVideos();
+
   return {
     props: {
       posts: posts,
       popularPosts: popularPosts,
+      youtubeVideos: youtubeVideos,
     },
   };
 };
