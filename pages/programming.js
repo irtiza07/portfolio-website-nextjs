@@ -1,34 +1,38 @@
 import fs from "fs";
-import path from "path";
+import Head from "next/head";
 import matter from "gray-matter";
 
-import { Heading, VStack, Flex, Text, Box } from "@chakra-ui/react";
-import Head from "next/head";
+// import styles from "../styles/Home.module.css";
+import { Flex, Box } from "@chakra-ui/react";
+import Banner from "./components/Banner";
+import BodyContainer from "./components/BodyContainer";
+import BlogGrid from "./components/BlogGrid";
 
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
-import CreditCardGrid from "./components/CreditCardGrid";
-import Categories from "./components/Categories";
-import BlogContainer from "./components/BlogContainer";
-import BlogGrid from "./components/BlogGrid";
+import path from "path";
 
-export default function CreditCards({ posts }) {
+export default function Programming({ posts, popularPosts }) {
   return (
-    <Flex bg="#161f27" flexDirection="column" color="white" width="100vw">
+    <Flex bg="#161f27" flexDirection="column" marginBottom={-10}>
       <Head>
-        <title>Credit Cards</title>
+        <title>Programming</title>
         <meta
           name="description"
-          content="Travel credit cards, cashback credit cards, redemption strategies, travel stories, award booking tips, and more."
+          content="Programming tutorials, software development tips and tricks, and more."
           key="desc"
         />
       </Head>
       <NavBar />
       <Box padding={{ base: "3vw", md: "5vw" }}>
-        <CreditCardGrid />
+        <BlogGrid
+          posts={popularPosts}
+          customHeading={"Featured Posts"}
+          maxColumnCount={4}
+        />
         <BlogGrid
           posts={posts}
-          customHeading={"Credit Card Talk"}
+          customHeading={"All Programming Posts"}
           maxColumnCount={4}
         />
       </Box>
@@ -59,15 +63,21 @@ const getSortedPosts = () => {
     };
   });
   posts.sort(comparePublicationDates);
-  return posts.filter((post) => post.frontMatter.tags[0] === "credit-cards");
+  return posts;
 };
 
 export const getStaticProps = async () => {
-  const posts = getSortedPosts();
+  const posts = getSortedPosts().filter(
+    (post) => post.frontMatter.tags[0] === "programming"
+  );
+  const popularPosts = posts.filter(
+    (post) => post.frontMatter.isPopular === true
+  );
 
   return {
     props: {
       posts: posts,
+      popularPosts: popularPosts,
     },
   };
 };
