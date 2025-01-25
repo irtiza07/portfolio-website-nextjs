@@ -24,7 +24,7 @@ export default function Banner() {
   };
 
   return (
-    <Center padding={[4, 140]}>
+    <Center padding={6}>
       <RecommendationsModal
         isOpen={isOpen}
         onClose={handleModalClose}
