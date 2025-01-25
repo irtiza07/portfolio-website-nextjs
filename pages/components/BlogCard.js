@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { Heading, VStack, Spacer, Button, Text } from "@chakra-ui/react";
+import { Heading, VStack, Spacer, Button, Text, Badge } from "@chakra-ui/react";
 
 export default function BlogCard({ post }) {
   const postData = post?.frontMatter;
@@ -15,6 +15,9 @@ export default function BlogCard({ post }) {
       borderRadius={[28, 16]}
       spacing={6}
     >
+      <Badge colorScheme="red" px={3} py={1} borderRadius="full" fontSize="xs">
+        {postData?.tags?.[0]}
+      </Badge>
       <Text color="#f57373" fontSize="sm">
         {postData?.date}
       </Text>
