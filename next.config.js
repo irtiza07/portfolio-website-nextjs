@@ -11,6 +11,7 @@ module.exports = {
       "cdn.prodstatic.com",
       "www.nerdwallet.com",
       "nerdwallet.com",
+      "upgradedpoints.com",
     ],
   },
   async rewrites() {

@@ -57,22 +57,28 @@ export default function CreditCardGrid() {
             referralURL="https://i.capitalone.com/G35be7pGf"
           />
           <CreditCardItem
+            imageURL="https://upgradedpoints.com/wp-content/uploads/2023/10/Amex-Business-Gold-Card-Rose.jpeg?auto=webp&disable=upscale&width=900&fit=cover"
+            cardName="American Express Business Gold"
+            cardDescription="4X on Cloud & Software Spend, Tech Gadgets, Advertising, Gas, Transit! 100K Bonus Points!"
+            referralURL="https://www.americanexpress.com/en-us/credit-cards/referral/prospect/business/F0A5EFF6DE5834DACD09B0A8FC7727D340C8ACA40308FBF73AD8900CBF5BDBCD42F5FB1476008E14272AA0C0C9EE8A0FBF6418587E0B0821C111EFC5E18A7A42438A31A8FFB008E3D98220421E9C303BD4A986BB1FA627DC72D03D4357E3F5F9EFB729AE758F685B99A902A32A4A32E727A2725BA9953A1A7BF9E09D78B3CDCADAEC21239C850BC6529A712B584D228E422A5E21B1EB6DB0BD57D6378FC40EC50ED798BDA046A6B02B7888094FC6B61F3F14E0ABE0779ADEB9BFBCD89EB14A63975F4130ADDF53C40F10633B88187951?CORID=M~D~I~R~T~H~k~u~7~w-1737902929181-77528221&GENCODE=349992856309180&extlink=US-MGM-USEFULLINKS-copypaste-784-201279-K3QE%3A9919&ref=MDIRTHku7w&v=2&xl=cp19"
+          />
+          <CreditCardItem
             imageURL="https://ecm.capitalone.com/WCM/card/products/new-savor-card-art.png"
             cardName="Capital One Savor Rewards"
             cardDescription="3X Restaurants, Groceries & Entertainment! $300 Bonus!"
             referralURL="https://i.capitalone.com/GMEE0Fgpz"
           />
           <CreditCardItem
-            imageURL="https://icm.aexp-static.com/acquisition/card-art/NUS000000328_480x304_straight_withname.png"
-            cardName="Hilton Surpass Card"
-            cardDescription="12X Hilton Purchases! 6X Restaurants, Groceries, & Gas! 130K Bonus Points!"
-            referralURL="https://americanexpress.com/en-us/referral/hilton-honors?ref=MDIRTHX71N&xl=cp15"
-          />
-          <CreditCardItem
             imageURL="https://creditcards.chase.com/content/dam/jpmc-marketplace/card-art/sapphire_preferred_card.png"
             cardName="Chase Sapphire Preferred"
             cardDescription="3X Dining, 2X Travel, 60K Bonus Points! $50 Travel Credit!"
             referralURL="https://www.referyourchasecard.com/19q/U38HTDCGS0"
+          />
+          <CreditCardItem
+            imageURL="https://icm.aexp-static.com/acquisition/card-art/NUS000000328_480x304_straight_withname.png"
+            cardName="Hilton Surpass Card"
+            cardDescription="12X Hilton Purchases! 6X Restaurants, Groceries, & Gas! 130K Bonus Points!"
+            referralURL="https://americanexpress.com/en-us/referral/hilton-honors?ref=MDIRTHX71N&xl=cp15"
           />
           <CreditCardItem
             imageURL="https://creditcards.chase.com/content/dam/jpmc-marketplace/card-art/freedom_flex_card_alt.png"
@@ -99,7 +105,7 @@ export default function CreditCardGrid() {
             referralURL="https://bilt.page/r/1YFG-4S1F"
           />
           <CreditCardItem
-            imageURL="https://www.nerdwallet.com/cdn-cgi/image/width=1200,quality=100/cdn/images/marketplace/credit_cards/50e48ec4-0ee6-11ef-9321-a75ef3cf4886/8cc9c7e06a4ff5aca65202716191445ecd4bc6cb8852bcdac706f27ae6e52cdd.jpg"
+            imageURL="https://cdn.prodstatic.com/shared/images/cards/278x175/cc4c54f0-0d3f-11ef-8061-419b99b523ee.png"
             cardName="Citi Strata Premier"
             cardDescription="3X Points on Flights, Hotels, Restaurants, Groceries and Gas Stations! 75K Bonus Points!"
             referralURL="https://www.citi.com/credit-cards/citi-strata-premier-credit-card"
