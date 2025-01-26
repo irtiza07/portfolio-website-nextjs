@@ -66,18 +66,26 @@ const components = {
 };
 
 export default function PostPage({
-  frontMatter: { title, description },
+  frontMatter: { title, description, seoTitle, seoDescription },
   mdxSource,
 }) {
   return (
     <Flex bg="#161f27" flexDirection="column" color="white">
       <Head>
         <title>{title}</title>
-        <meta name="description" content={description} key="desc" />
+        <meta name="title" content={seoTitle}></meta>
+        <meta name="description" content={seoDescription}></meta>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0"
+        ></meta>
+        <meta property="og:title" content={title}></meta>
+        <meta property="og:description" content={description}></meta>
+        <meta property="og:type" content="article"></meta>
       </Head>
       <NavBar />
       <Flex flexDirection={"column"}>
-        <Heading fontSize={["3xl", "4xl"]} textAlign={"center"}>
+        <Heading as="h1" fontSize={["3xl", "4xl"]} textAlign={"center"}>
           {title}
         </Heading>
         <Center padding={[8, 20]}>

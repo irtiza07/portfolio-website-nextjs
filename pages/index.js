@@ -66,20 +66,10 @@ export const getStaticProps = async () => {
     (post) => post.frontMatter.isPopular === true
   );
 
-  const categoryCounts = posts.reduce((counts, post) => {
-    const category = post.frontMatter.tags[0];
-
-    // Increment the count for the category
-    counts[category] = (counts[category] || 0) + 1;
-
-    return counts;
-  }, {});
-
   return {
     props: {
       posts: posts,
       popularPosts: popularPosts,
-      categoryCounts: Object.entries(categoryCounts),
     },
   };
 };
