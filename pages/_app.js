@@ -17,7 +17,11 @@ export default function MyApp({ Component, pageProps }) {
     <ChakraProvider theme={theme}>
       <Head>
         <title>Irtiza Hafiz</title>
-        <link rel="icon" type="image/png" href="/favicon.png" />
+        <link
+          rel="icon"
+          type="image/png"
+          href="https://ds0fmzhunbzyk.cloudfront.net/favicon.png"
+        />
         <script
           defer
           src="https://umami.irtizahafiz.com/script.js"

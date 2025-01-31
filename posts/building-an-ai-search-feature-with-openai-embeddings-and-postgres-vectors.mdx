@@ -5,7 +5,7 @@ description: Helping visitors search across all my blogs and YouTube videos wit
 tags: ["programming"]
 isPopular: true
 ---
-![](/public/smart-search-overview.png)
+![](https://ds0fmzhunbzyk.cloudfront.net/smart-search-overview.png)
 
 My website visitors can quickly search across all my **blogs** and YouTube **videos** using a **“smart search”** functionality that I built using OpenAI’s **Embeddings API** and a **Postgres** DB. 
 
@@ -19,8 +19,8 @@ Let’s get started.
 If you are looking for a very quick overview, I hope the system design diagrams for both my Blog and YouTube pipeline will be helpful. 
 
 In this blog post, I will elaborate on every component. If you think that will be helpful, keep reading.
-![](/public/smart-search-blog-pipeline.png)
-![](/public/smart-search-youtube-pipeline.png)
+![](https://ds0fmzhunbzyk.cloudfront.net/smart-search-blog-pipeline.png)
+![](https://ds0fmzhunbzyk.cloudfront.net/smart-search-youtube-pipeline.png)
 
 
 ## User Problem — Why Build the Feature? 
@@ -43,7 +43,7 @@ Before that, let’s look at what data I am storing for every blog post.
 
 For our reference, here’s the system diagram of my blog pipeline. 
 
-![](/public/smart-search-blog-pipeline.png)
+![](https://ds0fmzhunbzyk.cloudfront.net/smart-search-blog-pipeline.png)
 
 Let’s break it down. 
 
@@ -55,7 +55,7 @@ The first step is to store certain metadata about these posts in a Postgres data
 - Thumbnail
 - Embedding Vector (more on this later)
 
-![](/public/smart-search-db-model.png)
+![](https://ds0fmzhunbzyk.cloudfront.net/smart-search-db-model.png)
 
 With this information, I can quickly pull relevant blog post links to show on the UI. 
 
@@ -67,7 +67,7 @@ According to [OpenAI](https://platform.openai.com/docs/guides/embeddings/what-ar
 
 I can feed my blog’s content to OpenAI’s `/v1/embeddings` [endpoint](https://platform.openai.com/docs/api-reference/embeddings/create), and it will give back a vector (list of gibberish numbers). 
 
-![](/public/smart-search-get-embeddings.png)
+![](https://ds0fmzhunbzyk.cloudfront.net/smart-search-get-embeddings.png)
 
 
 It looks something like this: 
@@ -88,7 +88,7 @@ Output: A list of numbers (or a vector)
 
 Once I get the vector, I store it in my Postgres Database with the other metadata (title, URL, thumbnail, date, etc).
 
-![](/public/smart-search-data-sample.png)
+![](https://ds0fmzhunbzyk.cloudfront.net/smart-search-data-sample.png)
 
 The same process is followed for all my blog posts:
 1. Read Markdown File
@@ -137,7 +137,7 @@ And OpenAI gives back, something like this:
 </SyntaxHighlighter>
 
 Now, the second part starts. 
-![](/public/smart-search-get-top-recommendations.png)
+![](https://ds0fmzhunbzyk.cloudfront.net/smart-search-get-top-recommendations.png)
 
 I take the above embedding from OpenAI and compare it against the embeddings of all my blog posts. Here’s what the query looks like: 
 
@@ -209,7 +209,7 @@ Some of the metadata includes:
 
 Before diving deeper into the design, here’s the same YouTube pipeline system design, for your reference.
 
-![](/public/smart-search-youtube-pipeline.png)
+![](https://ds0fmzhunbzyk.cloudfront.net/smart-search-youtube-pipeline.png)
 
 In the first step, we are using the YouTube API to extract all the metadata and store them in the same Postgres table (the one used for my blog posts).
 

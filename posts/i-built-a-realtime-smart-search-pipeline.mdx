@@ -5,7 +5,7 @@ description: Making all my blog posts and YouTube videos searchable in real-time
 tags: ["programming"]
 isPopular: true
 ---
-![](/public/realtime-pipeline-overview.png)
+![](https://ds0fmzhunbzyk.cloudfront.net/realtime-pipeline-overview.png)
 In my previous [blog post](https://medium.com/gitconnected/building-an-ai-search-feature-with-openai-embeddings-postgres-vectors-f48039834a15), I went over how I added a **smart search** feature to my [website](https://irtizahafiz.com/newsletter?utm_source=medium) that lets my audience search across all my **blog posts** and **YouTube videos.**
 
 In this post, I will focus on the **real-time pipeline** that is powering the smart search, so that every time I publish a new blog post or video, the content is automatically **“indexed”**.
@@ -46,7 +46,7 @@ For my YouTube videos, a similar process:
 - Embeddings for the new video are stored in Postgres
 
 If you understand better with illustrations, here you go.
-![](/public/realtime-pipeline-overview.png)
+![](https://ds0fmzhunbzyk.cloudfront.net/realtime-pipeline-overview.png)
 
 ## First Step: FastAPI Endpoint
 There were a few common pieces of logic that applied to both blogs and videos:
@@ -56,9 +56,9 @@ There were a few common pieces of logic that applied to both blogs and videos:
 
 Creating a new private endpoint to encapsulate the above made the most sense.
 
-![](/public/create-embeddings-code.png)
+![](https://ds0fmzhunbzyk.cloudfront.net/create-embeddings-code.png)
 
-![](/public/create-embeddings-swagger.png)
+![](https://ds0fmzhunbzyk.cloudfront.net/create-embeddings-swagger.png)
 
 The endpoint took 3 query parameters:
 1. `youtube` — if a new YouTube video needs to be processed
@@ -67,7 +67,7 @@ The endpoint took 3 query parameters:
 
 To guarantee not processing already “seen” content, I only look for unique URLs. 
 
-![](/public/unique-urls-query.png)
+![](https://ds0fmzhunbzyk.cloudfront.net/unique-urls-query.png)
 
 A new blog or video only gets processed, when the new URL does not already exist in `stored_video_urls`.
 
@@ -77,7 +77,7 @@ Requests to OpenAI can become expensive with increasing token sizes. Because of 
 
 Using Python’s built-in `lru_cache` does the job for now. Later on, I plan on migrating to something like Redis.
 
-![](/public/embeddings-from-openai.png) 
+![](https://ds0fmzhunbzyk.cloudfront.net/embeddings-from-openai.png) 
 
 Okay, so now that you know about the important parts of the endpoint, let’s talk about how the API is called in the real-time pipeline.
 

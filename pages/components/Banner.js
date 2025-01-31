@@ -88,7 +88,7 @@ export default function Banner() {
           />
         </VStack>
         <Image
-          src="/irtiza-avatar-ayesha.png"
+          src="https://ds0fmzhunbzyk.cloudfront.net/irtiza-avatar-ayesha.png"
           alt="Irtiza Hafiz's avatar"
           width={600}
           height={400}

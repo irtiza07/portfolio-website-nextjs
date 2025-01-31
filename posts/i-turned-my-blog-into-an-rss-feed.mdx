@@ -5,7 +5,7 @@ description: Instead of relying on algorithms to push your content, use old-scho
 tags: ["programming"]
 isPopular: false
 ---
-![](/public/blog-rss-feed-10.png)
+![](https://ds0fmzhunbzyk.cloudfront.net/blog-rss-feed-10.png)
 
 I have always found RSS feeds to be one of the best ways to stay connected with my favorite bloggers and other content creators. 
 
@@ -41,11 +41,11 @@ An easy way to understand why I designed it as such:
 - **Want to access all my blog content?** Read and parse the Markdown files.
 - **Only want access to my blog URL or headline?** Do a quick MySQL query.
 
-![](/public/blog-rss-feed-1.png)
+![](https://ds0fmzhunbzyk.cloudfront.net/blog-rss-feed-1.png)
 
 To give you a clearer picture, here’s the table schema where I store all my blog metadata. 
 
-![](/public/blog-rss-feed-2.png)
+![](https://ds0fmzhunbzyk.cloudfront.net/blog-rss-feed-2.png)
 
 And, here’s the example of my Markdown file that contains my blog post titled “Investing $30 Daily vs $150 Weekly”. 
 
@@ -54,7 +54,7 @@ At its core, an RSS feed is nothing but an **XML file** containing all blog meta
 
 To help illustrate, let me give you a visual example.
 
-![](/public/blog-rss-feed-3.png)
+![](https://ds0fmzhunbzyk.cloudfront.net/blog-rss-feed-3.png)
 Here’s how my `feed.xml` file looks like. 
 
 A couple of highlights to point out:
@@ -73,15 +73,15 @@ Three simple steps are all it takes to create and update my RSS feed every time 
 
 Let’s walk through a few code snippets to see it in action. 
 
-![](/public/blog-rss-feed-4.png)
+![](https://ds0fmzhunbzyk.cloudfront.net/blog-rss-feed-4.png)
 At first, I get all my blog metadata. 
 
-![](/public/blog-rss-feed-5.png)
+![](https://ds0fmzhunbzyk.cloudfront.net/blog-rss-feed-5.png)
 Then, using a Python helper library, I am creating a `FeedGenerator` object that will make creating the XML file a breeze.
 
 The static `channel` information contains things such as title, URL, and description, that never changes. 
 
-![](/public/blog-rss-feed-6.png)
+![](https://ds0fmzhunbzyk.cloudfront.net/blog-rss-feed-6.png)
 For each blog post, I add the following information to the RSS feed:
 - Headline or title
 - Publish date
@@ -90,7 +90,7 @@ For each blog post, I add the following information to the RSS feed:
 - A summary (see `description` and `content:encoded` in the sample above) 
 - A unique identifier — `guid` 
 
-![](/public/blog-rss-feed-7.png)
+![](https://ds0fmzhunbzyk.cloudfront.net/blog-rss-feed-7.png)
 Finally, I use a helper function to generate the XML and write the file in `feed.xml` on my server.
 
 If you want to see the full XML file, check out my RSS feed file in production by visiting https://irtizahafiz.com/feed.
@@ -104,9 +104,9 @@ There’s still one missing piece — how do I expose a file generated on my ser
 
 I created a new route https://irtizahafiz.com/feed in my NextJS website application code and configured NextJS to serve my `feed.xml` file when someone visits that route. 
 
-![](/public/blog-rss-feed-8.png)
+![](https://ds0fmzhunbzyk.cloudfront.net/blog-rss-feed-8.png)
 
-![](/public/blog-rss-feed-9.png)
+![](https://ds0fmzhunbzyk.cloudfront.net/blog-rss-feed-9.png)
 
 It only takes a few lines of code (as you can see above) to achieve this using NextJS.
 
@@ -117,7 +117,7 @@ Let’s look at the final piece now — how do users read my RSS feed?
 
 It’s simple. All they have to do is import the URL — https://irtizahafiz.com/feed — into their RSS reader app of choice. The generated `feed.xml` file uses a standardized format, so it should work with most RSS readers. 
 
-![](/public/blog-rss-feed-10.png)
+![](https://ds0fmzhunbzyk.cloudfront.net/blog-rss-feed-10.png)
 
 Here’s an example of an RSS reader screen listing all my blog posts sorted by publish date.
 ## Closing Thoughts
