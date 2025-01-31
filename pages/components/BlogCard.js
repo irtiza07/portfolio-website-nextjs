@@ -21,11 +21,11 @@ export default function BlogCard({ post }) {
       <Text color="#f57373" fontSize="sm">
         {postData?.date}
       </Text>
-
-      <Heading color="#75c682" fontSize="xl">
-        {postData?.title}
-      </Heading>
-
+      <Link href={`/blog/${postSlug}`} data-umami-event="blog-card-cta-clicked">
+        <Heading color="#75c682" fontSize="xl">
+          {postData?.title}
+        </Heading>
+      </Link>
       <Text color="#F6F6F6" fontSize="lg">
         {postData?.description}
       </Text>
