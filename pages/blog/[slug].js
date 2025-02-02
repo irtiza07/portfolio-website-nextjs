@@ -15,7 +15,13 @@ import Link from "next/link";
 
 const components = {
   h2: (props) => (
-    <Heading {...props} fontSize={"3xl"} color="#75c682" marginTop={12}>
+    <Heading
+      {...props}
+      fontSize={"3xl"}
+      color="#75c682"
+      marginTop={12}
+      marginBottom={4}
+    >
       {props.children}
     </Heading>
   ),
@@ -25,7 +31,7 @@ const components = {
     </Heading>
   ),
   p: (props) => (
-    <Text {...props} fontSize={"md"} lineHeight={"8"} marginBottom={[35, 8]}>
+    <Text {...props} fontSize={"md"} lineHeight={"8"} marginBottom={[8, 3]}>
       {props.children}
     </Text>
   ),
@@ -45,7 +51,7 @@ const components = {
     </Text>
   ),
   li: (props) => (
-    <Text {...props} marginTop={6} marginBottom={6}>
+    <Text {...props} marginTop={2} marginBottom={4}>
       <HStack>
         <ArrowForwardIcon color="#efe073" boxSize={[4, 8]}></ArrowForwardIcon>
         <Text>{props.children}</Text>
@@ -54,12 +60,12 @@ const components = {
   ),
   SyntaxHighlighter: SyntaxHighlighter,
   img: (props) => (
-    <Center>
+    <Center padding={8}>
       <Image
         src={props.src.replace("/public", "")} // Remove '/public' from image path
         alt={props.alt}
-        width={1260}
-        height={800}
+        width={600}
+        height={400}
       />
     </Center>
   ),
