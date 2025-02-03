@@ -7,7 +7,15 @@ import SyntaxHighlighter from "react-syntax-highlighter";
 import Head from "next/head";
 import Image from "next/image";
 
-import { Heading, Center, Text, Flex, HStack } from "@chakra-ui/react";
+import {
+  Heading,
+  Center,
+  Text,
+  Flex,
+  HStack,
+  VStack,
+  Box,
+} from "@chakra-ui/react";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
@@ -15,6 +23,7 @@ import { getSortedPosts } from "../../lib/logic";
 
 import Link from "next/link";
 import CreditCardGrid from "../components/CreditCardGrid";
+import RecommendedPostsCarousel from "../components/RecommendedPostsCarousel";
 
 const components = {
   h2: (props) => (
@@ -75,11 +84,10 @@ const components = {
 };
 
 export default function PostPage({
-  frontMatter: { title, description, seoTitle, seoDescription },
+  frontMatter: { title, description, seoTitle, seoDescription, tags },
   mdxSource,
-  selectedCreditCardPosts,
+  selectedRelatedPosts,
 }) {
-  console.log(selectedCreditCardPosts);
   return (
     <Flex bg="#161f27" flexDirection="column" color="white">
       <Head>
@@ -105,7 +113,11 @@ export default function PostPage({
           </Flex>
         </Center>
       </Flex>
-      <CreditCardGrid />
+      <Box padding={4}>
+        {tags[0] === "credit-cards" && <CreditCardGrid />}
+        <RecommendedPostsCarousel recommendedPosts={selectedRelatedPosts} />
+      </Box>
+
       <Footer />
     </Flex>
   );
@@ -133,20 +145,20 @@ export const getStaticProps = async ({ params: { slug } }) => {
   const mdxSource = await serialize(content);
 
   const posts = getSortedPosts();
-  const creditCardPosts = posts.filter(
-    (post) => post.frontMatter.tags[0] === "credit-cards"
+  const relatedPosts = posts.filter(
+    (post) => post.frontMatter.tags[0] === frontMatter.tags[0]
   );
 
   // Shuffle creditCardPosts and randomly pick 10
-  const shuffledPosts = creditCardPosts.sort(() => 0.5 - Math.random());
-  const selectedCreditCardPosts = shuffledPosts.slice(0, 10);
+  const shuffledPosts = relatedPosts.sort(() => 0.5 - Math.random());
+  const selectedRelatedPosts = shuffledPosts.slice(0, 12);
 
   return {
     props: {
       frontMatter,
       slug,
       mdxSource,
-      selectedCreditCardPosts,
+      selectedRelatedPosts,
     },
   };
 };
