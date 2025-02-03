@@ -149,9 +149,9 @@ export const getStaticProps = async ({ params: { slug } }) => {
     (post) => post.frontMatter.tags[0] === frontMatter.tags[0]
   );
 
-  // Shuffle creditCardPosts and randomly pick 10
+  // Shuffle creditCardPosts and randomly pick 7
   const shuffledPosts = relatedPosts.sort(() => 0.5 - Math.random());
-  const selectedRelatedPosts = shuffledPosts.slice(0, 12);
+  const selectedRelatedPosts = shuffledPosts.slice(0, 7);
 
   return {
     props: {
