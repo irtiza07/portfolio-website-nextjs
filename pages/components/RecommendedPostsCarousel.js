@@ -11,9 +11,9 @@ import {
 } from "@chakra-ui/react";
 import { ArrowLeftIcon, ArrowRightIcon } from "@chakra-ui/icons";
 
-import YoutubeCard from "./YoutubeCard";
+import BlogCard from "./BlogCard";
 
-export default function YouTubeHorizontalCarousel({ youtubeVideos }) {
+export default function RecommendedPostsCarousel({ recommendedPosts }) {
   const scrollContainerRef = useRef(null);
 
   // Scroll left handler
@@ -35,29 +35,7 @@ export default function YouTubeHorizontalCarousel({ youtubeVideos }) {
   return (
     <VStack spacing={12} mb={12}>
       {/* Scrollable Grid Container */}
-      <Heading color="white">
-        Youtube Tutorials{" "}
-        <Link
-          href={
-            "https://www.youtube.com/channel/UCDankIVMXJEkhtjv5yLSN4g/about"
-          }
-          target="_blank"
-          passHref
-          data-umami-event="youtube-carousel-channel-cta-clicked"
-        >
-          <Text
-            as="span"
-            color="#75c682"
-            textDecoration="underline"
-            textDecorationStyle="solid"
-            cursor="pointer"
-            textUnderlineOffset={["1px", "2px"]}
-            fontSize={["sm", "lg"]}
-          >
-            (See All)
-          </Text>
-        </Link>
-      </Heading>
+      <Heading color="white">Similar Posts</Heading>
       <Box
         ref={scrollContainerRef}
         overflowX="auto"
@@ -68,8 +46,8 @@ export default function YouTubeHorizontalCarousel({ youtubeVideos }) {
           autoFlow="column" // Ensure items flow horizontally
           gap={{ base: 4, md: 3 }}
         >
-          {youtubeVideos?.map((videoData, index) => (
-            <YoutubeCard key={index} videoData={videoData} />
+          {recommendedPosts?.map((postData, index) => (
+            <BlogCard key={index} post={postData} />
           ))}
         </Grid>
       </Box>

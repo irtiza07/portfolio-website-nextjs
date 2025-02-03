@@ -1,6 +1,4 @@
-import fs from "fs";
 import Head from "next/head";
-import matter from "gray-matter";
 
 // import styles from "../styles/Home.module.css";
 import { Flex } from "@chakra-ui/react";
@@ -8,7 +6,8 @@ import Banner from "./components/Banner";
 import BodyContainer from "./components/BodyContainer";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
-import path from "path";
+
+import { getSortedPosts } from "../lib/logic";
 
 export default function Home({ posts, popularPosts, categoryCounts }) {
   return (
@@ -35,30 +34,6 @@ export default function Home({ posts, popularPosts, categoryCounts }) {
     </Flex>
   );
 }
-
-const comparePublicationDates = (a, b) => {
-  const dateA = new Date(a.frontMatter.date);
-  const dateB = new Date(b.frontMatter.date);
-  return dateB - dateA;
-};
-
-const getSortedPosts = () => {
-  const files = fs.readdirSync(path.join("posts"));
-
-  const posts = files?.map((filename) => {
-    const markdownWithMeta = fs.readFileSync(
-      path.join("posts", filename),
-      "utf-8"
-    );
-    const { data: frontMatter } = matter(markdownWithMeta);
-    return {
-      frontMatter,
-      slug: filename.split(".")[0],
-    };
-  });
-  posts.sort(comparePublicationDates);
-  return posts;
-};
 
 export const getStaticProps = async () => {
   const posts = getSortedPosts();

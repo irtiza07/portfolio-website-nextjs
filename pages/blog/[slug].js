@@ -7,11 +7,23 @@ import SyntaxHighlighter from "react-syntax-highlighter";
 import Head from "next/head";
 import Image from "next/image";
 
-import { Heading, Center, Text, Flex, HStack } from "@chakra-ui/react";
+import {
+  Heading,
+  Center,
+  Text,
+  Flex,
+  HStack,
+  VStack,
+  Box,
+} from "@chakra-ui/react";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
+import { getSortedPosts } from "../../lib/logic";
+
 import Link from "next/link";
+import CreditCardGrid from "../components/CreditCardGrid";
+import RecommendedPostsCarousel from "../components/RecommendedPostsCarousel";
 
 const components = {
   h2: (props) => (
@@ -72,8 +84,9 @@ const components = {
 };
 
 export default function PostPage({
-  frontMatter: { title, description, seoTitle, seoDescription },
+  frontMatter: { title, description, seoTitle, seoDescription, tags },
   mdxSource,
+  selectedRelatedPosts,
 }) {
   return (
     <Flex bg="#161f27" flexDirection="column" color="white">
@@ -100,6 +113,11 @@ export default function PostPage({
           </Flex>
         </Center>
       </Flex>
+      <Box padding={4}>
+        {tags[0] === "credit-cards" && <CreditCardGrid />}
+        <RecommendedPostsCarousel recommendedPosts={selectedRelatedPosts} />
+      </Box>
+
       <Footer />
     </Flex>
   );
@@ -125,11 +143,22 @@ export const getStaticProps = async ({ params: { slug } }) => {
   );
   const { data: frontMatter, content } = matter(markdownWithMeta);
   const mdxSource = await serialize(content);
+
+  const posts = getSortedPosts();
+  const relatedPosts = posts.filter(
+    (post) => post.frontMatter.tags[0] === frontMatter.tags[0]
+  );
+
+  // Shuffle creditCardPosts and randomly pick 7
+  const shuffledPosts = relatedPosts.sort(() => 0.5 - Math.random());
+  const selectedRelatedPosts = shuffledPosts.slice(0, 7);
+
   return {
     props: {
       frontMatter,
       slug,
       mdxSource,
+      selectedRelatedPosts,
     },
   };
 };
