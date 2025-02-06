@@ -5,6 +5,7 @@ module.exports = {
       "cdn.irtizahafiz.com",
       "i.ytimg.com", //youtube thumbnails
     ],
+    unoptimized: true,
   },
   async rewrites() {
     return [
