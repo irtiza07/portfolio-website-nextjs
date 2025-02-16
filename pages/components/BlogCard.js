@@ -55,7 +55,7 @@ export default function BlogCard({ post }) {
             {postData?.title}
           </Heading>
         </Link>
-        <Text color="#F6F6F6" fontSize="lg" whiteSpace={"normal"} noOfLines={3}>
+        <Text color="#F6F6F6" fontSize="lg" whiteSpace={"normal"} noOfLines={4}>
           {postData?.description}
         </Text>
         <Spacer />
