@@ -69,7 +69,7 @@ export default function RecommendationsModal({
                       {recommendations["blog"].map((rec, index) => (
                         <Link href={rec[1]} target="_blank" key={index}>
                           <HStack>
-                            <Text color="black" fontSize="lg">
+                            <Text color="black" fontSize="lg" align={"start"}>
                               {rec[0]} <ExternalLinkIcon color="#f57373" />
                             </Text>
                           </HStack>
