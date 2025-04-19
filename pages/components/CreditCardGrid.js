@@ -48,7 +48,7 @@ export default function CreditCardGrid() {
             imageURL="https://ds0fmzhunbzyk.cloudfront.net/credit-cards-photos/amex-gold.png"
             cardName="American Express Gold"
             cardDescription="4X Restaurants & Groceries! 3X Flights! $400+ Food Credits! 100K Bonus Points!"
-            referralURL="https://americanexpress.com/en-us/referral/gold-card?ref=MDIRTHku7w&xl=cp19"
+            referralURL="https://www.americanexpress.com/en-us/credit-cards/referral/prospect/cards/personal/MDIRTHKnkk?CORID=M~D~I~R~T~H~K~n~k~k-1745027488243-1093634&GENCODE=349993292993082&extlink=US-MGM-RAB-USEFULINKSL-copypaste-1157-201279-K84O%3A9990&ref=MDIRTHKnkk&v=2&xl=cp10lg"
           />
           <CreditCardItem
             imageURL="https://ds0fmzhunbzyk.cloudfront.net/venture-x.png"
@@ -78,7 +78,7 @@ export default function CreditCardGrid() {
             imageURL="https://ds0fmzhunbzyk.cloudfront.net/credit-cards-photos/hilton-surpass.png"
             cardName="Hilton Surpass Card"
             cardDescription="12X Hilton Purchases! 6X Restaurants, Groceries, & Gas! 130K Bonus Points!"
-            referralURL="https://americanexpress.com/en-us/referral/hilton-honors?ref=MDIRTHX71N&xl=cp15"
+            referralURL="https://www.americanexpress.com/en-us/credit-cards/referral/prospect/personal/ACAA53586B21F3AD8712636A39F2349B29CB74F8418EF2A8A79AF33CFC7A7D0C73BD99752F5A1172E5F16CB4A681FD6E6B01486BAF6B111C75959962EBB2A77E96AA2D694396DD89EA5E2A9A3F2B2704B655B58825053C2FAFEDFD9652CAC47E958AE37F243B98D65B6FA22E22287B7B9F5593F780AB18E91D2FA62E82C6B12987C6C0F74682020191454460C28512726759A0457BCDFF6A541481ADBA2F732671AFC3100F6D596941BF714DE0BA30737C36CBB869611680E55DAA183B7CA14D051F311350B667BF517C3F4532CEA26F?CORID=M~D~I~R~T~H~K~n~k~k-1745027488243-1093634&GENCODE=349993292993082&extlink=US-MGM-RAB-USEFULINKSL-copypaste-1157-201279-K84O%3A9990&ref=MDIRTHKnkk&v=2&xl=cp10lg"
           />
           <CreditCardItem
             imageURL="https://ds0fmzhunbzyk.cloudfront.net/credit-cards-photos/freedom_flex.png"
