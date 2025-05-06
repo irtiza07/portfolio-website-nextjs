@@ -14,7 +14,8 @@ export default function Home({ posts, popularPosts, categoryCounts }) {
     <Flex bg="#161f27" flexDirection="column" marginBottom={-10}>
       <Head>
         <title>
-          Irtiza Hafiz - Programmer, Manager and Credit Card Enthusiast.
+          Irtiza Hafiz - Programmer, Engineering Manager and Credit Card
+          Enthusiast.
         </title>
         <meta
           name="description"
