@@ -30,6 +30,8 @@ export default function RecommendationsModal({
 }) {
   if (!recommendations) {
     return null;
+  } else {
+    console.log(recommendations);
   }
   return (
     <>
@@ -67,10 +69,11 @@ export default function RecommendationsModal({
                   <TabPanel>
                     <Grid gap={[5, 8]}>
                       {recommendations["blog"].map((rec, index) => (
-                        <Link href={rec[1]} target="_blank" key={index}>
+                        <Link href={rec["url"]} target="_blank" key={index}>
                           <HStack>
                             <Text color="black" fontSize="lg" align={"start"}>
-                              {rec[0]} <ExternalLinkIcon color="#f57373" />
+                              {rec["title"]}{" "}
+                              <ExternalLinkIcon color="#f57373" />
                             </Text>
                           </HStack>
                         </Link>
@@ -82,17 +85,18 @@ export default function RecommendationsModal({
                   <TabPanel>
                     <Grid gap={[5, 8]}>
                       {recommendations["youtube"].map((rec, index) => (
-                        <Link href={rec[1]} target="_blank" key={index}>
+                        <Link href={rec["url"]} target="_blank" key={index}>
                           <VStack>
                             <Image
-                              src={rec[4]}
+                              src={rec["thumbnail"]}
                               alt="Irtiza Hafiz's avatar"
                               width={360}
                               height={90}
                             ></Image>
                             <HStack>
                               <Text color="black" fontSize="lg">
-                                {rec[0]} <ExternalLinkIcon color="#f57373" />
+                                {rec["title"]}{" "}
+                                <ExternalLinkIcon color="#f57373" />
                               </Text>
                             </HStack>
                           </VStack>

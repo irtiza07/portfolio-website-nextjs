@@ -18,10 +18,10 @@ export default function SmartSearch({
         let youtubeRecs = [];
         const jsonData = await response.json();
         jsonData["data"].forEach((content) => {
-          if (content[3] === 0) {
+          if (content.content_category_id === 2) {
             blogRecs.push(content);
           }
-          if (content[3] === 1) {
+          if (content.content_category_id === 1) {
             youtubeRecs.push(content);
           }
         });
