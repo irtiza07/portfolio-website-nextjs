@@ -48,7 +48,7 @@ export default function CreditCardGrid() {
             imageURL="https://ds0fmzhunbzyk.cloudfront.net/credit-cards-photos/amex-gold.png"
             cardName="American Express Gold"
             cardDescription="4X Restaurants & Groceries! 3X Flights! $400+ Food Credits! 100K Bonus Points!"
-            referralURL="https://americanexpress.com/en-us/referral/gold-card?ref=MDIRTHyOkF&XLINK=MYCP"
+            referralURL="https://www.americanexpress.com/en-us/credit-cards/referral/prospect/cards/personal/vanity/bluebusinessplus-credit-card?CORID=M~D~I~R~T~H~c~y~i~n-1764206443910-993651&GENCODE=349993340941547&XLINK=MYCP&extlink=US-MGM-SPA_WEB_MYCA-copypaste-1110-201329-K44D%3A9951&ref=MDIRTHcyin&v=2&xrefer=bluebusinessplus-credit-card"
           />
           <CreditCardItem
             imageURL="https://ds0fmzhunbzyk.cloudfront.net/venture-x.png"
@@ -60,7 +60,25 @@ export default function CreditCardGrid() {
             imageURL="https://ds0fmzhunbzyk.cloudfront.net/credit-cards-photos/amex-business-gold.png"
             cardName="American Express Business Gold"
             cardDescription="4X on Cloud & Software Spend, Tech Gadgets, Advertising, Gas, Transit! 100K Bonus Points!"
-            referralURL="https://americanexpress.com/en-us/referral/businessgold-card?ref=MDIRTHHYSy&XLINK=MYCP"
+            referralURL="https://www.americanexpress.com/en-us/credit-cards/referral/prospect/cards/business/vanity/bluebusinessplus-credit-card?CORID=M~D~I~R~T~H~c~y~i~n-1764206443910-993651&GENCODE=349993340941547&XLINK=MYCP&extlink=US-MGM-SPA_WEB_MYCA-copypaste-1110-201329-K44D%3A9951&ref=MDIRTHcyin&v=2&xrefer=bluebusinessplus-credit-card"
+          />
+          <CreditCardItem
+            imageURL="https://ds0fmzhunbzyk.cloudfront.net/credit-cards-photos/amex-blue-business-plus.png"
+            cardName="AMEX Blue Business Plus"
+            cardDescription="15K Bonus Points! 2X Points on Everything!"
+            referralURL="https://americanexpress.com/en-us/referral/bluebusinessplus-credit-card?ref=MDIRTHcyin&XLINK=MYCP"
+          />
+          <CreditCardItem
+            imageURL="https://ds0fmzhunbzyk.cloudfront.net/credit-cards-photos/amex-business-platinum.png"
+            cardName="American Express Business Platinum"
+            cardDescription="5X on Flights! $3,500+ in credits! Lounge Access! 200K Bonus Points!"
+            referralURL="https://americanexpress.com/en-us/referral/business-platinum-charge-card?ref=MDIRTHgkN1&xl=cp15"
+          />
+          <CreditCardItem
+            imageURL="https://ds0fmzhunbzyk.cloudfront.net/credit-cards-photos/amex-platinum-delta-business.png"
+            cardName="American Express Delta Platinum Business"
+            cardDescription="3X on Delta Purchases! Free Companion Certificate! 70K Bonus Miles!"
+            referralURL="https://americanexpress.com/en-us/referral/delta-skymiles-platinum?ref=MDIRTHiGzB&xl=cp15"
           />
           <CreditCardItem
             imageURL="https://ds0fmzhunbzyk.cloudfront.net/credit-cards-photos/savor-one.png"
@@ -72,43 +90,37 @@ export default function CreditCardGrid() {
             imageURL="https://ds0fmzhunbzyk.cloudfront.net/credit-cards-photos/sapphire_preferred.png"
             cardName="Chase Sapphire Preferred"
             cardDescription="3X Dining, 2X Travel, 60K Bonus Points! $50 Travel Credit!"
-            referralURL="https://www.referyourchasecard.com/19q/U38HTDCGS0"
+            referralURL="https://www.referyourchasecard.com/19u/P69MUTKHKM"
           />
           <CreditCardItem
             imageURL="https://ds0fmzhunbzyk.cloudfront.net/credit-cards-photos/hilton-surpass.png"
             cardName="Hilton Surpass Card"
             cardDescription="12X Hilton Purchases! 6X Restaurants, Groceries, & Gas! 130K Bonus Points!"
-            referralURL="https://americanexpress.com/en-us/referral/hilton-honors?ref=MDIRTHrah0&xl=cp19"
+            referralURL="https://www.americanexpress.com/en-us/credit-cards/referral/prospect/cards/personal/vanity/bluebusinessplus-credit-card?CORID=M~D~I~R~T~H~c~y~i~n-1764206443910-993651&GENCODE=349993340941547&XLINK=MYCP&extlink=US-MGM-SPA_WEB_MYCA-copypaste-1110-201329-K44D%3A9951&ref=MDIRTHcyin&v=2&xrefer=bluebusinessplus-credit-card"
           />
           <CreditCardItem
             imageURL="https://ds0fmzhunbzyk.cloudfront.net/credit-cards-photos/freedom_flex.png"
             cardName="Chase Freedom Flex"
             cardDescription="5X rotating categories! 3X Dining & Drugstores! $200 Bonus!"
-            referralURL="https://www.referyourchasecard.com/18J/12K8NPLW0F"
+            referralURL="https://www.referyourchasecard.com/18s/00ANRAHL1T"
           />
           <CreditCardItem
             imageURL="https://ds0fmzhunbzyk.cloudfront.net/credit-cards-photos/ihg-premier.png"
             cardName="Chase IHG Premier"
             cardDescription="26X IHG Purchases! 5X Restaurants, Travel & Gas! 140K Bonus Points! 5+ Free Nights!"
-            referralURL="https://www.referyourchasecard.com/210u/5ZPQXWLSOD"
-          />
-          <CreditCardItem
-            imageURL="https://ds0fmzhunbzyk.cloudfront.net/credit-cards-photos/amex-blue-business-plus.png"
-            cardName="AMEX Blue Business Plus"
-            cardDescription="15K Bonus Points! 2X Points on Everything!"
-            referralURL="https://americanexpress.com/en-us/referral/bluebusinessplus-credit-card?ref=MDIRTHcyin&XLINK=MYCP"
-          />
-          <CreditCardItem
-            imageURL="https://ds0fmzhunbzyk.cloudfront.net/credit-cards-photos/bilt.png"
-            cardName="Wells Fargo Bilt Mastercard"
-            cardDescription="Earn Points on Rent! 3X Dining, 2X Travel! Double points on rent day!"
-            referralURL="https://bilt.page/r/1YFG-4S1F"
+            referralURL="https://www.referyourchasecard.com/210y/U1YREPZMZM"
           />
           <CreditCardItem
             imageURL="https://ds0fmzhunbzyk.cloudfront.net/credit-cards-photos/citi-strata-premier.png"
             cardName="Citi Strata Premier"
             cardDescription="3X Points on Flights, Hotels, Restaurants, Groceries and Gas Stations! 75K Bonus Points!"
             referralURL="https://www.citi.com/credit-cards/citi-strata-premier-credit-card"
+          />
+          <CreditCardItem
+            imageURL="https://ds0fmzhunbzyk.cloudfront.net/credit-cards-photos/citi-strata-elite.png"
+            cardName="Citi Strata Elite"
+            cardDescription="12X Points on Hotels! 6X on Flights! 1.5X Everything else! 100K Bonus Points!"
+            referralURL="https://www.citi.com/credit-cards/citi-strata-elite-credit-card"
           />
         </Grid>
       </Box>
