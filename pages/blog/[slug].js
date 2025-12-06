@@ -31,7 +31,7 @@ const components = {
       {...props}
       fontSize={"3xl"}
       color="#75c682"
-      marginTop={12}
+      marginTop={4}
       marginBottom={4}
     >
       {props.children}
@@ -43,7 +43,7 @@ const components = {
     </Heading>
   ),
   p: (props) => (
-    <Text {...props} fontSize={"md"} lineHeight={"8"} marginBottom={[8, 3]}>
+    <Text {...props} fontSize={"md"} lineHeight={"8"} marginBottom={[4, 3]}>
       {props.children}
     </Text>
   ),
@@ -72,7 +72,7 @@ const components = {
   ),
   SyntaxHighlighter: SyntaxHighlighter,
   img: (props) => (
-    <Center padding={8}>
+    <Center padding={3}>
       <Image
         src={props.src.replace("/public", "")} // Remove '/public' from image path
         alt={props.alt}
@@ -107,7 +107,7 @@ export default function PostPage({
         <Heading as="h1" fontSize={["3xl", "4xl"]} textAlign={"center"}>
           {title}
         </Heading>
-        <Center padding={[8, 20]}>
+        <Center padding={[4, 20]}>
           <Flex width={["95vw", "50vw"]} flexDirection={"column"}>
             <MDXRemote {...mdxSource} components={components} />
           </Flex>
