@@ -104,10 +104,16 @@ export default function PostPage({
       </Head>
       <NavBar />
       <Flex flexDirection={"column"}>
-        <Heading as="h1" fontSize={["3xl", "4xl"]} textAlign={"center"}>
+        <Heading
+          as="h1"
+          fontSize={["3xl", "4xl"]}
+          textAlign={"center"}
+          maxWidth={["90%", "50%"]}
+          marginX={"auto"}
+        >
           {title}
         </Heading>
-        <Center padding={[4, 20]}>
+        <Center padding={[4, 12]}>
           <Flex width={["95vw", "50vw"]} flexDirection={"column"}>
             <MDXRemote {...mdxSource} components={components} />
           </Flex>
