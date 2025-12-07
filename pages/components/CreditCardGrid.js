@@ -10,6 +10,7 @@ import {
 import { ArrowLeftIcon, ArrowRightIcon } from "@chakra-ui/icons";
 
 import CreditCardItem from "./CreditCardItem";
+import BookConsultationButton from "./BookConsultationButton";
 
 export default function CreditCardGrid() {
   const scrollContainerRef = useRef(null);
@@ -33,7 +34,10 @@ export default function CreditCardGrid() {
   return (
     <VStack spacing={12} mb={12}>
       {/* Scrollable Grid Container */}
-      <Heading>Recommended Cards</Heading>
+      <VStack spacing={4} align="center" width="100%">
+        <Heading>Recommended Cards</Heading>
+        <BookConsultationButton />
+      </VStack>
       <Box
         ref={scrollContainerRef}
         overflowX="auto"
