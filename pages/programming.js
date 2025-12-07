@@ -28,11 +28,7 @@ export default function Programming({ posts, popularPosts, youtubeVideos }) {
       <NavBar />
       <Box padding={{ base: "3vw", md: "5vw" }}>
         <YouTubeHorizontalCarousel youtubeVideos={youtubeVideos} />
-        <BlogGrid
-          posts={popularPosts}
-          customHeading={"Featured Posts"}
-          maxColumnCount={4}
-        />
+
         <BlogGrid
           posts={posts}
           customHeading={"All Programming Posts"}

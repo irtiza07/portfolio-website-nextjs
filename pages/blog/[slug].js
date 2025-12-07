@@ -24,6 +24,7 @@ import { getSortedPosts } from "../../lib/logic";
 import Link from "next/link";
 import CreditCardGrid from "../components/CreditCardGrid";
 import RecommendedPostsCarousel from "../components/RecommendedPostsCarousel";
+import BookConsultationButton from "../components/BookConsultationButton";
 
 const components = {
   h2: (props) => (
@@ -108,11 +109,16 @@ export default function PostPage({
           as="h1"
           fontSize={["3xl", "4xl"]}
           textAlign={"center"}
-          maxWidth={["90%", "50%"]}
+          maxWidth={["90%", "80%"]}
           marginX={"auto"}
         >
           {title}
         </Heading>
+        {tags[0] === "credit-cards" && (
+          <Center marginTop={4}>
+            <BookConsultationButton />
+          </Center>
+        )}
         <Center padding={[4, 12]}>
           <Flex width={["95vw", "50vw"]} flexDirection={"column"}>
             <MDXRemote {...mdxSource} components={components} />
