@@ -51,12 +51,17 @@ export default function SmartSearch({
     }
   };
   return (
-    <Stack direction={"row"} spacing={[4, 8]} width={[350]}>
+    <Stack
+      direction={"row"}
+      spacing={[4, 8]}
+      width={["100%", "80%", "60%"]}
+      justifyContent={"center"}
+    >
       <Input
-        placeholder="[Beta] Smart AI Search"
+        placeholder="Smart AI Search"
         size="lg"
         color="white"
-        width={80}
+        width={["90%"]}
         borderRadius="full"
         boxShadow="0 0 10px rgba(255, 0, 0, 0.5), 0 0 20px rgba(255, 255, 0, 0.5), 0 0 30px rgba(0, 255, 0, 0.5), 0 0 40px rgba(0, 0, 255, 0.5)"
         onChange={(e) => setSearchQueryText(e.target.value)}
