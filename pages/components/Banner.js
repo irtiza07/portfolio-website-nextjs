@@ -36,14 +36,15 @@ export default function Banner() {
       >
         <VStack
           direction={"column"}
-          align="left"
+          align="center"
+          textAlign="center"
           spacing={[6, 12]}
           justify={"center"}
         >
           <Heading color="#75c682" fontSize={["4xl", "5xl", "7xl"]}>
             Hi! I am Irtiza.
           </Heading>
-          <Heading color="#efe073" fontSize={["xl", "3xl", "3xl"]}>
+          <Heading color="#ffffff" fontSize={["xl", "3xl", "3xl"]}>
             I create content about{" "}
             <Link
               href="/programming"
@@ -53,8 +54,6 @@ export default function Banner() {
               <Text
                 as="span"
                 color="#75c682"
-                textDecoration="underline"
-                textDecorationStyle="wavy"
                 cursor="pointer"
                 textUnderlineOffset={["6px", "10px"]}
               >
@@ -70,8 +69,6 @@ export default function Banner() {
               <Text
                 as="span"
                 color="#75c682"
-                textDecoration="underline"
-                textDecorationStyle="wavy"
                 cursor="pointer"
                 textUnderlineOffset={["6px", "10px"]}
               >
@@ -87,12 +84,6 @@ export default function Banner() {
             openModal={onOpen}
           />
         </VStack>
-        <Image
-          src="https://ds0fmzhunbzyk.cloudfront.net/irtiza-avatar-ayesha.png"
-          alt="Irtiza Hafiz's avatar"
-          width={600}
-          height={400}
-        ></Image>
       </Stack>
     </Center>
   );
