@@ -25,8 +25,11 @@ import Link from "next/link";
 import CreditCardGrid from "../components/CreditCardGrid";
 import RecommendedPostsCarousel from "../components/RecommendedPostsCarousel";
 import BookConsultationButton from "../components/BookConsultationButton";
+import ReferralLink from "../components/ReferralLink";
+import referralLinks from "../../lib/referralLinks";
 
 const components = {
+  ReferralLink: ReferralLink,
   h2: (props) => (
     <Heading
       {...props}
@@ -154,7 +157,9 @@ export const getStaticProps = async ({ params: { slug } }) => {
     "utf-8"
   );
   const { data: frontMatter, content } = matter(markdownWithMeta);
-  const mdxSource = await serialize(content);
+  const mdxSource = await serialize(content, {
+    scope: { referralLinks },
+  });
 
   const posts = getSortedPosts();
   const relatedPosts = posts.filter(
