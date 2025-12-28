@@ -30,8 +30,6 @@ export default function RecommendationsModal({
 }) {
   if (!recommendations) {
     return null;
-  } else {
-    console.log(recommendations);
   }
   return (
     <>
