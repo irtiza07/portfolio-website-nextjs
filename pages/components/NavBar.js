@@ -4,7 +4,6 @@ import { ExternalLinkIcon, HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 
 import {
   Heading,
-  HStack,
   Text,
   Flex,
   Spacer,
@@ -65,19 +64,6 @@ export default function NavBar() {
               Home
             </Text>
           </Link>
-          <Link
-            href="/credit-cards"
-            data-umami-event="Credit Card Tab Selected"
-          >
-            <Text
-              color="white"
-              fontSize={{ base: "xs", md: "lg" }}
-              textDecoration="underline"
-              textUnderlineOffset={["6px", "10px"]}
-            >
-              Credit Cards
-            </Text>
-          </Link>
           <Link href="/programming" data-umami-event="Programming Tab Selected">
             <Text
               color="white"
@@ -89,22 +75,19 @@ export default function NavBar() {
             </Text>
           </Link>
           <Link
-            href="https://www.youtube.com/channel/UCDankIVMXJEkhtjv5yLSN4g/about"
-            target="_blank"
-            data-umami-event="YouTube Tab Selected"
+            href="/credit-cards"
+            data-umami-event="Credit Card Tab Selected"
           >
-            <HStack>
-              <Text
-                color="white"
-                fontSize={{ base: "xs", md: "lg" }}
-                textDecoration="underline"
-                textUnderlineOffset={["6px", "10px"]}
-              >
-                Youtube
-              </Text>
-            </HStack>
+            <Text
+              color="white"
+              fontSize={{ base: "xs", md: "lg" }}
+              textDecoration="underline"
+              textUnderlineOffset={["6px", "10px"]}
+              whiteSpace="nowrap"
+            >
+              Credit Cards
+            </Text>
           </Link>
-
           <Link href="/newsletter" data-umami-event="Newsletter Tab Selected">
             <Text
               color="white"
