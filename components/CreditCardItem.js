@@ -1,8 +1,8 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-
 import { Heading, VStack, Flex, Spacer, Button, Text } from "@chakra-ui/react";
+import { colors } from "../lib/constants";
 
 export default function CreditCardItem({
   imageURL = "",
@@ -23,7 +23,7 @@ export default function CreditCardItem({
   return (
     <Flex
       flexDirection="column"
-      bg="#1e262f"
+      bg={colors.bgCard}
       padding="2vw"
       borderRadius="2vw"
       justifyContent="space-between"
@@ -31,19 +31,19 @@ export default function CreditCardItem({
     >
       <VStack>
         <Image width={200} height={80} src={imageURL} alt="Credit Card Image" />
-        <Heading size="md" color="#75c682">
+        <Heading size="md" color={colors.accentGreen}>
           {cardName}
         </Heading>
         <Spacer />
-        <Text whiteSpace="pre-line" color="#F6F6F6">
+        <Text whiteSpace="pre-line" color={colors.textLight}>
           {cardDescription}
         </Text>
         <Spacer />
 
         <Link href={referralURL} data-umami-event={`${cardName}-apply-clicked`}>
           <Button
-            bg="#efe073"
-            color="#191919"
+            bg={colors.accentYellow}
+            color={colors.textDark}
             size="sm"
             fontSize="lg"
             fontWeight="bold"

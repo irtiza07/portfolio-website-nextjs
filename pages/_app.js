@@ -2,7 +2,7 @@ import "@fontsource/montserrat";
 import "@fontsource/inter";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import Head from "next/head";
-import Script from "next/script";
+import { CDN_BASE_URL } from "../lib/constants";
 
 const theme = extendTheme({
   fonts: {
@@ -20,7 +20,7 @@ export default function MyApp({ Component, pageProps }) {
         <link
           rel="icon"
           type="image/png"
-          href="https://ds0fmzhunbzyk.cloudfront.net/favicon.png"
+          href={`${CDN_BASE_URL}/favicon.png`}
         />
         <script
           defer

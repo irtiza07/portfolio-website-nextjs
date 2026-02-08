@@ -10,6 +10,7 @@ import {
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import axios from "axios";
+import { colors, API_NEWSLETTER_URL, NEWSLETTER_LIST_UUID } from "../lib/constants";
 
 export default function SubscribeForm() {
   const [firstName, setFirstName] = useState("");
@@ -26,16 +27,13 @@ export default function SubscribeForm() {
     }
 
     try {
-      await axios.post(
-        "https://newsletter.irtizahafiz.com/api/public/subscription",
-        {
-          name: firstName,
-          email: emailAddress,
-          list_uuids: ["b557290a-cdd2-47c2-bb74-ffa01d640a2d"],
-        }
-      );
+      await axios.post(API_NEWSLETTER_URL, {
+        name: firstName,
+        email: emailAddress,
+        list_uuids: [NEWSLETTER_LIST_UUID],
+      });
       successToast({
-        title: "Subsribed!",
+        title: "Subscribed!",
         description: "Welcome onboard!",
         status: "success",
         duration: 5000,
@@ -81,15 +79,15 @@ export default function SubscribeForm() {
         <FormControl>
           <Input
             name="l"
-            value="b557290a-cdd2-47c2-bb74-ffa01d640a2d"
+            value={NEWSLETTER_LIST_UUID}
             hidden={true}
           />
         </FormControl>
         <VStack>
           <FormControl>
             <Button
-              bg="#efe073"
-              color="#191919"
+              bg={colors.accentYellow}
+              color={colors.textDark}
               size="lg"
               isDisabled={!(firstName && emailAddress)}
               type="submit"

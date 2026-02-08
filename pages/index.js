@@ -1,38 +1,18 @@
-import Head from "next/head";
-
-// import styles from "../styles/Home.module.css";
-import { Flex } from "@chakra-ui/react";
-import Banner from "./components/Banner";
-import BodyContainer from "./components/BodyContainer";
-import NavBar from "./components/NavBar";
-import Footer from "./components/Footer";
-
+import Banner from "../components/Banner";
+import BodyContainer from "../components/BodyContainer";
+import Layout from "../components/Layout";
 import { getSortedPosts } from "../lib/logic";
 
-export default function Home({ posts, popularPosts, categoryCounts }) {
+export default function Home({ posts, popularPosts }) {
   return (
-    <Flex bg="#161f27" flexDirection="column" marginBottom={-10}>
-      <Head>
-        <title>
-          Irtiza Hafiz - Programmer, Engineering Manager and Credit Card
-          Enthusiast.
-        </title>
-        <meta
-          name="description"
-          content="This site is about programming tutorials, software engineering, AI programming, credit card reviews, credit card setup and travel tips."
-          key="desc"
-        />
-      </Head>
-      <NavBar />
+    <Layout
+      title="Irtiza Hafiz - Programmer, Engineering Manager and Credit Card Enthusiast."
+      description="This site is about programming tutorials, software engineering, AI programming, credit card reviews, credit card setup and travel tips."
+      marginBottom={-10}
+    >
       <Banner />
-      <BodyContainer
-        posts={posts}
-        popularPosts={popularPosts}
-        categoryCounts={categoryCounts}
-      />
-
-      <Footer />
-    </Flex>
+      <BodyContainer posts={posts} popularPosts={popularPosts} />
+    </Layout>
   );
 }
 

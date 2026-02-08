@@ -1,5 +1,4 @@
 import Link from "next/link";
-
 import React, { useState } from "react";
 import {
   Heading,
@@ -9,9 +8,9 @@ import {
   Stack,
   useDisclosure,
 } from "@chakra-ui/react";
-import Image from "next/image";
 import RecommendationsModal from "./RecommendationsModal";
 import SmartSearch from "./SmartSearch";
+import { colors } from "../lib/constants";
 
 export default function Banner() {
   const [recommendations, setRecommendations] = useState([]);
@@ -41,10 +40,10 @@ export default function Banner() {
           spacing={[6, 12]}
           justify={"center"}
         >
-          <Heading color="#75c682" fontSize={["4xl", "5xl", "7xl"]}>
+          <Heading color={colors.accentGreen} fontSize={["4xl", "5xl", "7xl"]}>
             Hi! I am Irtiza.
           </Heading>
-          <Heading color="#ffffff" fontSize={["xl", "3xl", "3xl"]}>
+          <Heading color={colors.textPrimary} fontSize={["xl", "3xl", "3xl"]}>
             I create content about{" "}
             <Link
               href="/programming"
@@ -53,7 +52,7 @@ export default function Banner() {
             >
               <Text
                 as="span"
-                color="#75c682"
+                color={colors.accentGreen}
                 cursor="pointer"
                 textUnderlineOffset={["6px", "10px"]}
               >
@@ -68,7 +67,7 @@ export default function Banner() {
             >
               <Text
                 as="span"
-                color="#75c682"
+                color={colors.accentGreen}
                 cursor="pointer"
                 textUnderlineOffset={["6px", "10px"]}
               >

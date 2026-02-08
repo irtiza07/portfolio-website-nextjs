@@ -1,54 +1,42 @@
 import React, { useRef } from "react";
-import Link from "next/link";
 import {
   Grid,
   Box,
   IconButton,
   VStack,
   HStack,
-  Heading,
-  Text,
 } from "@chakra-ui/react";
 import { ArrowLeftIcon, ArrowRightIcon } from "@chakra-ui/icons";
+import { CAROUSEL_SCROLL_AMOUNT } from "../lib/constants";
 
-import BlogCard from "./BlogCard";
-
-export default function RecommendedPostsCarousel({ recommendedPosts }) {
+export default function HorizontalCarousel({ header, children }) {
   const scrollContainerRef = useRef(null);
 
-  // Scroll left handler
   const scrollLeft = () => {
     scrollContainerRef.current.scrollBy({
-      left: -300, // Adjust based on how much you want to scroll
+      left: -CAROUSEL_SCROLL_AMOUNT,
       behavior: "smooth",
     });
   };
 
-  // Scroll right handler
   const scrollRight = () => {
     scrollContainerRef.current.scrollBy({
-      left: 300, // Adjust based on how much you want to scroll
+      left: CAROUSEL_SCROLL_AMOUNT,
       behavior: "smooth",
     });
   };
 
   return (
     <VStack spacing={12} mb={12}>
-      {/* Scrollable Grid Container */}
-      <Heading color="white">Similar Posts</Heading>
+      {header}
       <Box
         ref={scrollContainerRef}
         overflowX="auto"
         whiteSpace="nowrap"
         maxWidth={"100%"}
       >
-        <Grid
-          autoFlow="column" // Ensure items flow horizontally
-          gap={{ base: 4, md: 3 }}
-        >
-          {recommendedPosts?.map((postData, index) => (
-            <BlogCard key={index} post={postData} />
-          ))}
+        <Grid autoFlow="column" gap={{ base: 4, md: 3 }}>
+          {children}
         </Grid>
       </Box>
       <HStack spacing={24}>
@@ -62,8 +50,6 @@ export default function RecommendedPostsCarousel({ recommendedPosts }) {
           _hover={{ bg: "gray.100" }}
           color="black"
         />
-
-        {/* Scroll Right Button */}
         <IconButton
           icon={<ArrowRightIcon />}
           onClick={scrollRight}
