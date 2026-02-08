@@ -115,6 +115,16 @@ export default function NavBar() {
               Newsletter
             </Text>
           </Link>
+          <Link href="/tools" data-umami-event="Tools Tab Selected">
+            <Text
+              color="white"
+              fontSize={{ base: "xs", md: "lg" }}
+              textDecoration="underline"
+              textUnderlineOffset={["6px", "10px"]}
+            >
+              Tools
+            </Text>
+          </Link>
         </Stack>
       </Box>
     </Flex>
