@@ -1,22 +1,17 @@
-import { React, useState } from "react";
+import React from "react";
 import Link from "next/link";
-import { ExternalLinkIcon, HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 
 import {
   Heading,
   Text,
   Flex,
   Spacer,
-  IconButton,
   Stack,
   Box,
 } from "@chakra-ui/react";
+import { colors } from "../lib/constants";
 
 export default function NavBar() {
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
-
   return (
     <Flex
       align="center"
@@ -26,8 +21,8 @@ export default function NavBar() {
       p={4}
       position="sticky"
       top="0"
-      zIndex="10" // Ensures it stays above other content
-      bg="#0d1117" // Keeps the background color consistent
+      zIndex="10"
+      bg={colors.bgNavbar}
       boxShadow="xl"
     >
       <Flex align="center" display={["none", "flex"]}>
@@ -37,7 +32,7 @@ export default function NavBar() {
           fontSize="xl"
           fontWeight="bold"
         >
-          <Heading color="#efe073">Irtiza Hafiz</Heading>
+          <Heading color={colors.accentYellow}>Irtiza Hafiz</Heading>
         </Link>
       </Flex>
       <Spacer />

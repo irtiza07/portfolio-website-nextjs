@@ -6,6 +6,7 @@ import matter from "gray-matter";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 
 import {
   Heading,
@@ -13,20 +14,18 @@ import {
   Text,
   Flex,
   HStack,
-  VStack,
   Box,
 } from "@chakra-ui/react";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
-import NavBar from "../components/NavBar";
-import Footer from "../components/Footer";
-import { getSortedPosts } from "../../lib/logic";
-
-import Link from "next/link";
-import CreditCardGrid from "../components/CreditCardGrid";
-import RecommendedPostsCarousel from "../components/RecommendedPostsCarousel";
-import BookConsultationButton from "../components/BookConsultationButton";
-import ReferralLink from "../components/ReferralLink";
+import NavBar from "../../components/NavBar";
+import Footer from "../../components/Footer";
+import CreditCardGrid from "../../components/CreditCardGrid";
+import RecommendedPostsCarousel from "../../components/RecommendedPostsCarousel";
+import BookConsultationButton from "../../components/BookConsultationButton";
+import ReferralLink from "../../components/ReferralLink";
+import { getSortedPosts, shuffleArray } from "../../lib/logic";
 import referralLinks from "../../lib/referralLinks";
+import { colors } from "../../lib/constants";
 
 const components = {
   ReferralLink: ReferralLink,
@@ -34,7 +33,7 @@ const components = {
     <Heading
       {...props}
       fontSize={"3xl"}
-      color="#75c682"
+      color={colors.accentGreen}
       marginTop={4}
       marginBottom={4}
     >
@@ -42,7 +41,7 @@ const components = {
     </Heading>
   ),
   h3: (props) => (
-    <Heading {...props} fontSize={"2xl"} color="#efe073" marginTop={6}>
+    <Heading {...props} fontSize={"2xl"} color={colors.accentYellow} marginTop={6}>
       {props.children}
     </Heading>
   ),
@@ -56,7 +55,7 @@ const components = {
       {...props}
       as={"span"}
       fontSize={"md"}
-      color="#efe073"
+      color={colors.accentYellow}
       fontStyle={"italic"}
       fontWeight={"extrabold"}
       borderBottom="2px"
@@ -69,7 +68,7 @@ const components = {
   li: (props) => (
     <Text {...props} marginTop={2} marginBottom={4}>
       <HStack>
-        <ArrowForwardIcon color="#efe073" boxSize={[4, 8]}></ArrowForwardIcon>
+        <ArrowForwardIcon color={colors.accentYellow} boxSize={[4, 8]}></ArrowForwardIcon>
         <Text>{props.children}</Text>
       </HStack>
     </Text>
@@ -78,7 +77,7 @@ const components = {
   img: (props) => (
     <Center padding={3}>
       <Image
-        src={props.src.replace("/public", "")} // Remove '/public' from image path
+        src={props.src.replace("/public", "")}
         alt={props.alt}
         width={600}
         height={400}
@@ -93,7 +92,7 @@ export default function PostPage({
   selectedRelatedPosts,
 }) {
   return (
-    <Flex bg="#161f27" flexDirection="column" color="white">
+    <Flex bg={colors.bgPrimary} flexDirection="column" color="white">
       <Head>
         <title>{title}</title>
         <meta name="title" content={seoTitle}></meta>
@@ -166,9 +165,7 @@ export const getStaticProps = async ({ params: { slug } }) => {
     (post) => post.frontMatter.tags[0] === frontMatter.tags[0]
   );
 
-  // Shuffle creditCardPosts and randomly pick 7
-  const shuffledPosts = relatedPosts.sort(() => 0.5 - Math.random());
-  const selectedRelatedPosts = shuffledPosts.slice(0, 7);
+  const selectedRelatedPosts = shuffleArray(relatedPosts).slice(0, 7);
 
   return {
     props: {

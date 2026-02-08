@@ -9,6 +9,7 @@ import {
   Text,
   Badge,
 } from "@chakra-ui/react";
+import { colors } from "../lib/constants";
 
 export default function BlogCard({ post }) {
   const postData = post?.frontMatter;
@@ -17,7 +18,7 @@ export default function BlogCard({ post }) {
   return (
     <Flex
       flexDirection="column"
-      bg="#1e262f"
+      bg={colors.bgCard}
       padding="0.5vw"
       borderRadius="2vw"
       justifyContent="space-between"
@@ -25,7 +26,7 @@ export default function BlogCard({ post }) {
     >
       <VStack
         align="flex-start"
-        bg="#1e262f"
+        bg={colors.bgCard}
         padding={[5, 8]}
         borderRadius={[28, 16]}
         spacing={[4, 6]}
@@ -39,7 +40,7 @@ export default function BlogCard({ post }) {
         >
           {postData?.tags?.[0]}
         </Badge>
-        <Text color="#f57373" fontSize="sm" noOfLines={3}>
+        <Text color={colors.accentRed} fontSize="sm" noOfLines={3}>
           {postData?.date}
         </Text>
         <Link
@@ -47,7 +48,7 @@ export default function BlogCard({ post }) {
           data-umami-event="blog-card-cta-clicked"
         >
           <Heading
-            color="#75c682"
+            color={colors.accentGreen}
             fontSize="xl"
             whiteSpace={"normal"}
             noOfLines={3}
@@ -55,7 +56,7 @@ export default function BlogCard({ post }) {
             {postData?.title}
           </Heading>
         </Link>
-        <Text color="#F6F6F6" fontSize="lg" whiteSpace={"normal"} noOfLines={4}>
+        <Text color={colors.textLight} fontSize="lg" whiteSpace={"normal"} noOfLines={4}>
           {postData?.description}
         </Text>
         <Spacer />
@@ -63,7 +64,7 @@ export default function BlogCard({ post }) {
           href={`/blog/${postSlug}`}
           data-umami-event="blog-card-cta-clicked"
         >
-          <Button bg="#efe073" color="#191919" size="sm">
+          <Button bg={colors.accentYellow} color={colors.textDark} size="sm">
             Read More
           </Button>
         </Link>

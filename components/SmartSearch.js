@@ -1,5 +1,9 @@
 import React from "react";
 import { Stack, Input, Button, useToast } from "@chakra-ui/react";
+import { colors, API_RECOMMENDATIONS_URL, CONTENT_CATEGORY } from "../lib/constants";
+
+const RAINBOW_BOX_SHADOW =
+  "0 0 10px rgba(255, 0, 0, 0.5), 0 0 20px rgba(255, 255, 0, 0.5), 0 0 30px rgba(0, 255, 0, 0.5), 0 0 40px rgba(0, 0, 255, 0.5)";
 
 export default function SmartSearch({
   searchQueryText,
@@ -11,17 +15,17 @@ export default function SmartSearch({
   const fetchRecommendations = async () => {
     try {
       const response = await fetch(
-        `https://api.irtizahafiz.com/recommendations?user_query=${searchQueryText}`
+        `${API_RECOMMENDATIONS_URL}?user_query=${searchQueryText}`
       );
       if (response.ok) {
         let blogRecs = [];
         let youtubeRecs = [];
         const jsonData = await response.json();
         jsonData["data"].forEach((content) => {
-          if (content.content_category_id === 2) {
+          if (content.content_category_id === CONTENT_CATEGORY.BLOG) {
             blogRecs.push(content);
           }
-          if (content.content_category_id === 1) {
+          if (content.content_category_id === CONTENT_CATEGORY.YOUTUBE) {
             youtubeRecs.push(content);
           }
         });
@@ -63,16 +67,16 @@ export default function SmartSearch({
         color="white"
         width={["90%"]}
         borderRadius="full"
-        boxShadow="0 0 10px rgba(255, 0, 0, 0.5), 0 0 20px rgba(255, 255, 0, 0.5), 0 0 30px rgba(0, 255, 0, 0.5), 0 0 40px rgba(0, 0, 255, 0.5)"
+        boxShadow={RAINBOW_BOX_SHADOW}
         onChange={(e) => setSearchQueryText(e.target.value)}
         value={searchQueryText}
       />
       <Button
-        bg="#f57373"
-        color="#191919"
+        bg={colors.accentRed}
+        color={colors.textDark}
         size="lg"
         borderRadius="full"
-        boxShadow="0 0 10px rgba(255, 0, 0, 0.5), 0 0 20px rgba(255, 255, 0, 0.5), 0 0 30px rgba(0, 255, 0, 0.5), 0 0 40px rgba(0, 0, 255, 0.5)"
+        boxShadow={RAINBOW_BOX_SHADOW}
         onClick={(e) => fetchRecommendations()}
         isDisabled={!searchQueryText}
       >

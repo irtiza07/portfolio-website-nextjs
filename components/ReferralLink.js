@@ -1,7 +1,8 @@
 import React from "react";
 import Link from "next/link";
 import { Text } from "@chakra-ui/react";
-import referralLinks from "../../lib/referralLinks";
+import referralLinks from "../lib/referralLinks";
+import { colors } from "../lib/constants";
 
 /**
  * ReferralLink component for credit card referral links in MDX
@@ -16,7 +17,7 @@ export default function ReferralLink({ card, children }) {
     <Text
       as={"span"}
       fontSize={"md"}
-      color="#efe073"
+      color={colors.accentYellow}
       fontStyle={"italic"}
       fontWeight={"extrabold"}
       borderBottom="2px"

@@ -1,13 +1,14 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Heading, VStack, Spacer, Button, Text, Badge } from "@chakra-ui/react";
+import { VStack, Button, Text } from "@chakra-ui/react";
+import { colors } from "../lib/constants";
 
 export default function YoutubeCard({ videoData }) {
   return (
     <VStack
       justify={"center"}
-      bg="#1e262f"
+      bg={colors.bgCard}
       padding={[5, 8]}
       borderRadius={[28, 16]}
       spacing={6}
@@ -20,7 +21,7 @@ export default function YoutubeCard({ videoData }) {
         height={180}
       ></Image>
       <Text
-        color="#75c682"
+        color={colors.accentGreen}
         fontSize={{ base: "sm", md: "lg" }}
         whiteSpace={"normal"}
       >
@@ -32,7 +33,7 @@ export default function YoutubeCard({ videoData }) {
         target="_blank"
         data-umami-event="youtube-carousel-card-cta-clicked"
       >
-        <Button bg="#efe073" color="#191919" size="sm">
+        <Button bg={colors.accentYellow} color={colors.textDark} size="sm">
           Watch Video
         </Button>
       </Link>

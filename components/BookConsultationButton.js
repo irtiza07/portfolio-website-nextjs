@@ -1,21 +1,26 @@
 import { Button } from "@chakra-ui/react";
+import { colors, CONSULTATION_URL } from "../lib/constants";
 
 export default function BookConsultationButton() {
   const handleClick = () => {
-    umami.track("free-consultation-button-click");
+    try {
+      umami.track("free-consultation-button-click");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
     <Button
       as="a"
-      href="https://calendar.app.google/r73Gpou1jCVSj36DA"
+      href={CONSULTATION_URL}
       target="_blank"
       rel="noopener noreferrer"
-      bg="#efe073"
-      color="#191919"
+      bg={colors.accentYellow}
+      color={colors.textDark}
       size="md"
       borderRadius="md"
-      _hover={{ bg: "#d6c55f" }}
+      _hover={{ bg: colors.accentYellowHover }}
       onClick={handleClick}
     >
       Free Consultation

@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
+import { colors } from "../lib/constants";
 
 import {
   Text,
@@ -71,7 +72,7 @@ export default function RecommendationsModal({
                           <HStack>
                             <Text color="black" fontSize="lg" align={"start"}>
                               {rec["title"]}{" "}
-                              <ExternalLinkIcon color="#f57373" />
+                              <ExternalLinkIcon color={colors.accentRed} />
                             </Text>
                           </HStack>
                         </Link>
@@ -94,7 +95,7 @@ export default function RecommendationsModal({
                             <HStack>
                               <Text color="black" fontSize="lg">
                                 {rec["title"]}{" "}
-                                <ExternalLinkIcon color="#f57373" />
+                                <ExternalLinkIcon color={colors.accentRed} />
                               </Text>
                             </HStack>
                           </VStack>
@@ -107,7 +108,7 @@ export default function RecommendationsModal({
             </Tabs>
           </ModalBody>
           <ModalFooter>
-            <Button onClick={onClose} bg="#f57373" color="white">
+            <Button onClick={onClose} bg={colors.accentRed} color="white">
               Not Interested
             </Button>
           </ModalFooter>

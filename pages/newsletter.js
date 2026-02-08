@@ -1,22 +1,15 @@
-import { Heading, VStack, Flex, Text } from "@chakra-ui/react";
-import Head from "next/head";
-
-import NavBar from "./components/NavBar";
-import Footer from "./components/Footer";
-import SubscribeForm from "./components/SubscribeForm";
+import { Heading, VStack, Text } from "@chakra-ui/react";
+import SubscribeForm from "../components/SubscribeForm";
+import Layout from "../components/Layout";
 
 export default function Newsletter() {
   return (
-    <Flex bg="#161f27" flexDirection="column" color="white" marginBottom={-10}>
-      <Head>
-        <title>Irtiza Hafiz | Newsletter</title>
-        <meta
-          name="description"
-          content="Join my newsletter to be one of the first ones to know about programming or credit card developments."
-          key="desc"
-        />
-      </Head>
-      <NavBar />
+    <Layout
+      title="Irtiza Hafiz | Newsletter"
+      description="Join my newsletter to be one of the first ones to know about programming or credit card developments."
+      color="white"
+      marginBottom={-10}
+    >
       <VStack padding="4vw">
         <Heading fontSize="5xl" textAlign={"center"}>
           Newsletter
@@ -28,7 +21,6 @@ export default function Newsletter() {
         </Text>
         <SubscribeForm />
       </VStack>
-      <Footer />
-    </Flex>
+    </Layout>
   );
 }
