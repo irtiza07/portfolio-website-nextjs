@@ -3,7 +3,11 @@ import { MDXRemote } from "next-mdx-remote";
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import SyntaxHighlighter from "react-syntax-highlighter";
+import dynamic from "next/dynamic";
+
+const SyntaxHighlighter = dynamic(() => import("react-syntax-highlighter"), {
+  loading: () => <pre>Loading...</pre>,
+});
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
