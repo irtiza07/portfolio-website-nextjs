@@ -87,12 +87,21 @@ const components = {
 };
 
 export default function PostPage({
-  frontMatter: { title, description, seoTitle, seoDescription, tags },
+  frontMatter: { title, description, seoTitle, seoDescription, tags, date },
   slug,
   mdxSource,
   selectedRelatedPosts,
 }) {
   const canonicalUrl = `https://irtizahafiz.com/blog/${slug}`;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: title,
+    description: description,
+    author: { "@type": "Person", name: "Irtiza Hafiz" },
+    datePublished: date,
+    url: canonicalUrl,
+  };
 
   return (
     <Flex bg={colors.bgPrimary} flexDirection="column" color="white">
@@ -108,6 +117,10 @@ export default function PostPage({
         <meta property="og:title" content={title}></meta>
         <meta property="og:description" content={description}></meta>
         <meta property="og:type" content="article"></meta>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       </Head>
       <NavBar />
       <Flex flexDirection={"column"}>
