@@ -88,13 +88,17 @@ const components = {
 
 export default function PostPage({
   frontMatter: { title, description, seoTitle, seoDescription, tags },
+  slug,
   mdxSource,
   selectedRelatedPosts,
 }) {
+  const canonicalUrl = `https://irtizahafiz.com/blog/${slug}`;
+
   return (
     <Flex bg={colors.bgPrimary} flexDirection="column" color="white">
       <Head>
         <title>{title}</title>
+        <link rel="canonical" href={canonicalUrl} />
         <meta name="title" content={seoTitle}></meta>
         <meta name="description" content={seoDescription}></meta>
         <meta
