@@ -13,7 +13,7 @@
     "@emotion/styled": "^11.11.0",
     "@fontsource/inter": "^5.0.17",
     "@fontsource/montserrat": "^5.0.17",
-    "axios": "^1.6.8",
+    "axios": "^1.15.0",
     "framer-motion": "^6.5.1",
     "gray-matter": "^4.0.3",
     "next": "^14.2.0",
@@ -24,7 +24,7 @@
     "react-syntax-highlighter": "^15.5.0"
   },
   "engines": {
-    "node": ">=18"
+    "node": ">=20"
   },
   "devDependencies": {
     "next-mdx-remote": "^4.4.1"
