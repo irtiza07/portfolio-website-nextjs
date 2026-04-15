@@ -45,7 +45,8 @@ export default function BlogCard({ post }) {
         </Text>
         <Link
           href={`/blog/${postSlug}`}
-          data-umami-event="blog-card-cta-clicked"
+          data-umami-event="Blog Card Click"
+          data-umami-event-post={postSlug}
         >
           <Heading
             color={colors.accentGreen}
@@ -62,7 +63,8 @@ export default function BlogCard({ post }) {
         <Spacer />
         <Link
           href={`/blog/${postSlug}`}
-          data-umami-event="blog-card-cta-clicked"
+          data-umami-event="Blog Card Click"
+          data-umami-event-post={postSlug}
         >
           <Button bg={colors.accentYellow} color={colors.textDark} size="sm">
             Read More

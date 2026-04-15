@@ -28,7 +28,7 @@ export default function NavBar() {
       <Flex align="center" display={["none", "flex"]}>
         <Link
           href="/"
-          data-umami-event="Home Tab Selected"
+          data-umami-event="Logo Click"
           fontSize="xl"
           fontWeight="bold"
         >
@@ -49,7 +49,11 @@ export default function NavBar() {
           direction={["row", "row", "row", "row"]}
           paddingTop={[4, 0, 0, 0]}
         >
-          <Link href="/" data-umami-event="Home Tab Selected">
+          <Link
+            href="/"
+            data-umami-event="Nav Tab Click"
+            data-umami-event-tab="home"
+          >
             <Text
               fontSize={{ base: "xs", md: "lg" }}
               color="white"
@@ -59,7 +63,11 @@ export default function NavBar() {
               Home
             </Text>
           </Link>
-          <Link href="/programming" data-umami-event="Programming Tab Selected">
+          <Link
+            href="/programming"
+            data-umami-event="Nav Tab Click"
+            data-umami-event-tab="programming"
+          >
             <Text
               color="white"
               fontSize={{ base: "xs", md: "lg" }}
@@ -71,7 +79,8 @@ export default function NavBar() {
           </Link>
           <Link
             href="/credit-cards"
-            data-umami-event="Credit Card Tab Selected"
+            data-umami-event="Nav Tab Click"
+            data-umami-event-tab="credit-cards"
           >
             <Text
               color="white"
@@ -83,7 +92,11 @@ export default function NavBar() {
               Credit Cards
             </Text>
           </Link>
-          <Link href="/newsletter" data-umami-event="Newsletter Tab Selected">
+          <Link
+            href="/newsletter"
+            data-umami-event="Nav Tab Click"
+            data-umami-event-tab="newsletter"
+          >
             <Text
               color="white"
               fontSize={{ base: "xs", md: "lg" }}
@@ -93,7 +106,11 @@ export default function NavBar() {
               Newsletter
             </Text>
           </Link>
-          <Link href="/tools" data-umami-event="Tools Tab Selected">
+          <Link
+            href="/tools"
+            data-umami-event="Nav Tab Click"
+            data-umami-event-tab="tools"
+          >
             <Text
               color="white"
               fontSize={{ base: "xs", md: "lg" }}

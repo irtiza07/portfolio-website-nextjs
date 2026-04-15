@@ -4,7 +4,7 @@ import { colors, CONSULTATION_URL } from "../lib/constants";
 export default function BookConsultationButton() {
   const handleClick = () => {
     try {
-      umami.track("free-consultation-button-click");
+      umami.track("Consultation Click");
     } catch (error) {
       console.log(error);
     }

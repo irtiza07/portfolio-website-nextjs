@@ -7,8 +7,7 @@ import { colors } from "../lib/constants";
 export default function Tools({ tools }) {
   const handleLinkClick = (toolName) => {
     try {
-      umami.track("tool-clicked");
-      umami.track(`${toolName}-clicked`);
+      umami.track("Tool Click", { tool: toolName });
     } catch (error) {
       console.log(error);
     }

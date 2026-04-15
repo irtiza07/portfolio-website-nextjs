@@ -13,8 +13,7 @@ export default function CreditCardItem({
   const handleClick = (e) => {
     e.preventDefault();
     try {
-      umami.track("credit-card-apply-clicked");
-      umami.track(`${cardName}-apply-clicked`);
+      umami.track("Credit Card Apply", { card: cardName });
     } catch (error) {
       console.log(error);
     }
@@ -40,7 +39,7 @@ export default function CreditCardItem({
         </Text>
         <Spacer />
 
-        <Link href={referralURL} data-umami-event={`${cardName}-apply-clicked`}>
+        <Link href={referralURL}>
           <Button
             bg={colors.accentYellow}
             color={colors.textDark}
