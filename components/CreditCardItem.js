@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Heading, VStack, Flex, Spacer, Button, Text } from "@chakra-ui/react";
+import { Heading, Flex, Button, Text } from "@chakra-ui/react";
 import { colors } from "../lib/constants";
 
 export default function CreditCardItem({
@@ -22,37 +22,48 @@ export default function CreditCardItem({
   return (
     <Flex
       flexDirection="column"
+      alignItems="center"
       bg={colors.bgCard}
-      padding="2vw"
-      borderRadius="2vw"
-      justifyContent="space-between"
-      alignItems="stretch"
+      padding={{ base: 5, md: 6 }}
+      borderRadius="2xl"
+      width={{ base: "260px", md: "300px" }}
+      minHeight={{ base: "370px", md: "400px" }}
+      gap={4}
     >
-      <VStack>
-        <Image width={200} height={80} src={imageURL} alt="Credit Card Image" />
-        <Heading size="md" color={colors.accentGreen}>
-          {cardName}
-        </Heading>
-        <Spacer />
-        <Text whiteSpace="pre-line" color={colors.textLight}>
-          {cardDescription}
-        </Text>
-        <Spacer />
-
-        <Link href={referralURL}>
-          <Button
-            bg={colors.accentYellow}
-            color={colors.textDark}
-            size="sm"
-            fontSize="lg"
-            fontWeight="bold"
-            _hover={{ cursor: "pointer" }}
-            onClick={handleClick}
-          >
-            <Text fontSize={"sm"}>Apply</Text>
-          </Button>
-        </Link>
-      </VStack>
+      <Image width={200} height={80} src={imageURL} alt="Credit Card Image" />
+      <Heading
+        size="sm"
+        color={colors.accentGreen}
+        textAlign="center"
+        whiteSpace="normal"
+        noOfLines={2}
+        minHeight="3em"
+      >
+        {cardName}
+      </Heading>
+      <Text
+        color={colors.textLight}
+        textAlign="center"
+        fontSize="sm"
+        whiteSpace="normal"
+        noOfLines={5}
+        flex="1"
+      >
+        {cardDescription}
+      </Text>
+      <Link href={referralURL} style={{ marginTop: "auto" }}>
+        <Button
+          bg={colors.accentYellow}
+          color={colors.textDark}
+          size="sm"
+          fontSize="lg"
+          fontWeight="bold"
+          _hover={{ cursor: "pointer" }}
+          onClick={handleClick}
+        >
+          <Text fontSize={"sm"}>Apply</Text>
+        </Button>
+      </Link>
     </Flex>
   );
 }
