@@ -15,7 +15,8 @@ export default function Categories({ categories }) {
             key={category.slug}
             href={`/${category.slug}`}
             passHref
-            data-umami-event={`category-${category.slug}-cta-click`}
+            data-umami-event="Category Click"
+            data-umami-event-category={category.slug}
           >
             <Box
               bg="white"

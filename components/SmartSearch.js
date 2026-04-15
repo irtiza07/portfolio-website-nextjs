@@ -48,8 +48,7 @@ export default function SmartSearch({
       console.error("Network error:", error.message);
     }
     try {
-      umami.track("smart-search-btn-click");
-      umami.track(`${searchQueryText}-SMART-SEARCH`);
+      umami.track("Smart Search", { query: searchQueryText?.slice(0, 100) });
     } catch (error) {
       console.log(error);
     }

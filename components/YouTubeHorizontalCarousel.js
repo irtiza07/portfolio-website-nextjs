@@ -13,7 +13,7 @@ export default function YouTubeHorizontalCarousel({ youtubeVideos }) {
         href={YOUTUBE_CHANNEL_URL}
         target="_blank"
         passHref
-        data-umami-event="youtube-carousel-channel-cta-clicked"
+        data-umami-event="YouTube Channel Click"
       >
         <Text
           as="span"

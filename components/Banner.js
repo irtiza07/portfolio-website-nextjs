@@ -48,7 +48,8 @@ export default function Banner() {
             <Link
               href="/programming"
               passHref
-              data-umami-event="banner-programming-cta-click"
+              data-umami-event="Banner CTA Click"
+              data-umami-event-section="programming"
             >
               <Text
                 as="span"
@@ -63,7 +64,8 @@ export default function Banner() {
             <Link
               href="/credit-cards"
               passHref
-              data-umami-event="banner-credit-cards-cta-click"
+              data-umami-event="Banner CTA Click"
+              data-umami-event-section="credit-cards"
             >
               <Text
                 as="span"

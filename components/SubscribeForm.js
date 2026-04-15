@@ -6,6 +6,9 @@ import {
   FormLabel,
   Input,
   FormHelperText,
+  RadioGroup,
+  Radio,
+  Stack,
   useToast,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
@@ -15,13 +18,14 @@ import { colors, API_NEWSLETTER_URL, NEWSLETTER_LIST_UUID } from "../lib/constan
 export default function SubscribeForm() {
   const [firstName, setFirstName] = useState("");
   const [emailAddress, setEmailAddress] = useState("");
+  const [interest, setInterest] = useState("");
   const successToast = useToast();
   const failureToast = useToast();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      umami.track("Subscribe Clicked");
+      umami.track("Subscribe Click", { interest });
     } catch (error) {
       console.log(error);
     }
@@ -41,6 +45,7 @@ export default function SubscribeForm() {
       });
       setFirstName("");
       setEmailAddress("");
+      setInterest("");
     } catch (error) {
       failureToast({
         title: "Oops!",
@@ -83,13 +88,22 @@ export default function SubscribeForm() {
             hidden={true}
           />
         </FormControl>
+        <FormControl isRequired>
+          <FormLabel>What are you interested in?</FormLabel>
+          <RadioGroup value={interest} onChange={setInterest}>
+            <Stack direction={["column", "row"]} spacing="1.5vw">
+              <Radio value="credit-cards">Credit Cards</Radio>
+              <Radio value="software-development">Software Development</Radio>
+            </Stack>
+          </RadioGroup>
+        </FormControl>
         <VStack>
           <FormControl>
             <Button
               bg={colors.accentYellow}
               color={colors.textDark}
               size="lg"
-              isDisabled={!(firstName && emailAddress)}
+              isDisabled={!(firstName && emailAddress && interest)}
               type="submit"
             >
               Subscribe
