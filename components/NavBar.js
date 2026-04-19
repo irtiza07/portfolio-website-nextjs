@@ -93,7 +93,9 @@ export default function NavBar() {
             </Text>
           </Link>
           <Link
-            href="/newsletter"
+            href="https://codewithirtiza.substack.com/subscribe?utm_source=website"
+            target="_blank"
+            rel="noopener noreferrer"
             data-umami-event="Nav Tab Click"
             data-umami-event-tab="newsletter"
           >
