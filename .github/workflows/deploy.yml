@@ -19,6 +19,6 @@ jobs:
             git fetch origin main
             git reset --hard origin/main
             npm ci
-            npx next build
+            npm run build
             pm2 restart portfolio-website
             pm2 restart portfolio-backend
