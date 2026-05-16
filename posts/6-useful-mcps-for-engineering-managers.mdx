@@ -1,0 +1,141 @@
+---
+title: 6 Useful MCPs for Engineering Managers
+date: "May 16, 2026"
+description: Six MCPs that transformed my engineering management workflow — from codebase access to observability to task management.
+tags: ["programming"]
+isPopular: false
+seoTitle: 6 Useful MCPs for Engineering Managers Using Claude Code
+seoDescription: Discover 6 powerful MCPs for engineering managers — Sourcegraph, Slack, Splunk, OpenMetadata, Confluence, and JIRA — and how they dramatically reduce busy work and improve decision-making.
+---
+
+Since connecting MCPs to Claude Code, my engineering management workflow has drastically improved.
+
+Things that used to take hours, now take minutes.
+
+Instead of spending majority of my time on "busy work", I started spending an increasing amount of time on higher level things - technical roadmaps, building relationships across the organization and, to my surprise, product analytics.
+
+In this blog post, I will show you 6 MCPs that helped with this. In the next blog post, I will deep dive into concrete workflows that you can replicate using the same MCPs.
+
+Let's get started.
+## Sourcegraph MCP - Codebase Access
+My company uses [Sourcegraph](https://sourcegraph.com/mcp) to index all repositories across the entire codebase. With an MCP, any AI agent (Claude Code in my case) can smartly navigate through the repos, analyze the code and theoretically answer any question you have.
+
+My two biggest use cases of Sourcegraph MCP are:
+1. High-level scoping of feature requests
+2. Identifying obvious bugs, performance bottlenecks, logging
+
+As an EM, I frequently work with my Product stakeholder to early scope projects. Instead of looping in engineers at an early stage, the Sourcegraph MCP takes me 40% of the way, before I hand it off to an engineer.
+
+Yes, it's not perfect. There are nuances that are difficult to figure out for someone who doesn't code day to day.
+
+However, being a hands-on manager, I am at a unique position to understand most of those nuances. Moreover, I can always loop in engineers when unsure.
+
+Now, let's talk about the second use case.
+
+In my company, bugs are reported through JIRA. Previously, whenever I was assigned a ticket, I used to re-assign it to our on-point engineer.
+
+Instead, now I can ask Claude to combine JIRA and Sourcegraph MCPs, to refine the problem space, narrow down the issue, then write a report to assist our on-point engineer.
+
+It's not perfect, but more often than not, it gives engineers a good starting point.
+
+As a manager, that means I can use Claude's report to get a rough understanding of impact, scale and effort, before handing it off to engineers.
+## Slack MCP - Information Gathering
+We use Slack for our day-to-day conversations.
+
+Hence, I am sure you can easily tell why a [Slack MCP](https://slack.com/help/articles/48855576908307-Guide-to-the-Slack-MCP-server) is crucial for any engineering manager. In short: **information gathering**.
+
+A few power workflows I have built with Slack MCP are:
+1. Starting the day with an AI summary of top Slack threads to look at
+2. Polling project channels to summarize status updates and identify potential bottlenecks
+3. Do research on any topic based on historical Slack conversations
+4. Write automated daily metrics and observability reports
+5. Summarize long threads and incident channels
+6. Create JIRA tasks from Slack conversations
+
+In the next post, I will dive deeper into my Slack workflows. Among all MCPs, Slack MCP is always at the center. Most things are built downstream of Slack.
+## Splunk MCP - Alerting & Observability
+My company uses [Splunk](https://splunkbase.splunk.com/app/7931) to ingest all sorts of telemetry - performance metrics, error logs, product metrics, etc. As a result, our automated alerts are sourced from Splunk logs.
+
+Most logs in Splunk have the following metadata:
+1. Error tracebacks
+2. Upstream data sources
+3. Trace IDs (to reconstruct microservice chain for any request)
+4. Latencies
+
+Additionally, we have Splunk connectors that can query Amazon Redshift and Data Lake tables, albeit with some restrictions.
+
+Everything combined, you can see how Splunk MCPs are extremely powerful. A few things I typically use Splunk MCPs for:
+1. Analyze error trends
+2. Generate daily or weekly reports with key performance and product metrics
+3. Analyze long latency requests and identify chokepoints
+
+Let me walk you through one particular workflow:
+1. I identify suspicious error tracebacks
+2. I pass a link to Claude to access the traceback
+3. Claude uses Splunk MCPs to obtain all metadata
+4. Claude extracts `request_id` from Splunk
+5. Claude uses Splunk MCP to gather other service calls in the same request path
+6. Claude uses Sourcegraph MCP to analyze the code across all services
+7. Claude provides suggested fixes or optimizations
+
+You'll see a pattern - MCPs work best together, not solo.
+## OpenMetadata MCP - Data Discovery
+In companies at Yelp's scale, data is produced by several engineering teams across multiple organizations. It's not possible to know exactly what data is available, and more importantly, what databases and tables to query.
+
+Enter - [OpenMetadata](https://open-metadata.org/mcp).
+
+It gives you a single place for all data sources, schemas and documentation.
+
+Now, with an MCP on top, I can just ask questions to obtain queries:
+- "How many users visited the search page in the last 30 days?"
+- "How many orders were placed in the last 15 days?"
+- "My team needs X metric for this feature. Is the data readily available in MySQL or Redis?"
+- "My Product Manager needs CTA clicks data for offline analysis. Is it available in Data Warehouse or Data Lake?"
+
+Previously answering any of these questions required multiple 1-1s with stakeholders, or a several hour long OpenMetadata deep dive. Now, it takes minutes.
+
+On top of that, Claude can combine OpenMetadata with Slack to not only identify data schema, but also gather extra context from historical Slack conversations.
+
+The cherry on top - once the query is formed, Claude can use Splunk MCP to execute the query and give me the results without any intervention.
+
+Again, all this was possible before, but needed me to take action in every step.
+
+Now, all I have to do is ask a question to Claude, and it gives me 80% of the answer.
+## Wiki (Confluence) MCP - Documentation
+Now, let's go through a few quick-fire ones.
+
+Every company has a knowledge base for project documentation, runbooks, etc. At Yelp, we use Confluence.
+
+We have an MCP that wraps the official [Confluence MCP](https://www.atlassian.com/blog/announcements/remote-mcp-server) for better security and privacy.
+
+The use case is self-explanatory - ask questions to Claude, and let it gather historical context from the knowledge base.
+
+Funny enough, the MCP comes especially handy because Confluence's search functionality is extremely bare-bones, barely returning anything useful.
+## JIRA MCP - Task & Project Management
+At Yelp, we use [JIRA](https://github.com/atlassian/atlassian-mcp-server) as our primary task manager.
+
+That means, most important tasks are always tracked on JIRA. Most project timelines are also tracked on JIRA.
+
+Whether engineering teams run Sprints or basic Kanban, it's there on JIRA.
+
+I use the JIRA MCP for many things, but here are some noteworthy ones:
+1. Create tickets using Slack context (Slack MCP + JIRA MCP)
+2. Generate Sprint reports
+3. Get a summary of ticket health - How many unpointed tickets? Which tickets haven't received an update for a while, hence can be discarded? What's the distribution of P0 vs P1 vs P2 tickets? How's the workload for every engineer in any given Sprint?
+
+Since transitioning to JIRA MCPs, to my surprise, I barely use JIRA's built-in reporting tools.
+
+Instead, I prefer my personalized custom JIRA dashboards directly on Claude Code.
+## Closing Thoughts
+You don't necessarily have to use these exact MCPs.
+
+Use MCPs that make sense in your company:
+- Do you use ClickUp instead of JIRA? Use ClickUp MCP.
+- Do you use Datadog instead of Splunk? Use Datadog MCP.
+- Do you use Collibra instead of OpenMetadata? Use Collibra MCP.
+
+The magic lies in the synergy between these MCPs.
+
+I would love to hear workflows you find helpful. Share them below.
+
+Thank you for reading.
