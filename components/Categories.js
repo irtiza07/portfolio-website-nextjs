@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { Box, Text, Heading, HStack } from "@chakra-ui/react";
+import { Box, Text, Heading, Flex } from "@chakra-ui/react";
 
 export default function Categories({ categories }) {
   return (
@@ -9,7 +9,12 @@ export default function Categories({ categories }) {
         Explore Topics
       </Heading>
 
-      <HStack spacing={6} justify="center">
+      <Flex
+        gap={6}
+        justify="center"
+        align="center"
+        direction={{ base: "column", md: "row" }}
+      >
         {categories?.map((category) => (
           <Link
             key={category.slug}
@@ -43,7 +48,7 @@ export default function Categories({ categories }) {
             </Box>
           </Link>
         ))}
-      </HStack>
+      </Flex>
     </Box>
   );
 }

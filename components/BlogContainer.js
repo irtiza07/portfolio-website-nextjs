@@ -6,13 +6,15 @@ import Categories from "./Categories";
 export default function BlogContainer({ posts }) {
   const categories = [
     {
-      label: "Programming",
+      label: "Software Development",
       slug: "programming",
     },
     {
-      label: "Credit Cards",
+      label: "Travel",
       slug: "credit-cards",
     },
+    // Field Notes is hidden until there are posts that fit the section.
+    // Restore: { label: "Field Notes", slug: "field-notes" }
   ];
   return (
     <Grid gap={10}>

@@ -1,6 +1,7 @@
 import { Box } from "@chakra-ui/react";
 import BlogGrid from "../components/BlogGrid";
 import Layout from "../components/Layout";
+import SubscribeButton from "../components/SubscribeButton";
 import YouTubeHorizontalCarousel from "../components/YouTubeHorizontalCarousel";
 import { getSortedPosts } from "../lib/logic";
 import { YOUTUBE_PLAYLIST_ID } from "../lib/constants";
@@ -14,7 +15,12 @@ export default function Programming({ posts, youtubeVideos }) {
     >
       <Box padding={{ base: "3vw", md: "5vw" }}>
         <YouTubeHorizontalCarousel youtubeVideos={youtubeVideos} />
-        <BlogGrid posts={posts} maxColumnCount={4} />
+        <BlogGrid
+          posts={posts}
+          maxColumnCount={4}
+          customHeading="Blog Posts"
+          headingCta={<SubscribeButton />}
+        />
       </Box>
     </Layout>
   );

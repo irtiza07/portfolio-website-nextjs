@@ -2,6 +2,7 @@ import { Box } from "@chakra-ui/react";
 import CreditCardGrid from "../components/CreditCardGrid";
 import BlogGrid from "../components/BlogGrid";
 import Layout from "../components/Layout";
+import SubscribeButton from "../components/SubscribeButton";
 import { getSortedPosts } from "../lib/logic";
 
 export default function CreditCards({ posts }) {
@@ -14,7 +15,12 @@ export default function CreditCards({ posts }) {
     >
       <Box padding={{ base: "3vw", md: "5vw" }}>
         <CreditCardGrid />
-        <BlogGrid posts={posts} maxColumnCount={4} />
+        <BlogGrid
+          posts={posts}
+          maxColumnCount={4}
+          customHeading="Blog Posts"
+          headingCta={<SubscribeButton />}
+        />
       </Box>
     </Layout>
   );

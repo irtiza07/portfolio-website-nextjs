@@ -61,7 +61,7 @@ export default function SmartSearch({
       justifyContent={"center"}
     >
       <Input
-        placeholder="Smart AI Search"
+        placeholder="What are you looking for?"
         size="lg"
         color="white"
         width={["90%"]}

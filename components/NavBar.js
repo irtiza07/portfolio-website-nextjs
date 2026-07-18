@@ -73,8 +73,9 @@ export default function NavBar() {
               fontSize={{ base: "xs", md: "lg" }}
               textDecoration="underline"
               textUnderlineOffset={["6px", "10px"]}
+              whiteSpace="nowrap"
             >
-              Programming
+              Software Development
             </Text>
           </Link>
           <Link
@@ -89,37 +90,7 @@ export default function NavBar() {
               textUnderlineOffset={["6px", "10px"]}
               whiteSpace="nowrap"
             >
-              Credit Cards
-            </Text>
-          </Link>
-          <Link
-            href="https://codewithirtiza.substack.com/subscribe?utm_source=website"
-            target="_blank"
-            rel="noopener noreferrer"
-            data-umami-event="Nav Tab Click"
-            data-umami-event-tab="newsletter"
-          >
-            <Text
-              color="white"
-              fontSize={{ base: "xs", md: "lg" }}
-              textDecoration="underline"
-              textUnderlineOffset={["6px", "10px"]}
-            >
-              Newsletter
-            </Text>
-          </Link>
-          <Link
-            href="/tools"
-            data-umami-event="Nav Tab Click"
-            data-umami-event-tab="tools"
-          >
-            <Text
-              color="white"
-              fontSize={{ base: "xs", md: "lg" }}
-              textDecoration="underline"
-              textUnderlineOffset={["6px", "10px"]}
-            >
-              Tools
+              Travel
             </Text>
           </Link>
         </Stack>
