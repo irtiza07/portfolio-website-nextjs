@@ -1,10 +1,10 @@
 import { Button } from "@chakra-ui/react";
-import { colors, CONSULTATION_URL } from "../lib/constants";
+import { colors, SUBSTACK_SUBSCRIBE_URL } from "../lib/constants";
 
-export default function BookConsultationButton() {
+export default function SubscribeButton() {
   const handleClick = () => {
     try {
-      umami.track("Consultation Click");
+      umami.track("Subscribe Click");
     } catch (error) {
       console.log(error);
     }
@@ -13,7 +13,7 @@ export default function BookConsultationButton() {
   return (
     <Button
       as="a"
-      href={CONSULTATION_URL}
+      href={SUBSTACK_SUBSCRIBE_URL}
       target="_blank"
       rel="noopener noreferrer"
       bg={colors.accentYellow}
@@ -23,7 +23,7 @@ export default function BookConsultationButton() {
       _hover={{ bg: colors.accentYellowHover }}
       onClick={handleClick}
     >
-      Free Consultation
+      Subscribe
     </Button>
   );
 }

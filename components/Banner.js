@@ -1,10 +1,8 @@
-import Link from "next/link";
 import React, { useState } from "react";
 import {
   Heading,
   Center,
   VStack,
-  Text,
   Stack,
   useDisclosure,
 } from "@chakra-ui/react";
@@ -44,39 +42,7 @@ export default function Banner() {
             Hi! I am Irtiza.
           </Heading>
           <Heading color={colors.textPrimary} fontSize={["xl", "3xl", "3xl"]}>
-            I create content about{" "}
-            <Link
-              href="/programming"
-              passHref
-              data-umami-event="Banner CTA Click"
-              data-umami-event-section="programming"
-            >
-              <Text
-                as="span"
-                color={colors.accentGreen}
-                cursor="pointer"
-                textUnderlineOffset={["6px", "10px"]}
-              >
-                Programming
-              </Text>
-            </Link>{" "}
-            and{" "}
-            <Link
-              href="/credit-cards"
-              passHref
-              data-umami-event="Banner CTA Click"
-              data-umami-event-section="credit-cards"
-            >
-              <Text
-                as="span"
-                color={colors.accentGreen}
-                cursor="pointer"
-                textUnderlineOffset={["6px", "10px"]}
-              >
-                Credit Cards
-              </Text>
-            </Link>
-            .
+            I am an Engineering Manager and Content Creator.
           </Heading>
           <SmartSearch
             searchQueryText={searchQueryText}

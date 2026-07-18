@@ -24,8 +24,8 @@ import { ArrowForwardIcon } from "@chakra-ui/icons";
 import NavBar from "../../components/NavBar";
 import Footer from "../../components/Footer";
 import CreditCardGrid from "../../components/CreditCardGrid";
+import SubscribeButton from "../../components/SubscribeButton";
 import RecommendedPostsCarousel from "../../components/RecommendedPostsCarousel";
-import BookConsultationButton from "../../components/BookConsultationButton";
 import ReferralLink from "../../components/ReferralLink";
 import { getSortedPosts, shuffleArray } from "../../lib/logic";
 import referralLinks from "../../lib/referralLinks";
@@ -137,11 +137,9 @@ export default function PostPage({
         >
           {title}
         </Heading>
-        {tags[0] === "credit-cards" && (
-          <Center marginTop={4}>
-            <BookConsultationButton />
-          </Center>
-        )}
+        <Center marginTop={4}>
+          <SubscribeButton />
+        </Center>
         <Center padding={[4, 12]}>
           <Flex width={["95vw", "50vw"]} flexDirection={"column"}>
             <MDXRemote {...mdxSource} components={components} />
