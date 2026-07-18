@@ -1,5 +1,5 @@
 import { Box } from "@chakra-ui/react";
-import BlogGrid from "../components/BlogGrid";
+import BlogList from "../components/BlogList";
 import Layout from "../components/Layout";
 import SubscribeButton from "../components/SubscribeButton";
 import YouTubeHorizontalCarousel from "../components/YouTubeHorizontalCarousel";
@@ -15,9 +15,8 @@ export default function Programming({ posts, youtubeVideos }) {
     >
       <Box padding={{ base: "3vw", md: "5vw" }}>
         <YouTubeHorizontalCarousel youtubeVideos={youtubeVideos} />
-        <BlogGrid
+        <BlogList
           posts={posts}
-          maxColumnCount={4}
           customHeading="Blog Posts"
           headingCta={<SubscribeButton />}
         />
