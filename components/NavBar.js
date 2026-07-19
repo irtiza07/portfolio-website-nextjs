@@ -17,7 +17,7 @@ export default function NavBar() {
       align="center"
       justify="space-between"
       wrap="wrap"
-      color="white"
+      color={colors.onDark}
       p={4}
       position="sticky"
       top="0"
@@ -32,7 +32,7 @@ export default function NavBar() {
           fontSize="xl"
           fontWeight="bold"
         >
-          <Heading color={colors.accentYellow}>Irtiza Hafiz</Heading>
+          <Heading color={colors.logo}>Irtiza Hafiz</Heading>
         </Link>
       </Flex>
       <Spacer />
@@ -56,7 +56,7 @@ export default function NavBar() {
           >
             <Text
               fontSize={{ base: "xs", md: "lg" }}
-              color="white"
+              color={colors.onDark}
               textDecoration="underline"
               textUnderlineOffset={["6px", "10px"]}
             >
@@ -69,7 +69,7 @@ export default function NavBar() {
             data-umami-event-tab="programming"
           >
             <Text
-              color="white"
+              color={colors.onDark}
               fontSize={{ base: "xs", md: "lg" }}
               textDecoration="underline"
               textUnderlineOffset={["6px", "10px"]}
@@ -84,7 +84,7 @@ export default function NavBar() {
             data-umami-event-tab="credit-cards"
           >
             <Text
-              color="white"
+              color={colors.onDark}
               fontSize={{ base: "xs", md: "lg" }}
               textDecoration="underline"
               textUnderlineOffset={["6px", "10px"]}

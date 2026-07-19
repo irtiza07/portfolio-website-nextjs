@@ -1,5 +1,9 @@
 a {
   text-decoration: none;
+  color: #51641d;
+}
+a:hover {
+  color: #3a4a15;
 }
 button {
   outline: none !important;

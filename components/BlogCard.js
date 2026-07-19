@@ -32,7 +32,7 @@ export default function BlogCard({ post }) {
         spacing={[4, 6]}
       >
         <Badge
-          colorScheme="red"
+          colorScheme="gray"
           px={3}
           py={1}
           borderRadius="full"
@@ -66,7 +66,7 @@ export default function BlogCard({ post }) {
           data-umami-event="Blog Card Click"
           data-umami-event-post={postSlug}
         >
-          <Button bg={colors.accentYellow} color={colors.textDark} size="sm">
+          <Button bg={colors.accentYellow} color={colors.onDark} size="sm">
             Read More
           </Button>
         </Link>

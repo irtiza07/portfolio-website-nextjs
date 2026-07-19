@@ -12,22 +12,22 @@ export default function Footer() {
       textAlign={"center"}
     >
       <Link href="/">
-        <Heading color={colors.accentYellow}>Irtiza Hafiz</Heading>
+        <Heading color={colors.logo}>Irtiza Hafiz</Heading>
       </Link>
       <Spacer />
       <Stack spacing={[4, 16]} direction={["column", "row"]}>
         <Link href={MEDIUM_URL} target="_blank">
-          <Text fontSize="lg" color="white">
+          <Text fontSize="lg" color={colors.onDark}>
             Medium
           </Text>
         </Link>
         <Link href={YOUTUBE_CHANNEL_URL} target="_blank">
-          <Text color="white" fontSize="lg">
+          <Text color={colors.onDark} fontSize="lg">
             YouTube
           </Text>
         </Link>
         <Link href={LINKEDIN_URL} target="_blank">
-          <Text color="white" fontSize="lg">
+          <Text color={colors.onDark} fontSize="lg">
             LinkedIn
           </Text>
         </Link>

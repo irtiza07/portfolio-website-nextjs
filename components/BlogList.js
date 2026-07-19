@@ -23,7 +23,7 @@ function BlogListRow({ post }) {
         gap={{ base: 1, md: 6 }}
         paddingY={3}
         borderBottom="1px solid"
-        borderColor={colors.bgCard}
+        borderColor={colors.borderSubtle}
         role="group"
       >
         <Text
@@ -91,7 +91,7 @@ export default function BlogList({
     <Box>
       {customHeading && (
         <Heading
-          color="white"
+          color={colors.textPrimary}
           textAlign="center"
           mb={headingCta ? 4 : 6}
         >
@@ -121,7 +121,7 @@ export default function BlogList({
             </Flex>
             <Box
               borderTop="1px solid"
-              borderColor={colors.bgCard}
+              borderColor={colors.borderSubtle}
               // CSS multi-column flows down the first column before wrapping to
               // the second, so posts stay in date order. A grid would read
               // left-to-right and scramble that.

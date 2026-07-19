@@ -2,9 +2,6 @@ import React from "react";
 import { Stack, Input, Button, useToast } from "@chakra-ui/react";
 import { colors, API_RECOMMENDATIONS_URL, CONTENT_CATEGORY } from "../lib/constants";
 
-const RAINBOW_BOX_SHADOW =
-  "0 0 10px rgba(255, 0, 0, 0.5), 0 0 20px rgba(255, 255, 0, 0.5), 0 0 30px rgba(0, 255, 0, 0.5), 0 0 40px rgba(0, 0, 255, 0.5)";
-
 export default function SmartSearch({
   searchQueryText,
   setSearchQueryText,
@@ -63,19 +60,21 @@ export default function SmartSearch({
       <Input
         placeholder="What are you looking for?"
         size="lg"
-        color="white"
+        color={colors.textLight}
+        bg={colors.onDark}
+        borderColor={colors.borderControl}
+        _placeholder={{ color: colors.textMuted }}
         width={["90%"]}
         borderRadius="full"
-        boxShadow={RAINBOW_BOX_SHADOW}
         onChange={(e) => setSearchQueryText(e.target.value)}
         value={searchQueryText}
       />
       <Button
-        bg={colors.accentRed}
-        color={colors.textDark}
+        bg={colors.accentYellow}
+        color={colors.onDark}
+        _hover={{ bg: colors.accentYellowHover }}
         size="lg"
         borderRadius="full"
-        boxShadow={RAINBOW_BOX_SHADOW}
         onClick={(e) => fetchRecommendations()}
         isDisabled={!searchQueryText}
       >

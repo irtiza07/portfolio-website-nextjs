@@ -10,7 +10,12 @@ export default function Layout({ title, description, children, ...flexProps }) {
   const canonicalUrl = `https://irtizahafiz.com${router.asPath.split("?")[0]}`;
 
   return (
-    <Flex bg={colors.bgPrimary} flexDirection="column" {...flexProps}>
+    <Flex
+      bg={colors.bgPrimary}
+      color={colors.textLight}
+      flexDirection="column"
+      {...flexProps}
+    >
       <Head>
         <title>{title}</title>
         <link rel="canonical" href={canonicalUrl} />

@@ -46,7 +46,7 @@ export default function RecommendationsModal({
           <ModalBody>
             <Tabs
               variant="soft-rounded"
-              colorScheme="orange"
+              colorScheme="gray"
               align="center"
               isFitted
             >
@@ -70,7 +70,7 @@ export default function RecommendationsModal({
                       {recommendations["blog"].map((rec, index) => (
                         <Link href={rec["url"]} target="_blank" key={index}>
                           <HStack>
-                            <Text color="black" fontSize="lg" align={"start"}>
+                            <Text color={colors.textPrimary} fontSize="lg" align={"start"}>
                               {rec["title"]}{" "}
                               <ExternalLinkIcon color={colors.accentRed} />
                             </Text>
@@ -93,7 +93,7 @@ export default function RecommendationsModal({
                               height={90}
                             ></Image>
                             <HStack>
-                              <Text color="black" fontSize="lg">
+                              <Text color={colors.textPrimary} fontSize="lg">
                                 {rec["title"]}{" "}
                                 <ExternalLinkIcon color={colors.accentRed} />
                               </Text>
@@ -108,7 +108,7 @@ export default function RecommendationsModal({
             </Tabs>
           </ModalBody>
           <ModalFooter>
-            <Button onClick={onClose} bg={colors.accentRed} color="white">
+            <Button onClick={onClose} bg={colors.accentRed} color={colors.onDark}>
               Not Interested
             </Button>
           </ModalFooter>
