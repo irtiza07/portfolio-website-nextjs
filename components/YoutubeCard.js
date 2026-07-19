@@ -4,7 +4,9 @@ import Image from "next/image";
 import { VStack, Button, Text } from "@chakra-ui/react";
 import { colors } from "../lib/constants";
 
-export default function YoutubeCard({ videoData }) {
+// `width` defaults to the fixed sizing the horizontal carousel needs; grid
+// layouts pass "100%" so tiles fill their column instead.
+export default function YoutubeCard({ videoData, width = { base: 250, md: 400 } }) {
   return (
     <VStack
       justify={"center"}
@@ -12,7 +14,7 @@ export default function YoutubeCard({ videoData }) {
       padding={[5, 8]}
       borderRadius={[28, 16]}
       spacing={6}
-      width={{ base: 250, md: 400 }}
+      width={width}
     >
       <Image
         src={videoData?.snippet?.thumbnails?.medium?.url}

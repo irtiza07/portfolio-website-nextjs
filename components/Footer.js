@@ -1,7 +1,12 @@
 import React from "react";
 import Link from "next/link";
-import { Heading, Text, Spacer, Stack } from "@chakra-ui/react";
-import { colors, MEDIUM_URL, YOUTUBE_CHANNEL_URL, LINKEDIN_URL } from "../lib/constants";
+import { Text, Spacer, Stack } from "@chakra-ui/react";
+import {
+  colors,
+  SUBSTACK_SUBSCRIBE_URL,
+  YOUTUBE_CHANNEL_URL,
+  LINKEDIN_URL,
+} from "../lib/constants";
 
 export default function Footer() {
   return (
@@ -11,14 +16,11 @@ export default function Footer() {
       padding={"4vw"}
       textAlign={"center"}
     >
-      <Link href="/">
-        <Heading color={colors.logo}>Irtiza Hafiz</Heading>
-      </Link>
       <Spacer />
       <Stack spacing={[4, 16]} direction={["column", "row"]}>
-        <Link href={MEDIUM_URL} target="_blank">
+        <Link href={SUBSTACK_SUBSCRIBE_URL} target="_blank">
           <Text fontSize="lg" color={colors.onDark}>
-            Medium
+            Substack
           </Text>
         </Link>
         <Link href={YOUTUBE_CHANNEL_URL} target="_blank">
