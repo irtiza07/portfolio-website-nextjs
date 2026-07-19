@@ -1,9 +1,14 @@
 import Banner from "../components/Banner";
 import BodyContainer from "../components/BodyContainer";
 import Layout from "../components/Layout";
-import { getSortedPosts } from "../lib/logic";
+import YoutubeVideoGrid from "../components/YoutubeVideoGrid";
+import { getSortedPosts, getYoutubeVideos } from "../lib/logic";
 
-export default function Home({ posts, popularPosts }) {
+// The homepage shows a short teaser of the channel; the full list lives on the
+// section pages and on YouTube itself.
+const HOMEPAGE_VIDEO_COUNT = 3;
+
+export default function Home({ posts, popularPosts, youtubeVideos }) {
   return (
     <Layout
       title="Irtiza Hafiz - Programmer, Engineering Manager and Credit Card Enthusiast."
@@ -12,6 +17,7 @@ export default function Home({ posts, popularPosts }) {
     >
       <Banner />
       <BodyContainer posts={posts} popularPosts={popularPosts} />
+      <YoutubeVideoGrid videos={youtubeVideos} />
     </Layout>
   );
 }
@@ -21,11 +27,13 @@ export const getStaticProps = async () => {
   const popularPosts = posts.filter(
     (post) => post.frontMatter.isPopular === true
   );
+  const youtubeVideos = await getYoutubeVideos(HOMEPAGE_VIDEO_COUNT);
 
   return {
     props: {
       posts: posts,
       popularPosts: popularPosts,
+      youtubeVideos: youtubeVideos,
     },
   };
 };
