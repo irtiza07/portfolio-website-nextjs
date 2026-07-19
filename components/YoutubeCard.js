@@ -34,7 +34,7 @@ export default function YoutubeCard({ videoData }) {
         data-umami-event="YouTube Video Click"
         data-umami-event-video={videoData?.snippet?.title}
       >
-        <Button bg={colors.accentYellow} color={colors.textDark} size="sm">
+        <Button bg={colors.accentYellow} color={colors.onDark} size="sm">
           Watch Video
         </Button>
       </Link>

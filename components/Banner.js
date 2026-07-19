@@ -38,10 +38,10 @@ export default function Banner() {
           spacing={[6, 12]}
           justify={"center"}
         >
-          <Heading color={colors.accentGreen} fontSize={["4xl", "5xl", "7xl"]}>
+          <Heading color={colors.textPrimary} fontSize={["4xl", "5xl", "7xl"]}>
             Hi! I am Irtiza.
           </Heading>
-          <Heading color={colors.textPrimary} fontSize={["xl", "3xl", "3xl"]}>
+          <Heading color={colors.textLight} fontSize={["xl", "3xl", "3xl"]}>
             I am an Engineering Manager and Content Creator.
           </Heading>
           <SmartSearch

@@ -7,7 +7,7 @@ import {
   HStack,
 } from "@chakra-ui/react";
 import { ArrowLeftIcon, ArrowRightIcon } from "@chakra-ui/icons";
-import { CAROUSEL_SCROLL_AMOUNT } from "../lib/constants";
+import { colors, CAROUSEL_SCROLL_AMOUNT } from "../lib/constants";
 
 export default function HorizontalCarousel({ header, children }) {
   const scrollContainerRef = useRef(null);
@@ -44,21 +44,25 @@ export default function HorizontalCarousel({ header, children }) {
           icon={<ArrowLeftIcon />}
           onClick={scrollLeft}
           aria-label="Scroll Left"
-          bg="white"
+          bg={colors.onDark}
           boxShadow="md"
           borderRadius="full"
-          _hover={{ bg: "gray.100" }}
-          color="black"
+          border="1px solid"
+          borderColor={colors.borderControl}
+          _hover={{ bg: colors.bgCard }}
+          color={colors.textPrimary}
         />
         <IconButton
           icon={<ArrowRightIcon />}
           onClick={scrollRight}
           aria-label="Scroll Right"
-          bg="white"
+          bg={colors.onDark}
           boxShadow="md"
           borderRadius="full"
-          _hover={{ bg: "gray.100" }}
-          color="black"
+          border="1px solid"
+          borderColor={colors.borderControl}
+          _hover={{ bg: colors.bgCard }}
+          color={colors.textPrimary}
         />
       </HStack>
     </VStack>

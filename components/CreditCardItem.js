@@ -54,7 +54,7 @@ export default function CreditCardItem({
       <Link href={referralURL} style={{ marginTop: "auto" }}>
         <Button
           bg={colors.accentYellow}
-          color={colors.textDark}
+          color={colors.onDark}
           size="sm"
           fontSize="lg"
           fontWeight="bold"

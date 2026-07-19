@@ -17,7 +17,7 @@ export default function SubscribeButton() {
       target="_blank"
       rel="noopener noreferrer"
       bg={colors.accentYellow}
-      color={colors.textDark}
+      color={colors.onDark}
       size="md"
       borderRadius="md"
       _hover={{ bg: colors.accentYellowHover }}

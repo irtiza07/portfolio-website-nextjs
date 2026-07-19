@@ -108,7 +108,7 @@ export default function PostPage({
   };
 
   return (
-    <Flex bg={colors.bgPrimary} flexDirection="column" color="white">
+    <Flex bg={colors.bgPrimary} flexDirection="column" color={colors.textLight}>
       <Head>
         <title>{title}</title>
         <link rel="canonical" href={canonicalUrl} />

@@ -17,7 +17,7 @@ export default function Tools({ tools }) {
     <Layout
       title="Recommended Tools & Services - Irtiza Hafiz"
       description="Curated tools and services for personal finance, credit cards, and productivity."
-      color="white"
+      color={colors.textLight}
       width="100vw"
     >
       <Box padding={{ base: "6vw", md: "5vw" }} maxWidth="1000px" mx="auto">
@@ -29,7 +29,7 @@ export default function Tools({ tools }) {
               </Heading>
               <VStack align="stretch" spacing={3}>
                 {items.map((tool, index) => (
-                  <Text key={index} fontSize="lg" color="white">
+                  <Text key={index} fontSize="lg" color={colors.textLight}>
                     <Link
                       href={tool.url}
                       target="_blank"
@@ -39,7 +39,7 @@ export default function Tools({ tools }) {
                         as="span"
                         color={colors.accentYellow}
                         textDecoration="underline"
-                        _hover={{ color: "#f5f5a3" }}
+                        _hover={{ color: colors.accentYellowHover }}
                       >
                         {tool.name}
                       </Text>

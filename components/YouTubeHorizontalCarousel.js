@@ -7,7 +7,7 @@ import { colors, YOUTUBE_CHANNEL_URL } from "../lib/constants";
 
 export default function YouTubeHorizontalCarousel({ youtubeVideos }) {
   const header = (
-    <Heading color="white">
+    <Heading color={colors.textPrimary}>
       Youtube Tutorials{" "}
       <Link
         href={YOUTUBE_CHANNEL_URL}
