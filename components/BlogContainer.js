@@ -11,7 +11,7 @@ export default function BlogContainer({ posts }) {
         customHeading={"All Posts"}
         groups={SECTIONS}
         groupBy={(frontMatter) => frontMatter?.tags?.[0]}
-        maxPerGroup={5}
+        maxPerGroup={3}
         groupHref={(key) => `/${key}`}
       />
     </Grid>
