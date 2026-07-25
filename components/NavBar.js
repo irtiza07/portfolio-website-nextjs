@@ -93,6 +93,21 @@ export default function NavBar() {
               Travel
             </Text>
           </Link>
+          <Link
+            href="/field-notes"
+            data-umami-event="Nav Tab Click"
+            data-umami-event-tab="field-notes"
+          >
+            <Text
+              color={colors.onDark}
+              fontSize={{ base: "xs", md: "lg" }}
+              textDecoration="underline"
+              textUnderlineOffset={["6px", "10px"]}
+              whiteSpace="nowrap"
+            >
+              Field Notes
+            </Text>
+          </Link>
         </Stack>
       </Box>
     </Flex>
