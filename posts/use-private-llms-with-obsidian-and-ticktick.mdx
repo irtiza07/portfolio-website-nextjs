@@ -1,0 +1,99 @@
+---
+title: Use Private LLMs with Obsidian and TickTick
+date: "July 30, 2026"
+description: How I solved the privacy problem in my Obsidian and TickTick workflows by running local open-source models through LM Studio — including Claude Code with zero calls to Anthropic.
+tags: ["field-notes"]
+topic: "productivity"
+isPopular: false
+seoTitle: Use Private Local LLMs with Obsidian and TickTick (LM Studio + Claude Code)
+seoDescription: A hands-on guide to running local open-source models with LM Studio, connecting them to TickTick MCP and an Obsidian vault, and pointing Claude Code at a local model so your notes and tasks never leave your machine.
+---
+
+Previously I wrote about how I integrated Claude with [TickTick](/blog/how-i-use-ticktick-with-claude) (my task manager) and [Obsidian](/blog/how-i-use-obsidian-with-claude) (my note taking app) to create a productivity powerhouse, albeit with a few privacy concerns.
+
+In this blog post, I will explain how private local LLMs can solve the privacy issues, while retaining the majority of the benefits.
+
+Let's get started.
+
+## Introducing LM Studio
+
+[LM Studio](https://lmstudio.ai/) is a ChatGPT-like UI platform to run open source local models. With LM Studio, I can both chat with my model and expose it through a local server for Claude Code or other clients to use.
+
+The models can be easily swapped — any open source model from Qwen to Gemma to Grok.
+
+![](https://ds0fmzhunbzyk.cloudfront.net/private-llm-1.png)
+
+![](https://ds0fmzhunbzyk.cloudfront.net/private-llm-2.png)
+
+Once you pick a model (in my case Qwen3_5), you can start chatting with it, as well as connect any MCP that you find helpful (example TickTick MCP).
+
+## LM Studio Internals
+
+Zooming in further, let me try to explain how LM Studio works at a high level.
+
+It is an open-source local UI wrapper around the model, or some might call a "harness". It runs locally on your machine and can function without an active internet connection.
+
+All you need is a connection to a locally downloaded open-source LLM model (see above).
+
+Since the model is downloaded locally, LM Studio can use it without internet. In this setup, you have a fully functioning LLM chatbot using the latest models and running privately on your machine. Nothing gets sent to Anthropic or OpenAI or Google's cloud infrastructure.
+
+You can even connect the locally deployed model to Claude Code, but more on that later in the blog.
+
+## Using TickTick MCPs with Private LLM
+
+First, let's look at an example of TickTick MCPs with locally running LM Studio.
+
+![](https://ds0fmzhunbzyk.cloudfront.net/private-llm-3.png)
+
+Here, LM Studio identifies the need to call TickTick MCP, fetches all today's tasks, then groups them by priority. Pretty neat!
+
+Throughout the conversation, my tasks are never exposed to Anthropic, OpenAI or Google. Everything happens privately on my device.
+
+## Using Local LLMs with Claude Code
+
+Now, onto the fun stuff! If you are like me and use Claude Code for literally everything, this section is for you.
+
+You can use Claude Code with private local models. That is correct — you get most of the Claude Code bells and whistles but without the nightmare of sending private information to Anthropic's servers.
+
+We already looked at a TickTick example using LM Studio, so I will demonstrate this section using Obsidian.
+
+![](https://ds0fmzhunbzyk.cloudfront.net/private-llm-4.png)
+
+In this example, Claude Code uses context from my local Obsidian vault, feeds it to my local Qwen model, then gives me a well-formatted response. Throughout the process, my private data never touches Anthropic servers.
+
+How does that happen?
+
+We typically use the `claude` CLI command to invoke Claude Code. In the backend, the command uses Anthropic's default settings file to connect to *some* Anthropic model in the cloud.
+
+Instead, I am invoking Claude like this:
+
+```
+claude --settings ~/.claude/lmstudio.settings.json
+```
+
+This replaces Anthropic's default settings file with my local LM Studio settings.
+
+![](https://ds0fmzhunbzyk.cloudfront.net/private-llm-5.png)
+
+As you see, the settings file has some key information to prevent Claude Code from reaching out to Anthropic servers:
+
+- Local LM Studio server with my open-source model
+- Flag to disable non-essential network calls, so it can run offline
+
+With this setup, I get Claude Code's bells and whistles, without actually using Anthropic's models. So everything is local and private. To be extra cautious, you can turn off your internet connection, and it will work fine.
+
+## Limitations
+
+Although this setup works well on my laptop, it's quite resource-intensive.
+
+Running a competent model locally requires a lot of memory (RAM). Since I have a 48GB MacBook M4 Pro, I can easily get by. However, with a less powerful machine you need to sit around a long time before getting a response.
+
+Unless models become less resource-intensive, cloud will always have a significant advantage.
+
+Also, my current setup runs on one device only. LM Studio starts the LLM server locally, so my phone cannot access it. There are ways to expose local ports to the broader internet, but it comes with certain security tradeoffs which I am not comfortable dealing with right now.
+
+## My Recommendation
+
+Instead of always relying on such a private and local LLM workflow, I would recommend a hybrid approach, where 90% of your workflow still uses Claude, Gemini or ChatGPT clouds, while ~10% of private usage goes through this single machine local LLM flow.
+
+I will continue experimenting with local private LLM setups to overcome these limitations, but until then, the majority of my tasks will still involve Claude and Anthropic's cloud-based models.
