@@ -1,4 +1,5 @@
 import { serialize } from "next-mdx-remote/serialize";
+import remarkGfm from "remark-gfm";
 import { MDXRemote } from "next-mdx-remote";
 import fs from "fs";
 import path from "path";
@@ -19,6 +20,13 @@ import {
   Flex,
   HStack,
   Box,
+  TableContainer,
+  Table,
+  Thead,
+  Tbody,
+  Tr,
+  Th,
+  Td,
 } from "@chakra-ui/react";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
 import NavBar from "../../components/NavBar";
@@ -76,6 +84,32 @@ const components = {
         <Text>{props.children}</Text>
       </HStack>
     </Text>
+  ),
+  table: (props) => (
+    <TableContainer marginY={6}>
+      <Table variant="simple" size="md">
+        {props.children}
+      </Table>
+    </TableContainer>
+  ),
+  thead: (props) => <Thead>{props.children}</Thead>,
+  tbody: (props) => <Tbody>{props.children}</Tbody>,
+  tr: (props) => <Tr>{props.children}</Tr>,
+  th: (props) => (
+    <Th
+      color={colors.accentGreen}
+      borderColor={colors.accentGreen}
+      textTransform="none"
+      fontSize="md"
+      whiteSpace="normal"
+    >
+      {props.children}
+    </Th>
+  ),
+  td: (props) => (
+    <Td borderColor="blackAlpha.300" fontSize="md" whiteSpace="normal">
+      {props.children}
+    </Td>
   ),
   SyntaxHighlighter: SyntaxHighlighter,
   img: (props) => (
@@ -177,6 +211,7 @@ export const getStaticProps = async ({ params: { slug } }) => {
   const { data: frontMatter, content } = matter(markdownWithMeta);
   const mdxSource = await serialize(content, {
     scope: { referralLinks },
+    mdxOptions: { remarkPlugins: [remarkGfm] },
   });
 
   const posts = getSortedPosts();
